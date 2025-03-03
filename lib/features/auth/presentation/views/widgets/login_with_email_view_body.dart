@@ -66,14 +66,7 @@ class _LoginWithEmailViewBodyState extends State<LoginWithEmailViewBody> {
                     },
                     hintText: "Пароль",
                     textInputType: TextInputType.visiblePassword,
-                    validator: (p0) {
-                      if (p0 == null || p0.isEmpty) {
-                        return "Это поле обязательно";
-                      } else if (!ValidatorsRegex.isPasswordValid(p0)) {
-                        return "Пароль должен содержать минимум 8 символов,\nвключая заглавную и строчную букву,\nа также цифру.";
-                      }
-                      return null;
-                    },
+               validator: null,
                   ),
                   SizedBox(height: 20.h),
                   CustomButton(

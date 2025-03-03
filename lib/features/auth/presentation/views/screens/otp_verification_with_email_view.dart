@@ -32,7 +32,7 @@ class OtpVerificationWithEmailView extends StatefulWidget {
 
 class _OtpVerificationWithEmailViewState
     extends State<OtpVerificationWithEmailView> {
-  int _secondsRemaining = 60;
+  int _secondsRemaining = 150;
   bool _isButtonEnabled = false;
   Timer? _timer;
   final TextEditingController textEditingController = TextEditingController();
@@ -156,7 +156,7 @@ class _OtpVerificationWithEmailViewState
                                   ? "Теперь можно отправить код снова"
                                   : "Вы сможете отправить код снова через\n$_secondsRemaining секунд",
                               style: AppStyles.textStyle16),
-                          SizedBox(height: 20),
+                         const SizedBox(height: 20),
                           ElevatedButton(
                             onPressed:
                                 _isButtonEnabled ? _onButtonPressed : null,

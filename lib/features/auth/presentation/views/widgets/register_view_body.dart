@@ -70,7 +70,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                       if (p0 == null || p0.isEmpty) {
                         return "Это поле обязательно";
                       } else if (!ValidatorsRegex.isPasswordValid(p0)) {
-                        return "Пароль должен содержать минимум 8 символов,\nвключая заглавную и строчную букву,\nа также цифру.";
+                        return "Пароль должен содержать не менее 8 символов\nвключая буквы и цифры вместе.";
                       }
                       return null;
                     },

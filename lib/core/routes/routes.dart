@@ -88,11 +88,13 @@ abstract class AppRoutes {
   static String kInstructionsFoodDetailsView = '/kInstructionsFoodDetailsView';
   static String kStartCookingView = '/kStartCookingView';
   static String kAddTaskView = '/kAddTaskView';
-
+   static String kSignUpView = '/kSignUpView';
   static GoRouter router = GoRouter(
+    initialLocation:kUserInfoView,
     routes: [
+
       GoRoute(
-        path: '/',
+        path: kSignUpView,
         builder: (context, state) => const SignUpView(),
       ),
       GoRoute(

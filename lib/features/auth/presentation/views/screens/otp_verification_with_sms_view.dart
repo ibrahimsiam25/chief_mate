@@ -24,7 +24,7 @@ class OtpVerificationWithSmsView extends StatelessWidget {
           bottom: 20.h,
           child: CustomContainueButton(
             onTap: () {
-              GoRouter.of(context).push(AppRoutes.kPermissionView);
+      
             },
           ),
         ),
