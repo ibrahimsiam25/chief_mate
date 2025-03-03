@@ -24,7 +24,7 @@ class CreateAvatarView extends StatelessWidget {
                   padding: EdgeInsets.only(left: 40.w),
                   child: CustomButton(
                     onTap: () {
-                      GoRouter.of(context).push(AppRoutes.kAddPhoneNumberView);
+                             GoRouter.of(context).push(AppRoutes.kPermissionView);
                     },
                     buttonName: 'Продолжить',
                   ),

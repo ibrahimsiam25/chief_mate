@@ -23,7 +23,7 @@ class OtpViewBody extends StatelessWidget {
             SizedBox(height: 30.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child:  CustomAuthHeaderText(
+              child: const CustomAuthHeaderText(
                 text: 'Код из SMS',
               ),
             ),

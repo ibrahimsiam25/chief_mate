@@ -9,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
-
-import '../../../../../core/routes/routes.dart';
 import '../screens/login_with_email_view.dart';
 
 class SignUpViewBody extends StatelessWidget {
