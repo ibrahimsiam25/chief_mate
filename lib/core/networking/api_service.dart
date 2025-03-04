@@ -9,6 +9,8 @@ import '../../features/auth/data/models/otp_verification_request_model.dart';
 import '../../features/auth/data/models/register_request_model.dart';
 import '../../features/auth/data/models/register_response_model.dart';
 import '../../features/auth/data/models/resend_otp_request_model.dart';
+import '../../features/auth/data/models/update_user_profile_request_model.dart';
+import '../../features/auth/data/models/update_user_profile_response_model.dart';
 
 
 part 'api_service.g.dart';
@@ -33,5 +35,9 @@ abstract class ApiService {
   @POST( ApiConstants.resendOtp)
   Future<Map<String, String>> resendOtp(
     @Body()  ResendOtpRequestModel resendOtpRequestModel,
+  );
+  @PUT(ApiConstants.updateUserProfile)
+  Future<UpdateUserProfileResponseModel> updateUserProfile(
+    @Body() UpdateUserProfileRequestModel updateUserProfileRequestModel,
   );
 }

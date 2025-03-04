@@ -4,27 +4,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserNameInputTextField extends StatelessWidget {
-  const UserNameInputTextField({super.key});
+  final void Function(String?)? onSaved;
+
+  const UserNameInputTextField({super.key, this.onSaved});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       cursorColor: AppColors.kCursorColor,
       validator: (value) {
-        if (value!.isEmpty) {
+        if (value == null || value.isEmpty) {
           return 'Введите ваше имя и фамилию';
         }
         return null;
       },
+      onSaved: onSaved, // Pass the onSaved callback to save the value
       onChanged: (val) {
         if (val.isEmpty) {
-          // print('empty');
+          // Optional: Handle empty input
         } else {
-          // print('knjfdjf');
+          // Optional: Handle non-empty input
         }
       },
       onFieldSubmitted: (val) {
-        prefs.setString(Prefs.userName, val);
+        prefs.setString(Prefs.userName, val); // Save to preferences if needed
       },
       style: TextStyle(
         fontSize: 24.sp,

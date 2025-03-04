@@ -1,6 +1,5 @@
 import 'package:chief_mate/features/auth/presentation/views/screens/work_space_name_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,7 +19,9 @@ class AskCreateWorkSpaceOrWaitInvitation extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const CustomAuthAppBar(),
+              const CustomAuthAppBar(
+                
+              ),
               SizedBox(height: 40.h),
               const Spacer(
                 flex: 5,

@@ -6,8 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class CreateAvatarView extends StatelessWidget {
-  const CreateAvatarView({super.key});
-
+  const CreateAvatarView({super.key, required this.userName});
+static String routeName = '/createAvatarView';
+final String userName ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +25,7 @@ class CreateAvatarView extends StatelessWidget {
                   padding: EdgeInsets.only(left: 40.w),
                   child: CustomButton(
                     onTap: () {
+                      print(userName);
                              GoRouter.of(context).push(AppRoutes.kPermissionView);
                     },
                     buttonName: 'Продолжить',

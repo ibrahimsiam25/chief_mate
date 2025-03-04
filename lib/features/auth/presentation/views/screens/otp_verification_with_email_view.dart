@@ -4,6 +4,7 @@ import 'package:chief_mate/core/widgets/build_message_bar.dart';
 import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:chief_mate/features/auth/logic/otp_verification/otp_verification_cubit.dart';
 import 'package:chief_mate/features/auth/logic/resend_otp/resend_otp_cubit.dart';
+import 'package:chief_mate/features/auth/presentation/views/screens/user_info_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -104,7 +105,7 @@ class _OtpVerificationWithEmailViewState
                 showErrorDialog(context, apiErrorModel);
               },
               otpVerificationSuccess: (registerResponse) {
-                GoRouter.of(context).push(AppRoutes.kUserInfoView);
+                GoRouter.of(context).push(UserInfoView.routeName,);
               },
             );
           },

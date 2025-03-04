@@ -1,60 +1,9 @@
-import 'package:chief_mate/features/auth/logic/otp_verification/otp_verification_state.dart';
-import 'package:chief_mate/features/auth/presentation/views/screens/add_phone_number_view.dart';
-import 'package:chief_mate/features/auth/presentation/views/screens/register_view.dart';
-import 'package:chief_mate/features/auth/presentation/views/screens/sign_up_view.dart';
-import 'package:chief_mate/features/auth/presentation/views/screens/login_with_email_view.dart';
-import 'package:chief_mate/features/home/presentation/views/Instructions_food_details_view.dart';
-import 'package:chief_mate/features/home/presentation/views/add_status_view.dart';
-import 'package:chief_mate/features/home/presentation/views/add_task_view.dart';
-import 'package:chief_mate/features/home/presentation/views/calender_view.dart';
-import 'package:chief_mate/features/home/presentation/views/completed_status_view.dart';
-import 'package:chief_mate/features/home/presentation/views/food_item_details_home_view.dart';
-import 'package:chief_mate/features/home/presentation/views/in_work_status_view.dart';
-import 'package:chief_mate/features/home/presentation/views/start_cooking_view.dart';
-import 'package:chief_mate/features/home/presentation/views/widgets/bottom_nav_bar_controller.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/add_ingredient_view.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/ingredient_details_view.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/ingredients_view.dart';
-import 'package:chief_mate/features/profile/presentation/views/profile_view.dart';
-import 'package:chief_mate/features/recipes/presemtation/views/add_recipe_view.dart';
-import 'package:chief_mate/features/recipes/presemtation/views/draft_recipe_view.dart';
-import 'package:chief_mate/features/recipes/presemtation/views/favourite_recipe_view.dart';
-import 'package:chief_mate/features/recipes/presemtation/views/related_recipes_view.dart';
-import 'package:chief_mate/features/recipes/presemtation/views/watch_category_view.dart';
-import 'package:chief_mate/features/tasks/presentation/views/tasks_view.dart';
-import 'package:chief_mate/features/work_space/presentation/views/category_view.dart';
-import 'package:chief_mate/features/work_space/presentation/views/edit_work_space_view.dart';
-import 'package:chief_mate/features/work_space/presentation/views/production_view.dart';
-import 'package:chief_mate/features/work_space/presentation/views/team_view.dart';
-import 'package:chief_mate/features/work_space/presentation/views/work_space_categories_view.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-
-import '../../features/auth/logic/login/login_cubit.dart';
-import '../../features/auth/logic/otp_verification/otp_verification_cubit.dart';
-import '../../features/auth/logic/register/register_cubit.dart';
-import '../../features/auth/logic/resend_otp/resend_otp_cubit.dart';
-import '../../features/auth/presentation/views/screens/ask_create_work_space_or_wait_invitation.dart';
-import '../../features/auth/presentation/views/screens/choose_color_view.dart';
-import '../../features/auth/presentation/views/screens/create_avatar_view.dart';
-import '../../features/auth/presentation/views/screens/create_work_space_view.dart';
-import '../../features/auth/presentation/views/screens/on_bording_view.dart';
-import '../../features/auth/presentation/views/screens/otp_verification_with_email_view.dart';
-import '../../features/auth/presentation/views/screens/otp_verification_with_sms_view.dart';
-import '../../features/auth/presentation/views/screens/permission_view.dart';
-import '../../features/auth/presentation/views/screens/preview_work_space_view.dart';
-import '../../features/auth/presentation/views/screens/user_info_view.dart';
-import '../../features/auth/presentation/views/screens/work_space_name_view.dart';
-import '../../features/auth/presentation/views/screens/work_space_view.dart';
-import '../di/dependency_injection.dart';
-
+import 'routes_import.dart';
 abstract class AppRoutes {
   static String kBottomNavBarController = '/kBottomNavBarController';
   static String kAddPhoneNumberView = '/kAddPhoneNumberView';
-  static String kOtpVerificationWithEmailView = '/kOtpVerificationWithEmailView';
+  static String kOtpVerificationWithEmailView ='/kOtpVerificationWithEmailView';
   static String kOtpVerificationWithSmsView = '/kOtpVerificationWithSmsView';
-  static String kUserInfoView = '/kUserInfoView';
-  static String kCreateAvatarView = '/kCreateAvatarView';
   static String kPermissionView = '/kPermissionView';
   static String kChooseColorView = '/kChooseColorView';
   static String kCreateWorkSpaceView = '/kCreateWorkSpaceView';
@@ -75,8 +24,7 @@ abstract class AppRoutes {
   static String kInWorkStatusView = '/kInWorkStatusView';
   static String kCompletedStatusView = '/kCompletedStatusView';
   static String kCalenderView = '/kCalenderView';
-  static String kCustomFoodItemDetailsHomeView =
-      '/kCustomFoodItemDetailsHomeView';
+  static String kCustomFoodItemDetailsHomeView ='/kCustomFoodItemDetailsHomeView';
   static String kOnBoardingView = '/kOnBoardingView';
   static String kFavouriteRecipeView = '/kFavouriteRecipeView';
   static String kDraftRecipeView = '/kDraftRecipeView';
@@ -88,11 +36,10 @@ abstract class AppRoutes {
   static String kInstructionsFoodDetailsView = '/kInstructionsFoodDetailsView';
   static String kStartCookingView = '/kStartCookingView';
   static String kAddTaskView = '/kAddTaskView';
-   static String kSignUpView = '/kSignUpView';
+  static String kSignUpView = '/kSignUpView';
   static GoRouter router = GoRouter(
-    initialLocation:AskCreateWorkSpaceOrWaitInvitation.routeName,
+    initialLocation: UserInfoView.routeName,
     routes: [
-
       GoRoute(
         path: kSignUpView,
         builder: (context, state) => const SignUpView(),
@@ -104,21 +51,22 @@ abstract class AppRoutes {
       GoRoute(
         path: kOtpVerificationWithEmailView,
         builder: (context, state) => MultiBlocProvider(
-        providers: [
-        
-          BlocProvider(create: (context) => getIt<OtpVerificationCubit>()),
+          providers: [
+            BlocProvider(create: (context) => getIt<OtpVerificationCubit>()),
             BlocProvider(create: (context) => getIt<ResendOtpCubit>()),
-        ],
+          ],
           child: const OtpVerificationWithEmailView(),
         ),
       ),
       GoRoute(
-        path: kUserInfoView,
+        path: UserInfoView.routeName,
         builder: (context, state) => const UserInfoView(),
       ),
       GoRoute(
-        path: kCreateAvatarView,
-        builder: (context, state) => const CreateAvatarView(),
+        path: CreateAvatarView.routeName,
+        builder: (context, state) => CreateAvatarView(
+          userName: state.extra as String,
+        ),
       ),
       GoRoute(
         path: kPermissionView,
@@ -129,7 +77,7 @@ abstract class AppRoutes {
         builder: (context, state) => const OnBoardingView(),
       ),
       GoRoute(
-        path:WorkSpaceNameView.routeName,
+        path: WorkSpaceNameView.routeName,
         builder: (context, state) => const WorkSpaceNameView(),
       ),
       GoRoute(
