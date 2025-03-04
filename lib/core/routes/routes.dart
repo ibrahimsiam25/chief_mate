@@ -34,6 +34,7 @@ import '../../features/auth/logic/login/login_cubit.dart';
 import '../../features/auth/logic/otp_verification/otp_verification_cubit.dart';
 import '../../features/auth/logic/register/register_cubit.dart';
 import '../../features/auth/logic/resend_otp/resend_otp_cubit.dart';
+import '../../features/auth/presentation/views/screens/ask_create_work_space_or_wait_invitation.dart';
 import '../../features/auth/presentation/views/screens/choose_color_view.dart';
 import '../../features/auth/presentation/views/screens/create_avatar_view.dart';
 import '../../features/auth/presentation/views/screens/create_work_space_view.dart';
@@ -55,7 +56,6 @@ abstract class AppRoutes {
   static String kUserInfoView = '/kUserInfoView';
   static String kCreateAvatarView = '/kCreateAvatarView';
   static String kPermissionView = '/kPermissionView';
-  static String kWorkSpaceNameView = '/kWorkSpaceNameView';
   static String kChooseColorView = '/kChooseColorView';
   static String kCreateWorkSpaceView = '/kCreateWorkSpaceView';
   static String kPreviewWorkSpaceView = '/kPreviewWorkSpaceView';
@@ -90,7 +90,7 @@ abstract class AppRoutes {
   static String kAddTaskView = '/kAddTaskView';
    static String kSignUpView = '/kSignUpView';
   static GoRouter router = GoRouter(
-    initialLocation:kUserInfoView,
+    initialLocation:AskCreateWorkSpaceOrWaitInvitation.routeName,
     routes: [
 
       GoRoute(
@@ -129,7 +129,7 @@ abstract class AppRoutes {
         builder: (context, state) => const OnBoardingView(),
       ),
       GoRoute(
-        path: kWorkSpaceNameView,
+        path:WorkSpaceNameView.routeName,
         builder: (context, state) => const WorkSpaceNameView(),
       ),
       GoRoute(
@@ -266,6 +266,10 @@ abstract class AppRoutes {
           create: (context) => getIt<RegisterCubit>(),
           child: const RegisterView(),
         ),
+      ),
+      GoRoute(
+        path: AskCreateWorkSpaceOrWaitInvitation.routeName,
+        builder: (context, state) => const AskCreateWorkSpaceOrWaitInvitation(),
       ),
     ],
   );

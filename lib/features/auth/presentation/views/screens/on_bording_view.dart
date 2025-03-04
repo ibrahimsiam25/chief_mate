@@ -4,6 +4,9 @@ import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/ob_boarding_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../core/routes/routes.dart';
 
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});

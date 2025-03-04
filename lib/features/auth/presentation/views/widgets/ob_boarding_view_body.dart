@@ -1,4 +1,5 @@
 import 'package:chief_mate/features/auth/data/data_source/static/on_boarding_data.dart';
+import 'package:chief_mate/features/auth/presentation/views/screens/ask_create_work_space_or_wait_invitation.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/custom_dot_controller.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/on_boarding_view_app_bar.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/page_view_body.dart';
@@ -39,7 +40,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
             child: OnBoardingViewAppBar(
               skip: () {
-                GoRouter.of(context).push(AppRoutes.kWorkSpaceNameView);
+                GoRouter.of(context).push(AskCreateWorkSpaceOrWaitInvitation.routeName);
                 // currentPage++;
                 // if (currentPage > onBoardingData.length - 1) {
                 //   GoRouter.of(context).push(AppRoutes.kWorkSpaceNameView);

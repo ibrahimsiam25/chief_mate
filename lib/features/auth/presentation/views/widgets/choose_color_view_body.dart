@@ -10,25 +10,26 @@ class ChooseColorViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomAuthAppBar(),
-            SizedBox(height: 40.h),
-            Padding(
-              padding: EdgeInsets.only(left: 20.w, right: 20.w),
-              child: const ChooseColorViewHeader(),
-            ),
-            SizedBox(height: 40.h),
-            const Expanded(
-              child: Align(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomAuthAppBar(),
+              SizedBox(height: 40.h),
+              Padding(
+                padding: EdgeInsets.only(left: 20.w, right: 20.w),
+                child: const ChooseColorViewHeader(),
+              ),
+              SizedBox(height: 40.h),
+              Align(
                 alignment: Alignment.topCenter,
                 child: CustomColorPicker(),
-              ),
-            )
-          ],
+              )
+                  , SizedBox(height: 40.h),
+            ],
+          ),
         ),
       ),
     );

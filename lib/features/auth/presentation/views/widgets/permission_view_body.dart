@@ -12,35 +12,38 @@ class PermissionViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomAuthAppBar(),
-            SizedBox(height: 40.h),
-            const PermissionViewInfoHeader(),
-            SizedBox(height: 30.h),
-            const CustomPermissionViewItem(
-              title: 'Камера',
-              subtitle: 'Нажмите, чтобы включить',
-              icon: AppIcons.perCamera,
-            ),
-            SizedBox(height: 8.h),
-            const CustomAuthSubtitleText(
-                text:
-                    'Добавляйте фото или видео в пошаговые инструкции, обложки рецептов и в комментарии'),
-            SizedBox(height: 30.h),
-            const CustomPermissionViewItem(
-              title: 'Уведомления',
-              subtitle: 'Нажмите, чтобы включить',
-              icon: AppIcons.bell,
-            ),
-            SizedBox(height: 8.h),
-            const CustomAuthSubtitleText(
-                text:
-                    'Устанавливайте таймеры во время готовки и получайте уведомления когда время таймера пройдёт'),
-          ],
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomAuthAppBar(),
+              SizedBox(height: 40.h),
+              const PermissionViewInfoHeader(),
+              SizedBox(height: 30.h),
+              const CustomPermissionViewItem(
+                title: 'Камера',
+                subtitle: 'Нажмите, чтобы включить',
+                icon: AppIcons.perCamera,
+              ),
+              SizedBox(height: 8.h),
+              const CustomAuthSubtitleText(
+                  text:
+                      'Добавляйте фото или видео в пошаговые инструкции, обложки рецептов и в комментарии'),
+              SizedBox(height: 30.h),
+              const CustomPermissionViewItem(
+                title: 'Уведомления',
+                subtitle: 'Нажмите, чтобы включить',
+                icon: AppIcons.bell,
+              ),
+              SizedBox(height: 8.h),
+              const CustomAuthSubtitleText(
+                  text:
+                      'Устанавливайте таймеры во время готовки и получайте уведомления когда время таймера пройдёт'),
+           SizedBox(height: 30.h),
+            ],
+          ),
         ),
       ),
     );

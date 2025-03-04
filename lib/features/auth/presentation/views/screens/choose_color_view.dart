@@ -11,17 +11,10 @@ class ChooseColorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Stack(
-        children: [
-          const ChooseColorViewBody(),
-          Positioned(
-            right: 20.w,
-            bottom: 20.h,
-            child: SizedBox(
+      bottomNavigationBar: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Padding(
-                padding: EdgeInsets.only(left: 40.w),
+                padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 20),
                 child: CustomButton(
                   onTap: () {
                     GoRouter.of(context).push(AppRoutes.kCreateWorkSpaceView);
@@ -29,10 +22,9 @@ class ChooseColorView extends StatelessWidget {
                   buttonName: 'Продолжить',
                 ),
               ),
-            ),
-          ),
-        ],
-      ),
+            )
+,
+      body: const ChooseColorViewBody(),
     );
   }
 }

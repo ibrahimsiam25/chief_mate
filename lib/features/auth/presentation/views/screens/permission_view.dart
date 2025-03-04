@@ -11,16 +11,10 @@ class PermissionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-      children: [
-        const PermissionViewBody(),
-        Positioned(
-          right: 20.w,
-          bottom: 20.h,
-          child: SizedBox(
+      bottomNavigationBar: SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Padding(
-              padding: EdgeInsets.only(left: 40.w),
+              padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 20),
               child: CustomButton(
                 onTap: () {
                   GoRouter.of(context).push(AppRoutes.kOnBoardingView);
@@ -29,8 +23,6 @@ class PermissionView extends StatelessWidget {
               ),
             ),
           ),
-        ),
-      ],
-    ));
+        body:const PermissionViewBody(),);
   }
 }

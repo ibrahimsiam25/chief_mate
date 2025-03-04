@@ -17,7 +17,7 @@ class PageViewBody extends StatelessWidget {
       children: [
         Image.asset(
           onBoardingData[index].image,
-          height: 280.h,
+          height: 240.h,
         ),
         SizedBox(height: 25.h),
         Column(

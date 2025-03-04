@@ -8,7 +8,7 @@ import '../../../../../core/routes/routes.dart';
 
 class WorkSpaceNameView extends StatefulWidget {
   const WorkSpaceNameView({super.key});
-
+static String routeName = '/workSpaceNameView';
   @override
   State<WorkSpaceNameView> createState() => _WorkSpaceNameViewState();
 }
