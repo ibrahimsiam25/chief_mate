@@ -12,6 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 import '../../../../../core/routes/routes.dart';
+import '../../../../profile/presentation/views/profile_view.dart';
 class CustomHomeViewInfo extends StatelessWidget {
   const CustomHomeViewInfo({super.key});
 
@@ -44,7 +45,7 @@ class CustomHomeViewInfo extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  GoRouter.of(context).push(AppRoutes.kProfileView);
+                  GoRouter.of(context).push(ProfileView.routeName);
                 },
                 child: CircleAvatar(
                   backgroundColor: AppColors.kColor5,

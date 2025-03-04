@@ -30,8 +30,8 @@ abstract class AppRoutes {
   static String kWatchCategoryView = '/kWatchCategoryView';
   static String kAddRecipeView = '/kAddRecipeView';
   static String kRelatedRecipesView = '/kRelatedRecipesView';
-  static String kProfileView = '/kProfileView';
-  static String kTasksView = '/kTasksView';
+
+ 
   static GoRouter router = GoRouter(
     initialLocation: UserInfoView.routeName,
     routes: [
@@ -173,11 +173,11 @@ abstract class AppRoutes {
         builder: (context, state) => const RelatedRecipesView(),
       ),
       GoRoute(
-        path: kProfileView,
+        path: ProfileView.routeName,
         builder: (context, state) => const ProfileView(),
       ),
       GoRoute(
-        path: kTasksView,
+        path: TasksView.routeName,
         builder: (context, state) => const TasksView(),
       ),
       GoRoute(

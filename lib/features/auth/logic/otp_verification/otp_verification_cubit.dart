@@ -2,6 +2,9 @@
 import 'package:chief_mate/features/auth/logic/otp_verification/otp_verification_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/constants/prefs.dart';
+import '../../../../core/helper/shared_pref_helper.dart';
+import '../../../../core/networking/dio_factory.dart';
 import '../../data/models/otp_verification_request_model.dart';
 import '../../data/repos/otp_verification_repo.dart';
 
@@ -19,9 +22,14 @@ class OtpVerificationCubit extends Cubit<OtpVerificationState> {
       ),
     );
     response.when(success: (otpVerificationRespons) async {
+      await saveUserToken(otpVerificationRespons.userDataAndToken?.accessToken ?? "");
       emit(OtpVerificationState.otpVerificationSuccess(otpVerificationRespons));
     }, failure: (apiErrorModel) {
       emit(OtpVerificationState.otpVerificationinError(apiErrorModel));
     });
+  }
+  Future<void> saveUserToken(String token) async {
+    await SharedPrefHelper.setSecuredString(Prefs.token, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }
