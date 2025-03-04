@@ -1,4 +1,5 @@
 import 'package:chief_mate/core/constants/icons.dart';
+import 'package:chief_mate/features/home/presentation/views/add_task_view.dart';
 import '../../../../../core/routes/routes.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/show_model_buttom_sheet_item.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class ShowModelButtomSheetHomeViewBody extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              GoRouter.of(context).push(AppRoutes.kAddTaskView);
+              GoRouter.of(context).push(AddTaskView.routeName);
             },
             child: const ShowModelButtomSheetItem(
               title: 'Задача',
