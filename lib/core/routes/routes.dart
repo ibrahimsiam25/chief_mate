@@ -1,11 +1,6 @@
-
-import 'package:chief_mate/features/auth/data/models/work_space_response_model.dart';
-
 import 'routes_import.dart';
 
 abstract class AppRoutes {
-  static String kInWorkStatusView = '/kInWorkStatusView';
-  static String kCompletedStatusView = '/kCompletedStatusView';
   static String kCalenderView = '/kCalenderView';
   static String kCustomFoodItemDetailsHomeView ='/kCustomFoodItemDetailsHomeView';
   static String kOnBoardingView = '/kOnBoardingView';
@@ -14,7 +9,6 @@ abstract class AppRoutes {
   static String kWatchCategoryView = '/kWatchCategoryView';
   static String kAddRecipeView = '/kAddRecipeView';
   static String kRelatedRecipesView = '/kRelatedRecipesView';
-
   static GoRouter router = GoRouter(
     initialLocation:AskCreateWorkSpaceOrWaitInvitation.routeName,
             routes: [
@@ -108,7 +102,6 @@ abstract class AppRoutes {
         builder: (context, state) => const CategoryView(),
       ),
 
-      //////////////
 
       GoRoute(
         path: BottomNavBarController.routeName,
@@ -131,11 +124,11 @@ abstract class AppRoutes {
         builder: (context, state) => const AddStatusView(),
       ),
       GoRoute(
-        path: kInWorkStatusView,
+        path: InWorkStatusView.routeName,
         builder: (context, state) => const InWorkStatusView(),
       ),
       GoRoute(
-        path: kCompletedStatusView,
+        path: CompletedStatusView.routeName,
         builder: (context, state) => const CompletedStatusView(),
       ),
       GoRoute(
@@ -146,7 +139,7 @@ abstract class AppRoutes {
         path: kCustomFoodItemDetailsHomeView,
         builder: (context, state) => const FoodItemDetailsHomeView(),
       ),
-      ///////////
+
       GoRoute(
         path: kFavouriteRecipeView,
         builder: (context, state) => const FavouriteRecipeView(),

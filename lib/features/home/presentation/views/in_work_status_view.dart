@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class InWorkStatusView extends StatelessWidget {
   const InWorkStatusView({super.key});
-
+static const String routeName = '/InWorkStatusView';
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

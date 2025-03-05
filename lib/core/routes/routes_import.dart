@@ -44,6 +44,7 @@ export '../../features/auth/ui/screens/work_space_name_view.dart';
 export '../../features/auth/ui/screens/work_space_view.dart';
 export '../../features/auth/data/models/work_space_request_model.dart';
 export '../../features/auth/logic/update_user_profile/updatr_user_profile_cubit.dart';
+export '../../features/auth/data/models/work_space_response_model.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:go_router/go_router.dart';
 export '../di/dependency_injection.dart';

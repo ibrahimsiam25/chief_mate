@@ -14,6 +14,8 @@ import '../../features/auth/logic/login/login_cubit.dart';
 import '../../features/auth/logic/otp_verification/otp_verification_cubit.dart';
 import '../../features/auth/logic/register/register_cubit.dart';
 import '../../features/auth/logic/resend_otp/resend_otp_cubit.dart';
+import '../../features/work_space/data/repos/deleted_work_space_repo.dart';
+import '../../features/work_space/logic/deleted_work_space/deleted_work_space_cubit.dart';
 import '../cubit/choose_color_cubit.dart';
 import '../../features/auth/logic/update_user_profile/updatr_user_profile_cubit.dart';
 import '../networking/api_service.dart';
@@ -25,7 +27,7 @@ Future<void> setupGetIt() async {
   // Dio & ApiService
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
-
+//todo: auth
   // register
   getIt.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getIt()));
   getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
@@ -34,28 +36,34 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 
-// otp verification
+  // otp verification
   getIt.registerLazySingleton<OtpVerificationRepo>(() => OtpVerificationRepo(getIt()));
   getIt.registerFactory<OtpVerificationCubit>(() => OtpVerificationCubit(getIt()));
 
 //resend otp
   getIt.registerLazySingleton<ResendOtpRepo>(() => ResendOtpRepo(getIt()));
   getIt.registerFactory<ResendOtpCubit>(() => ResendOtpCubit(getIt()));
-
+//todo: user
 // update user profile
   getIt.registerLazySingleton<UpdateUserProfileRepo>(() => UpdateUserProfileRepo(getIt()));
   getIt.registerFactory<UpdateUserProfileCubit>(() => UpdateUserProfileCubit(getIt()));
 
+//todo: work space
 //create work space
   getIt.registerLazySingleton<CreateWorkSpaceRepo>(() => CreateWorkSpaceRepo(getIt()));
   getIt.registerFactory<CreateWorkSpaceCubit>(() => CreateWorkSpaceCubit(getIt()));
 
-//update work space 
+//update work space
   getIt.registerLazySingleton<UpdateWorkSpaceRepo>(() => UpdateWorkSpaceRepo(getIt()));
   getIt.registerFactory<UpdateWorkSpaceCubit>(() => UpdateWorkSpaceCubit(getIt()));
 
+//deleted work space
+  getIt.registerLazySingleton<DeletedWorkSpaceRepo>(() => DeletedWorkSpaceRepo(getIt()));
+  getIt.registerFactory<DeletedWorkSpaceCubit>(() => DeletedWorkSpaceCubit(getIt()));
+
+//todo: ui cubit
 //chosse color
   getIt.registerFactoryParam<ChooseColorCubit, int, void>(
     (initialColor, _) => ChooseColorCubit(initialColor),
-  ); 
+  );
 }

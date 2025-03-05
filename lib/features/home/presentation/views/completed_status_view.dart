@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CompletedStatusView extends StatelessWidget {
   const CompletedStatusView({super.key});
-
+static const String routeName = '/completed-status-view';
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

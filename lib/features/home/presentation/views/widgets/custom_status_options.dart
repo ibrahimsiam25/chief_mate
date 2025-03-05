@@ -3,6 +3,8 @@ import 'package:chief_mate/features/home/presentation/views/widgets/custom_statu
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/routes/routes_import.dart';
+
 class CustomStatusOptions extends StatelessWidget {
   const CustomStatusOptions({super.key});
 
@@ -14,7 +16,7 @@ class CustomStatusOptions extends StatelessWidget {
           flex: 12,
           child: GestureDetector(
             onTap: () {
-              GoRouter.of(context).push(AppRoutes.kInWorkStatusView);
+              GoRouter.of(context).push(InWorkStatusView.routeName);
             },
             child: const CustomStatusOptionsItem(
               optionName: 'В работе',
@@ -27,7 +29,7 @@ class CustomStatusOptions extends StatelessWidget {
           flex: 12,
           child: GestureDetector(
             onTap: () {
-              GoRouter.of(context).push(AppRoutes.kCompletedStatusView);
+              GoRouter.of(context).push(CompletedStatusView.routeName);
             },
             child: const CustomStatusOptionsItem(
               optionName: 'Выполнено',

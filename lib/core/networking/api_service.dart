@@ -1,4 +1,5 @@
 import 'package:chief_mate/features/auth/data/models/otp_verification_response_model.dart';
+import 'package:chief_mate/features/work_space/data/models/deleted_work_space_response_model.dart';
 import 'package:dio/dio.dart';
 import 'package:chief_mate/core/networking/api_constants.dart';
 import 'package:retrofit/retrofit.dart';
@@ -52,5 +53,10 @@ abstract class ApiService {
   Future<WorkSpaceResponseModel> updateWorkSpace(
     @Path() int id,
     @Body() WorkSpaceRequestModel workSpaceRequestModel,
+  );
+
+  @DELETE("${ApiConstants.workSpace}/{id}")
+  Future<DeletedWorkSpaceResponseModel> deleteWorkSpace(
+    @Path() int id,
   );
 }

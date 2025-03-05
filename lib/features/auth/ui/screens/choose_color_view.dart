@@ -1,6 +1,5 @@
 import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:chief_mate/core/widgets/custom_modal_progress.dart';
-import 'package:chief_mate/features/auth/data/models/work_space_request_model.dart';
 import 'package:chief_mate/features/auth/logic/create_work_space/create_work_space_cubit.dart';
 import 'package:chief_mate/features/auth/ui/widgets/choose_color_view_body.dart';
 import 'package:flutter/material.dart';
