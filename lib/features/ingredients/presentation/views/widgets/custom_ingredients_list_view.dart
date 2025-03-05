@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/routes/routes_import.dart';
+
 class CustomIngredientsListView extends StatelessWidget {
   const CustomIngredientsListView({super.key});
 
@@ -18,7 +20,7 @@ class CustomIngredientsListView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                GoRouter.of(context).push(AppRoutes.kIngredientDetailsView);
+                GoRouter.of(context).push(IngredientDetailsView.routeName);
               },
               child: const CutomIngredientListViewItem(),
             );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AddStatusView extends StatelessWidget {
   const AddStatusView({super.key});
-
+static const String routeName = "/AddStatusView";
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

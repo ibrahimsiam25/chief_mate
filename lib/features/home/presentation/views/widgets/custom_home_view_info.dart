@@ -13,6 +13,7 @@ import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 import '../../../../../core/helper/shared_pref_helper.dart';
 import '../../../../../core/routes/routes.dart';
+import '../../../../../core/routes/routes_import.dart';
 import '../../../../profile/presentation/views/profile_view.dart';
 class CustomHomeViewInfo extends StatelessWidget {
   const CustomHomeViewInfo({super.key});
@@ -86,7 +87,7 @@ class CustomHomeViewInfo extends StatelessWidget {
         SizedBox(height: 16.h),
         GestureDetector(
           onTap: () {
-            GoRouter.of(context).push(AppRoutes.kAddStatusView);
+            GoRouter.of(context).push(AddStatusView.routeName);
           },
           child: const CustomAvatarProfile(),
         ),

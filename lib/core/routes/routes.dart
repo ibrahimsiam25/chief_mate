@@ -4,10 +4,6 @@ import 'package:chief_mate/features/auth/data/models/work_space_response_model.d
 import 'routes_import.dart';
 
 abstract class AppRoutes {
-  static String kAddIngredientView = '/kAddIngredientView';
-  static String kIngredientsView = '/kIngredientsView';
-  static String kIngredientDetailsView = '/kIngredientDetailsView';
-  static String kAddStatusView = '/kAddStatusView';
   static String kInWorkStatusView = '/kInWorkStatusView';
   static String kCompletedStatusView = '/kCompletedStatusView';
   static String kCalenderView = '/kCalenderView';
@@ -119,19 +115,19 @@ abstract class AppRoutes {
         builder: (context, state) => const BottomNavBarController(),
       ),
       GoRoute(
-        path: kIngredientsView,
+        path: IngredientsView.routeName,
         builder: (context, state) => const IngredientsView(),
       ),
       GoRoute(
-        path: kAddIngredientView,
+        path: AddIngredientView.routeName,
         builder: (context, state) => const AddIngredientView(),
       ),
       GoRoute(
-        path: kIngredientDetailsView,
+        path: IngredientDetailsView.routeName,
         builder: (context, state) => const IngredientDetailsView(),
       ),
       GoRoute(
-        path: kAddStatusView,
+        path: AddStatusView.routeName,
         builder: (context, state) => const AddStatusView(),
       ),
       GoRoute(

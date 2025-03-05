@@ -9,7 +9,7 @@ import '../../../home/presentation/views/widgets/bottom_nav_bar_controller.dart'
 
 class AddIngredientView extends StatelessWidget {
   const AddIngredientView({super.key});
-
+static const String routeName = "/AddIngredientView";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
