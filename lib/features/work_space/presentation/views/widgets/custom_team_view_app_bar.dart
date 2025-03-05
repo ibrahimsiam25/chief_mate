@@ -9,6 +9,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
+import '../../../../auth/data/models/create_work_space_request_model.dart';
+import '../../../../auth/presentation/views/screens/work_space_view.dart';
+
 class CustomTeamViewAppBar extends StatelessWidget {
   const CustomTeamViewAppBar({super.key});
 
@@ -19,7 +22,8 @@ class CustomTeamViewAppBar extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            GoRouter.of(context).pushReplacement(AppRoutes.kWorkSpaceView);
+          GoRouter.of(context).push(WorkSpaceView.routeName,
+                extra: CreateWorkSpaceRequestModel(name: "*/*/", colorId: "1"));
           },
           child: SvgPicture.asset(AppIcons.arrowBack),
         ),

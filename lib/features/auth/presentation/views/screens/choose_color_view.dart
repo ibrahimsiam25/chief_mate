@@ -1,5 +1,6 @@
 import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:chief_mate/core/widgets/custom_modal_progress.dart';
+import 'package:chief_mate/features/auth/data/models/create_work_space_request_model.dart';
 import 'package:chief_mate/features/auth/logic/create_work_space/create_work_space_cubit.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/choose_color_view_body.dart';
 import 'package:flutter/material.dart';
@@ -36,10 +37,9 @@ class ChooseColorView extends StatelessWidget {
             },
             success: (response) {
               GoRouter.of(context)
-                  .pushReplacement(PreviewWorkSpaceView.routeName, extra: {
-                'workSpaceName': workSpaceName,
-                'workSpaceColor': workSpaceColor,
-              });
+                  .pushReplacement(PreviewWorkSpaceView.routeName, extra: 
+                  CreateWorkSpaceRequestModel(name: workSpaceName, colorId: workSpaceColor.toString())
+                  );
             },
           );
         },

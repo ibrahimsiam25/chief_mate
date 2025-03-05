@@ -1,14 +1,14 @@
+import 'package:chief_mate/features/auth/data/models/create_work_space_request_model.dart';
+
 import '../../features/auth/logic/update_user_profile/updatr_user_profile_cubit.dart';
 import 'routes_import.dart';
 
 abstract class AppRoutes {
   static String kBottomNavBarController = '/kBottomNavBarController';
   static String kAddPhoneNumberView = '/kAddPhoneNumberView';
-  static String kOtpVerificationWithEmailView =
-      '/kOtpVerificationWithEmailView';
+  static String kOtpVerificationWithEmailView ='/kOtpVerificationWithEmailView';
   static String kOtpVerificationWithSmsView = '/kOtpVerificationWithSmsView';
   static String kPermissionView = '/kPermissionView';
-  static String kWorkSpaceView = '/kWorkSpaceView';
   ////////
   static String kEditWorkSpace = '/kEditWorkSpace';
   static String kWorkSpaceCategories = '/kWorkSpaceCategories';
@@ -23,8 +23,7 @@ abstract class AppRoutes {
   static String kInWorkStatusView = '/kInWorkStatusView';
   static String kCompletedStatusView = '/kCompletedStatusView';
   static String kCalenderView = '/kCalenderView';
-  static String kCustomFoodItemDetailsHomeView =
-      '/kCustomFoodItemDetailsHomeView';
+  static String kCustomFoodItemDetailsHomeView ='/kCustomFoodItemDetailsHomeView';
   static String kOnBoardingView = '/kOnBoardingView';
   static String kFavouriteRecipeView = '/kFavouriteRecipeView';
   static String kDraftRecipeView = '/kDraftRecipeView';
@@ -34,7 +33,7 @@ abstract class AppRoutes {
 
   static GoRouter router = GoRouter(
     initialLocation: AskCreateWorkSpaceOrWaitInvitation.routeName,
-    routes: [
+        routes: [
       GoRoute(
         path: SignUpView.routeName,
         builder: (context, state) => const SignUpView(),
@@ -80,8 +79,9 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: ChooseColorView.routeName,
-        builder: (context, state) => ChooseColorView(
-          workSpaceName: state.extra as String,
+        builder: (context, state) =>  ChooseColorView(
+          workSpaceName: state .extra as String,
+
         ),
       ),
       GoRoute(
@@ -89,21 +89,16 @@ abstract class AppRoutes {
         builder: (context, state) => const CreateWorkSpaceView(),
       ),
       GoRoute(
-        path: PreviewWorkSpaceView.routeName,
-        builder: (context, state) {
-          final extras = state.extra as Map<String, dynamic>? ?? {};
-
-          return PreviewWorkSpaceView(
-            workSpaceName: extras['workSpaceName'] as String,
-            workSpaceColor:
-                extras['workSpaceColor'] as int, // Default white color
-          );
-        },
+        path:PreviewWorkSpaceView.routeName,
+        builder: (context, state) =>  PreviewWorkSpaceView(
+    workSpaceModel: state.extra as CreateWorkSpaceRequestModel,
+        ),
       ),
-
       GoRoute(
-        path: kWorkSpaceView,
-        builder: (context, state) => const WorkSpaceView(),
+        path: WorkSpaceView.routeName,
+        builder: (context, state) =>  WorkSpaceView(
+          workSpaceModel: state.extra as CreateWorkSpaceRequestModel,
+        ),
       ),
       //////////////
       GoRoute(

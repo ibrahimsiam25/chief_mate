@@ -8,10 +8,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/routes/routes.dart';
+import '../../../data/models/create_work_space_request_model.dart';
 
 class WorkSpaceViewBody extends StatelessWidget {
-  const WorkSpaceViewBody({super.key});
-
+  const WorkSpaceViewBody({super.key, required this.workSpaceModel});
+final CreateWorkSpaceRequestModel workSpaceModel;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,11 +30,13 @@ class WorkSpaceViewBody extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: GestureDetector(
                   onTap: () {
-                    GoRouter.of(context).pushReplacement(
-                        AppRoutes.kBottomNavBarController,
-                        extra: 0);
+                    // GoRouter.of(context).pushReplacement(
+                    //     AppRoutes.kBottomNavBarController,
+                    //     extra: 0);
                   },
-                  child: const CustomWorkSpaceViewShape(),
+                  child:  CustomWorkSpaceViewShape(
+                    workSpaceModel: workSpaceModel,
+                  ),
                 ),
               ),
               SizedBox(height: 15.h),

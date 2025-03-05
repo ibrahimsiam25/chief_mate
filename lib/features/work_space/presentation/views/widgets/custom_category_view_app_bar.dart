@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
+import '../../../../../core/routes/routes_import.dart';
+import '../../../../auth/data/models/create_work_space_request_model.dart';
+
 class CustomCategoryViewAppBar extends StatelessWidget {
   const CustomCategoryViewAppBar({super.key});
 
@@ -15,7 +18,8 @@ class CustomCategoryViewAppBar extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            GoRouter.of(context).pushReplacement(AppRoutes.kWorkSpaceView);
+             GoRouter.of(context).push(WorkSpaceView.routeName,
+                extra: CreateWorkSpaceRequestModel(name: "*/*/", colorId: "1"));
           },
           child: SvgPicture.asset(AppIcons.arrowBack),
         ),
