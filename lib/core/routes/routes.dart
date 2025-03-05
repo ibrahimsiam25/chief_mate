@@ -4,11 +4,10 @@ import 'routes_import.dart';
 abstract class AppRoutes {
   static String kBottomNavBarController = '/kBottomNavBarController';
   static String kAddPhoneNumberView = '/kAddPhoneNumberView';
-  static String kOtpVerificationWithEmailView ='/kOtpVerificationWithEmailView';
+  static String kOtpVerificationWithEmailView =
+      '/kOtpVerificationWithEmailView';
   static String kOtpVerificationWithSmsView = '/kOtpVerificationWithSmsView';
   static String kPermissionView = '/kPermissionView';
-  static String kCreateWorkSpaceView = '/kCreateWorkSpaceView';
-  static String kPreviewWorkSpaceView = '/kPreviewWorkSpaceView';
   static String kWorkSpaceView = '/kWorkSpaceView';
   ////////
   static String kEditWorkSpace = '/kEditWorkSpace';
@@ -24,7 +23,8 @@ abstract class AppRoutes {
   static String kInWorkStatusView = '/kInWorkStatusView';
   static String kCompletedStatusView = '/kCompletedStatusView';
   static String kCalenderView = '/kCalenderView';
-  static String kCustomFoodItemDetailsHomeView ='/kCustomFoodItemDetailsHomeView';
+  static String kCustomFoodItemDetailsHomeView =
+      '/kCustomFoodItemDetailsHomeView';
   static String kOnBoardingView = '/kOnBoardingView';
   static String kFavouriteRecipeView = '/kFavouriteRecipeView';
   static String kDraftRecipeView = '/kDraftRecipeView';
@@ -33,7 +33,7 @@ abstract class AppRoutes {
   static String kRelatedRecipesView = '/kRelatedRecipesView';
 
   static GoRouter router = GoRouter(
-    initialLocation: UserInfoView.routeName,
+    initialLocation: AskCreateWorkSpaceOrWaitInvitation.routeName,
     routes: [
       GoRoute(
         path: SignUpView.routeName,
@@ -80,19 +80,27 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: ChooseColorView.routeName,
-        builder: (context, state) =>  ChooseColorView(
-          workSpaceName: state .extra as String,
-
+        builder: (context, state) => ChooseColorView(
+          workSpaceName: state.extra as String,
         ),
       ),
       GoRoute(
-        path: kCreateWorkSpaceView,
+        path: CreateWorkSpaceView.routeName,
         builder: (context, state) => const CreateWorkSpaceView(),
       ),
       GoRoute(
-        path: kPreviewWorkSpaceView,
-        builder: (context, state) => const PreviewWorkSpaceView(),
+        path: PreviewWorkSpaceView.routeName,
+        builder: (context, state) {
+          final extras = state.extra as Map<String, dynamic>? ?? {};
+
+          return PreviewWorkSpaceView(
+            workSpaceName: extras['workSpaceName'] as String,
+            workSpaceColor:
+                extras['workSpaceColor'] as int, // Default white color
+          );
+        },
       ),
+
       GoRoute(
         path: kWorkSpaceView,
         builder: (context, state) => const WorkSpaceView(),

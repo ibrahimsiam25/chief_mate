@@ -1,5 +1,5 @@
 import 'package:chief_mate/core/constants/colors.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:chief_mate/features/profile/presentation/views/widgets/custom_profile_avatar.dart';
 import 'package:chief_mate/features/profile/presentation/views/widgets/custom_profile_item.dart';
@@ -25,7 +25,8 @@ class ProfileViewBody extends StatelessWidget {
               const CustomProfileViewAvatar(),
               SizedBox(height: 20.h),
               Text(
-                prefs.getString(Prefs.userName) ?? '',
+                "******",
+             //   prefs.getString(Prefs.userName) ?? '',
                 style: AppStyles.textStyle24,
               ),
               SizedBox(height: 40.h),
@@ -36,7 +37,10 @@ class ProfileViewBody extends StatelessWidget {
               SizedBox(height: 20.h),
               CustomProfileItem2(
                 title: 'Телефон',
-                subTitle: '+7${prefs.getString(Prefs.userPhoneNumber)}',
+                subTitle: '+7 '
+              /*  ${prefs.getString(Prefs.userPhoneNumber)}*/
+               
+                ,
                 onTap: () {},
               ),
               SizedBox(height: 20.h),

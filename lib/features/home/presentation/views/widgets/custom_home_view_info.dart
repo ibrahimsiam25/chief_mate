@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/icons.dart';
 import 'package:chief_mate/core/constants/images.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/custom_avatar_profile.dart';

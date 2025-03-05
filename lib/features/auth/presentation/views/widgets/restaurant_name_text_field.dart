@@ -1,5 +1,5 @@
 import 'package:chief_mate/core/constants/colors.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class RestaurantNameTextField extends StatelessWidget {
@@ -13,7 +13,6 @@ class RestaurantNameTextField extends StatelessWidget {
       cursorColor: AppColors.kCursorColor,
       validator: (value) => value!.isEmpty ? 'Напишите название рабочего пространства' : null,
       onSaved: onSaved,
-      onFieldSubmitted: (val) async => await prefs.setString(Prefs.workSpaceName, val),
       style: TextStyle(
         fontSize: 24.sp,
         fontWeight: FontWeight.w500,

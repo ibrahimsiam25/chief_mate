@@ -1,10 +1,10 @@
+import 'package:chief_mate/core/routes/routes_import.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/add_phone_number_view_app_bar.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/custom_circular_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/routes/routes.dart';
 
 class CreateWorkSpaceViewBody extends StatefulWidget {
   const CreateWorkSpaceViewBody({super.key});
@@ -20,7 +20,7 @@ class _CreateWorkSpaceViewBodyState extends State<CreateWorkSpaceViewBody> {
     Future.delayed(
       const Duration(milliseconds: 2500),
       () {
-        GoRouter.of(context).pushReplacement(AppRoutes.kPreviewWorkSpaceView);
+        GoRouter.of(context).pushReplacement(PreviewWorkSpaceView.routeName);
       },
     );
     super.initState();

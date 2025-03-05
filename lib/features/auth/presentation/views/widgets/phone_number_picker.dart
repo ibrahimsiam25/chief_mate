@@ -1,5 +1,5 @@
 import 'package:chief_mate/core/constants/colors.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
@@ -40,7 +40,7 @@ class PhoneNumberPicker extends StatelessWidget {
         return null;
       },
       onFieldSubmitted: (val) {
-        prefs.setString(Prefs.userPhoneNumber, val);
+     //   prefs.setString(Prefs.userPhoneNumber, val);
       },
       inputDecoration: InputDecoration(
         border: InputBorder.none,

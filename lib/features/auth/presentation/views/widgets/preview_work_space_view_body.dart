@@ -1,6 +1,6 @@
 import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/icons.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,10 +8,13 @@ import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../../core/routes/routes.dart';
+import '../../../data/data_source/static/colors_picker_list.dart';
 
 class PreviewWorkSpaceViewBody extends StatelessWidget {
-  const PreviewWorkSpaceViewBody({super.key});
-
+  const PreviewWorkSpaceViewBody(
+      {super.key, required this.workSpaceName, required this.workSpaceColor});
+  final String workSpaceName;
+  final int workSpaceColor;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,12 +44,11 @@ class PreviewWorkSpaceViewBody extends StatelessWidget {
                   height: 160.h,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                    color: Color(prefs.getInt(Prefs.workSpaceColor)?.toInt() ??
-                        0xffFF2D5E),
+                    color: colorsPickerList[workSpaceColor],
                     borderRadius: BorderRadius.circular(16.r),
                   ),
                   child: Text(
-                    prefs.getString(Prefs.workSpaceName).toString(),
+                    workSpaceName,
                     style: AppStyles.textStyle32,
                   ),
                 ),

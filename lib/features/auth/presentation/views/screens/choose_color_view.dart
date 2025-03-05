@@ -8,9 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/routes/routes_import.dart';
 import '../../../../../core/cubit/choose_color_cubit.dart';
 import '../../../../../core/widgets/show_error_dialog.dart';
-import '../../../data/models/update_user_profile_request_model.dart';
 import '../../../logic/create_work_space/create_work_space_state.dart';
-import '../../../logic/update_user_profile/updatr_user_profile_cubit.dart';
 
 class ChooseColorView extends StatelessWidget {
   const ChooseColorView({super.key, required this.workSpaceName});
@@ -20,6 +18,7 @@ class ChooseColorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    late int workSpaceColor;
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -35,7 +34,12 @@ class ChooseColorView extends StatelessWidget {
             error: (apiErrorModel) {
               showErrorDialog(context, apiErrorModel);
             },
-            success: (registerResponse) {
+            success: (response) {
+              GoRouter.of(context)
+                  .pushReplacement(PreviewWorkSpaceView.routeName, extra: {
+                'workSpaceName': workSpaceName,
+                'workSpaceColor': workSpaceColor,
+              });
             },
           );
         },
@@ -51,6 +55,7 @@ class ChooseColorView extends StatelessWidget {
                     builder: (context, selectedColor) {
                       return CustomButton(
                         onTap: () {
+                          workSpaceColor = selectedColor-1;
                           context
                               .read<CreateWorkSpaceCubit>()
                               .emitCreateWorkSpaceStates(

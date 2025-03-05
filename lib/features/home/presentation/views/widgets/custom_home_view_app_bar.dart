@@ -1,5 +1,5 @@
 import 'package:chief_mate/core/constants/icons.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +26,8 @@ class CustomHomeViewAppBar extends StatelessWidget {
           ),
         ),
         Text(
-          prefs.getString(Prefs.workSpaceName).toString(),
+          "********",
+        //  prefs.getString(Prefs.workSpaceName).toString(),
           style: AppStyles.textStyle20,
         ),
         IconButton(

@@ -2,7 +2,7 @@
 import 'package:chief_mate/features/auth/logic/otp_verification/otp_verification_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/constants/prefs.dart';
+import '../../../../core/constants/app_constants.dart';
 import '../../../../core/helper/shared_pref_helper.dart';
 import '../../../../core/networking/dio_factory.dart';
 import '../../data/models/otp_verification_request_model.dart';

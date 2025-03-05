@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/images.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

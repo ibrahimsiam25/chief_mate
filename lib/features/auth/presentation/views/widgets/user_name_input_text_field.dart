@@ -1,5 +1,5 @@
 import 'package:chief_mate/core/constants/colors.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,7 +27,7 @@ class UserNameInputTextField extends StatelessWidget {
         }
       },
       onFieldSubmitted: (val) {
-        prefs.setString(Prefs.userName, val); // Save to preferences if needed
+      //  prefs.setString(Prefs.userName, val); // Save to preferences if needed
       },
       style: TextStyle(
         fontSize: 24.sp,

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:chief_mate/core/helper/shared_pref_helper.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/add_phone_number_view_app_bar.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/create_avatar_info_header.dart';
