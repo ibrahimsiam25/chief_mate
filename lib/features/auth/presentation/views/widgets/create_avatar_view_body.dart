@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/helper/shared_pref_helper.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/add_phone_number_view_app_bar.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/create_avatar_info_header.dart';
 import 'package:chief_mate/features/auth/presentation/views/widgets/custom_change_avatar_text.dart';
@@ -13,7 +14,8 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CreateAvatarViewBody extends StatefulWidget {
-  const CreateAvatarViewBody({super.key});
+  final Function(File?) onAvatarSelected;
+  const CreateAvatarViewBody({super.key, required this.onAvatarSelected});
 
   @override
   State<CreateAvatarViewBody> createState() => _CreateAvatarViewBodyState();
@@ -78,7 +80,8 @@ class _CreateAvatarViewBodyState extends State<CreateAvatarViewBody> {
       setState(() {
         image = File(pickedImage.path);
       });
-      await prefs.setString(Prefs.avatarImagePath, pickedImage.path);
+      await SharedPrefHelper.setData(Prefs.avatarImagePath, pickedImage.path);
+       widget.onAvatarSelected(image);
       GoRouter.of(context).pop();
     }
   }
@@ -89,7 +92,8 @@ class _CreateAvatarViewBodyState extends State<CreateAvatarViewBody> {
       setState(() {
         image = File(pickedImage.path);
       });
-      await prefs.setString(Prefs.avatarImagePath, pickedImage.path);
+     await SharedPrefHelper.setData(Prefs.avatarImagePath, pickedImage.path);
+       widget.onAvatarSelected(image);
       GoRouter.of(context).pop();
     }
   }

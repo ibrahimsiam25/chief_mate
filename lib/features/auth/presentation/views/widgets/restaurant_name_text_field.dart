@@ -2,27 +2,18 @@ import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/prefs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class RestaurantNameTextField extends StatelessWidget {
-  const RestaurantNameTextField({super.key});
+  const RestaurantNameTextField({super.key, this.onSaved});
+
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       cursorColor: AppColors.kCursorColor,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'Напишите название рабочего пространства';
-        }
-        return null;
-      },
-      onChanged: (val) {
-        if (val.isEmpty) {
-        } else {}
-      },
-      onFieldSubmitted: (val) async {
-        await prefs.setString(Prefs.workSpaceName, val);
-      },
+      validator: (value) => value!.isEmpty ? 'Напишите название рабочего пространства' : null,
+      onSaved: onSaved,
+      onFieldSubmitted: (val) async => await prefs.setString(Prefs.workSpaceName, val),
       style: TextStyle(
         fontSize: 24.sp,
         fontWeight: FontWeight.w500,

@@ -22,7 +22,7 @@ class OtpVerificationCubit extends Cubit<OtpVerificationState> {
       ),
     );
     response.when(success: (otpVerificationRespons) async {
-      await saveUserToken(otpVerificationRespons.userDataAndToken?.accessToken ?? "");
+      await saveUserToken(otpVerificationRespons.userDataAndToken?.first.accessToken ?? "");
       emit(OtpVerificationState.otpVerificationSuccess(otpVerificationRespons));
     }, failure: (apiErrorModel) {
       emit(OtpVerificationState.otpVerificationinError(apiErrorModel));

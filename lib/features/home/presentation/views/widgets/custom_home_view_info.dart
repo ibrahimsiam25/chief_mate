@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
+import '../../../../../core/helper/shared_pref_helper.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../profile/presentation/views/profile_view.dart';
 class CustomHomeViewInfo extends StatelessWidget {
@@ -50,10 +51,11 @@ class CustomHomeViewInfo extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: AppColors.kColor5,
                   radius: 18.r,
+          
                   backgroundImage:
-                      prefs.getString(Prefs.avatarImagePath) != null
+                     SharedPrefHelper.getString(Prefs.avatarImagePath) != ""
                           ? FileImage(
-                              File(prefs.getString(Prefs.avatarImagePath)!),
+                              File(SharedPrefHelper.getString(Prefs.avatarImagePath)!),
                             )
                           : AssetImage(AppImages.avatar),
                 ),

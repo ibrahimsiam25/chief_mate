@@ -1,20 +1,27 @@
-import 'package:json_annotation/json_annotation.dart';
-part 'update_user_profile_request_model.g.dart';
 
-@JsonSerializable()
+import 'dart:io';
+
 class UpdateUserProfileRequestModel {
-  final String name;
-  final String email;
-  final String phone;
-  final String avatar;
-  final String password;
+  final String? name;
+  final String? email;
+  final String? phone;
+  final File? avatar;
+  final String? password;
 
- UpdateUserProfileRequestModel({
-    required this.name,
-    required this.email,
-    required this.phone,
-    required this.avatar,
-    required this.password,
+  UpdateUserProfileRequestModel({
+    this.name,
+    this.email,
+    this.phone,
+    this.avatar,
+    this.password,
   });
-  Map<String, dynamic> toJson() => _$UpdateUserProfileRequestModelToJson(this);
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'email': email,
+      'phone': phone,
+      'password': password,
+    };
   }
+}

@@ -31,6 +31,7 @@ class DioFactory {
       'Authorization':
           'Bearer ${await SharedPrefHelper.getSecuredString(Prefs.token)}',
     };
+     print("Updated Headers: ${dio?.options.headers}");
   }
 
   static void setTokenIntoHeaderAfterLogin(String token) {

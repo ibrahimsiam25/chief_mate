@@ -3,6 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:chief_mate/core/networking/api_constants.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../features/auth/data/models/create_work_space_request_model.dart';
+import '../../features/auth/data/models/create_work_space_response_model.dart';
 import '../../features/auth/data/models/login_request_model.dart';
 import '../../features/auth/data/models/login_response_model.dart';
 import '../../features/auth/data/models/otp_verification_request_model.dart';
@@ -39,5 +41,10 @@ abstract class ApiService {
   @PUT(ApiConstants.updateUserProfile)
   Future<UpdateUserProfileResponseModel> updateUserProfile(
     @Body() UpdateUserProfileRequestModel updateUserProfileRequestModel,
+  );
+
+  @POST(ApiConstants.workSpace)
+  Future<CreateWorkSpaceResponseModel> createWorkSpace(
+    @Body() CreateWorkSpaceRequestModel createWorkSpaceRequestModel,
   );
 }

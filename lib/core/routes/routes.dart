@@ -1,11 +1,12 @@
+import '../../features/auth/logic/update_user_profile/updatr_user_profile_cubit.dart';
 import 'routes_import.dart';
+
 abstract class AppRoutes {
   static String kBottomNavBarController = '/kBottomNavBarController';
   static String kAddPhoneNumberView = '/kAddPhoneNumberView';
   static String kOtpVerificationWithEmailView ='/kOtpVerificationWithEmailView';
   static String kOtpVerificationWithSmsView = '/kOtpVerificationWithSmsView';
   static String kPermissionView = '/kPermissionView';
-  static String kChooseColorView = '/kChooseColorView';
   static String kCreateWorkSpaceView = '/kCreateWorkSpaceView';
   static String kPreviewWorkSpaceView = '/kPreviewWorkSpaceView';
   static String kWorkSpaceView = '/kWorkSpaceView';
@@ -31,12 +32,11 @@ abstract class AppRoutes {
   static String kAddRecipeView = '/kAddRecipeView';
   static String kRelatedRecipesView = '/kRelatedRecipesView';
 
- 
   static GoRouter router = GoRouter(
     initialLocation: UserInfoView.routeName,
     routes: [
       GoRoute(
-        path:SignUpView.routeName,
+        path: SignUpView.routeName,
         builder: (context, state) => const SignUpView(),
       ),
       GoRoute(
@@ -59,8 +59,11 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: CreateAvatarView.routeName,
-        builder: (context, state) => CreateAvatarView(
-          userName: state.extra as String,
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<UpdateUserProfileCubit>(),
+          child: CreateAvatarView(
+            userName: state.extra as String,
+          ),
         ),
       ),
       GoRoute(
@@ -76,8 +79,11 @@ abstract class AppRoutes {
         builder: (context, state) => const WorkSpaceNameView(),
       ),
       GoRoute(
-        path: kChooseColorView,
-        builder: (context, state) => const ChooseColorView(),
+        path: ChooseColorView.routeName,
+        builder: (context, state) =>  ChooseColorView(
+          workSpaceName: state .extra as String,
+
+        ),
       ),
       GoRoute(
         path: kCreateWorkSpaceView,

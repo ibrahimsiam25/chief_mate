@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/routes/routes.dart';
 import '../widgets/add_phone_number_view_app_bar.dart';
 import '../widgets/user_name_input_text_field.dart';
 

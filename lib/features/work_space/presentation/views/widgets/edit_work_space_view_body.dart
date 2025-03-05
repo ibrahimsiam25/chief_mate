@@ -1,4 +1,4 @@
-import 'package:chief_mate/features/auth/presentation/views/widgets/custom_color_picker.dart';
+import 'package:chief_mate/core/widgets/custom_color_picker.dart';
 import 'package:chief_mate/features/work_space/presentation/views/widgets/custom_edit_work_space_view_app_bar.dart';
 import 'package:chief_mate/features/work_space/presentation/views/widgets/custom_edit_work_space_view_shape.dart';
 import 'package:flutter/material.dart';

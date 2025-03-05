@@ -6,6 +6,8 @@ import 'package:chief_mate/core/constants/prefs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/helper/shared_pref_helper.dart';
+
 class CustomProfileViewAvatar extends StatelessWidget {
   const CustomProfileViewAvatar({super.key});
 
@@ -14,9 +16,9 @@ class CustomProfileViewAvatar extends StatelessWidget {
     return CircleAvatar(
       backgroundColor: AppColors.kColor5,
       radius: 40.r,
-      backgroundImage: prefs.getString(Prefs.avatarImagePath) != null
+      backgroundImage: SharedPrefHelper.getString(Prefs.avatarImagePath) != ""
           ? FileImage(
-              File(prefs.getString(Prefs.avatarImagePath)!),
+              File(SharedPrefHelper.getString(Prefs.avatarImagePath)!),
             )
           : AssetImage(AppImages.avatar),
     );
