@@ -6,6 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
+import '../../../../home/presentation/views/widgets/bottom_nav_bar_controller.dart';
+
 class TasksViewAppBar extends StatelessWidget {
   const TasksViewAppBar({super.key});
 
@@ -17,7 +19,7 @@ class TasksViewAppBar extends StatelessWidget {
         GestureDetector(
           onTap: () {
             GoRouter.of(context)
-                .pushReplacement(AppRoutes.kBottomNavBarController, extra: 2);
+                .pushReplacement(BottomNavBarController.routeName, extra: 2);
           },
           child: SvgPicture.asset(AppIcons.arrowBack),
         ),

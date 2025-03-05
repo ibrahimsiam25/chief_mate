@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddTaskView extends StatelessWidget {
   const AddTaskView({super.key});
-
+static const String routeName = '/add_task_view';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

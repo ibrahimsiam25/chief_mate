@@ -1,12 +1,16 @@
 import 'package:chief_mate/core/constants/icons.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 
 import 'package:chief_mate/core/constants/styles.dart';
+import 'package:chief_mate/features/auth/data/models/work_space_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 import '../../../../../core/routes/routes.dart';
+import '../../../../../core/routes/routes_import.dart';
+import '../../../../auth/data/models/work_space_response_model.dart';
+
 class CustomHomeViewAppBar extends StatelessWidget {
   const CustomHomeViewAppBar({super.key});
 
@@ -17,7 +21,7 @@ class CustomHomeViewAppBar extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            GoRouter.of(context).push(AppRoutes.kWorkSpaceCategories);
+            GoRouter.of(context).push( WorkSpaceCategoriesView.routeName);
           },
           child: SvgPicture.asset(
             AppIcons.arrowDown,
@@ -26,12 +30,21 @@ class CustomHomeViewAppBar extends StatelessWidget {
           ),
         ),
         Text(
-          prefs.getString(Prefs.workSpaceName).toString(),
+          "CustomHomeViewAppBar",
+          //  prefs.getString(Prefs.workSpaceName).toString(),
           style: AppStyles.textStyle20,
         ),
         IconButton(
           onPressed: () {
-            GoRouter.of(context).push(AppRoutes.kWorkSpaceView);
+            GoRouter.of(context).push(WorkSpaceView.routeName,
+                extra:WorkSpaceResponseModel(
+                  data: WorkspaceData(
+                    id: 1,
+                    name: "CustomHomeViewAppBar",
+                    colorCode: "0xFFE0E0E0",
+
+                  ),
+                ));
           },
           icon: SvgPicture.asset(
             AppIcons.more,

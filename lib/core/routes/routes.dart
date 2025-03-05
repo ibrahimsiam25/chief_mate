@@ -1,127 +1,56 @@
-import 'package:chief_mate/features/auth/logic/otp_verification/otp_verification_state.dart';
-import 'package:chief_mate/features/auth/presentation/views/screens/add_phone_number_view.dart';
-import 'package:chief_mate/features/auth/presentation/views/screens/register_view.dart';
-import 'package:chief_mate/features/auth/presentation/views/screens/sign_up_view.dart';
-import 'package:chief_mate/features/auth/presentation/views/screens/login_with_email_view.dart';
-import 'package:chief_mate/features/home/presentation/views/Instructions_food_details_view.dart';
-import 'package:chief_mate/features/home/presentation/views/add_status_view.dart';
-import 'package:chief_mate/features/home/presentation/views/add_task_view.dart';
-import 'package:chief_mate/features/home/presentation/views/calender_view.dart';
-import 'package:chief_mate/features/home/presentation/views/completed_status_view.dart';
-import 'package:chief_mate/features/home/presentation/views/food_item_details_home_view.dart';
-import 'package:chief_mate/features/home/presentation/views/in_work_status_view.dart';
-import 'package:chief_mate/features/home/presentation/views/start_cooking_view.dart';
-import 'package:chief_mate/features/home/presentation/views/widgets/bottom_nav_bar_controller.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/add_ingredient_view.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/ingredient_details_view.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/ingredients_view.dart';
-import 'package:chief_mate/features/profile/presentation/views/profile_view.dart';
-import 'package:chief_mate/features/recipes/presemtation/views/add_recipe_view.dart';
-import 'package:chief_mate/features/recipes/presemtation/views/draft_recipe_view.dart';
-import 'package:chief_mate/features/recipes/presemtation/views/favourite_recipe_view.dart';
-import 'package:chief_mate/features/recipes/presemtation/views/related_recipes_view.dart';
-import 'package:chief_mate/features/recipes/presemtation/views/watch_category_view.dart';
-import 'package:chief_mate/features/tasks/presentation/views/tasks_view.dart';
-import 'package:chief_mate/features/work_space/presentation/views/category_view.dart';
-import 'package:chief_mate/features/work_space/presentation/views/edit_work_space_view.dart';
-import 'package:chief_mate/features/work_space/presentation/views/production_view.dart';
-import 'package:chief_mate/features/work_space/presentation/views/team_view.dart';
-import 'package:chief_mate/features/work_space/presentation/views/work_space_categories_view.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../features/auth/logic/login/login_cubit.dart';
-import '../../features/auth/logic/otp_verification/otp_verification_cubit.dart';
-import '../../features/auth/logic/register/register_cubit.dart';
-import '../../features/auth/logic/resend_otp/resend_otp_cubit.dart';
-import '../../features/auth/presentation/views/screens/choose_color_view.dart';
-import '../../features/auth/presentation/views/screens/create_avatar_view.dart';
-import '../../features/auth/presentation/views/screens/create_work_space_view.dart';
-import '../../features/auth/presentation/views/screens/on_bording_view.dart';
-import '../../features/auth/presentation/views/screens/otp_verification_with_email_view.dart';
-import '../../features/auth/presentation/views/screens/otp_verification_with_sms_view.dart';
-import '../../features/auth/presentation/views/screens/permission_view.dart';
-import '../../features/auth/presentation/views/screens/preview_work_space_view.dart';
-import '../../features/auth/presentation/views/screens/user_info_view.dart';
-import '../../features/auth/presentation/views/screens/work_space_name_view.dart';
-import '../../features/auth/presentation/views/screens/work_space_view.dart';
-import '../di/dependency_injection.dart';
+import 'package:chief_mate/features/auth/data/models/work_space_response_model.dart';
+
+import 'routes_import.dart';
 
 abstract class AppRoutes {
-  static String kBottomNavBarController = '/kBottomNavBarController';
-  static String kAddPhoneNumberView = '/kAddPhoneNumberView';
-  static String kOtpVerificationWithEmailView = '/kOtpVerificationWithEmailView';
-  static String kOtpVerificationWithSmsView = '/kOtpVerificationWithSmsView';
-  static String kUserInfoView = '/kUserInfoView';
-  static String kCreateAvatarView = '/kCreateAvatarView';
-  static String kPermissionView = '/kPermissionView';
-  static String kWorkSpaceNameView = '/kWorkSpaceNameView';
-  static String kChooseColorView = '/kChooseColorView';
-  static String kCreateWorkSpaceView = '/kCreateWorkSpaceView';
-  static String kPreviewWorkSpaceView = '/kPreviewWorkSpaceView';
-  static String kWorkSpaceView = '/kWorkSpaceView';
-  ////////
-  static String kEditWorkSpace = '/kEditWorkSpace';
-  static String kWorkSpaceCategories = '/kWorkSpaceCategories';
-  static String kTeamView = '/kTeamView';
-  static String kProductionView = '/ProductionView';
-  static String kCategoryView = '/kCategoryView';
-
-  ////////
-  static String kAddIngredientView = '/kAddIngredientView';
-  static String kIngredientsView = '/kIngredientsView';
-  static String kIngredientDetailsView = '/kIngredientDetailsView';
-  static String kAddStatusView = '/kAddStatusView';
   static String kInWorkStatusView = '/kInWorkStatusView';
   static String kCompletedStatusView = '/kCompletedStatusView';
   static String kCalenderView = '/kCalenderView';
-  static String kCustomFoodItemDetailsHomeView =
-      '/kCustomFoodItemDetailsHomeView';
+  static String kCustomFoodItemDetailsHomeView ='/kCustomFoodItemDetailsHomeView';
   static String kOnBoardingView = '/kOnBoardingView';
   static String kFavouriteRecipeView = '/kFavouriteRecipeView';
   static String kDraftRecipeView = '/kDraftRecipeView';
   static String kWatchCategoryView = '/kWatchCategoryView';
   static String kAddRecipeView = '/kAddRecipeView';
   static String kRelatedRecipesView = '/kRelatedRecipesView';
-  static String kProfileView = '/kProfileView';
-  static String kTasksView = '/kTasksView';
-  static String kInstructionsFoodDetailsView = '/kInstructionsFoodDetailsView';
-  static String kStartCookingView = '/kStartCookingView';
-  static String kAddTaskView = '/kAddTaskView';
-   static String kSignUpView = '/kSignUpView';
-  static GoRouter router = GoRouter(
-    initialLocation:kUserInfoView,
-    routes: [
 
+  static GoRouter router = GoRouter(
+    initialLocation:AskCreateWorkSpaceOrWaitInvitation.routeName,
+            routes: [
       GoRoute(
-        path: kSignUpView,
+        path: SignUpView.routeName,
         builder: (context, state) => const SignUpView(),
       ),
       GoRoute(
-        path: kAddPhoneNumberView,
+        path: AddPhoneNumberView.routeName,
         builder: (context, state) => const AddPhoneNumberView(),
       ),
       GoRoute(
-        path: kOtpVerificationWithEmailView,
+        path: OtpVerificationWithEmailView.routeName,
         builder: (context, state) => MultiBlocProvider(
-        providers: [
-        
-          BlocProvider(create: (context) => getIt<OtpVerificationCubit>()),
+          providers: [
+            BlocProvider(create: (context) => getIt<OtpVerificationCubit>()),
             BlocProvider(create: (context) => getIt<ResendOtpCubit>()),
-        ],
+          ],
           child: const OtpVerificationWithEmailView(),
         ),
       ),
       GoRoute(
-        path: kUserInfoView,
+        path: UserInfoView.routeName,
         builder: (context, state) => const UserInfoView(),
       ),
       GoRoute(
-        path: kCreateAvatarView,
-        builder: (context, state) => const CreateAvatarView(),
+        path: CreateAvatarView.routeName,
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<UpdateUserProfileCubit>(),
+          child: CreateAvatarView(
+            userName: state.extra as String,
+          ),
+        ),
       ),
       GoRoute(
-        path: kPermissionView,
+        path: PermissionView.routeName,
         builder: (context, state) => const PermissionView(),
       ),
       GoRoute(
@@ -129,67 +58,76 @@ abstract class AppRoutes {
         builder: (context, state) => const OnBoardingView(),
       ),
       GoRoute(
-        path: kWorkSpaceNameView,
+        path: WorkSpaceNameView.routeName,
         builder: (context, state) => const WorkSpaceNameView(),
       ),
       GoRoute(
-        path: kChooseColorView,
-        builder: (context, state) => const ChooseColorView(),
+        path: ChooseColorView.routeName,
+        builder: (context, state) =>  ChooseColorView(
+          workSpaceName: state .extra as String,
+
+        ),
       ),
       GoRoute(
-        path: kCreateWorkSpaceView,
+        path: CreateWorkSpaceView.routeName,
         builder: (context, state) => const CreateWorkSpaceView(),
       ),
       GoRoute(
-        path: kPreviewWorkSpaceView,
-        builder: (context, state) => const PreviewWorkSpaceView(),
+        path:PreviewWorkSpaceView.routeName,
+        builder: (context, state) =>  PreviewWorkSpaceView(
+    workSpaceModel: state.extra as WorkSpaceResponseModel
+        ),
       ),
       GoRoute(
-        path: kWorkSpaceView,
-        builder: (context, state) => const WorkSpaceView(),
+        path: WorkSpaceView.routeName,
+        builder: (context, state) =>  WorkSpaceView(
+          workSpaceModel: state.extra as WorkSpaceResponseModel,
+        ),
       ),
       //////////////
       GoRoute(
-        path: kEditWorkSpace,
-        builder: (context, state) => const EditWorkSpaceView(),
+        path: EditWorkSpaceView.routeName,
+        builder: (context, state) =>  EditWorkSpaceView(
+          workSpaceModel: state.extra as WorkSpaceResponseModel,
+        ),
       ),
       GoRoute(
-        path: kWorkSpaceCategories,
+        path: WorkSpaceCategoriesView.routeName,
         builder: (context, state) => const WorkSpaceCategoriesView(),
       ),
       GoRoute(
-        path: kTeamView,
+        path: TeamView.routeName,
         builder: (context, state) => const TeamView(),
       ),
       GoRoute(
-        path: kProductionView,
+        path: ProductionView.routeName,
         builder: (context, state) => const ProductionView(),
       ),
       GoRoute(
-        path: kCategoryView,
+        path: CategoryView.routeName,
         builder: (context, state) => const CategoryView(),
       ),
 
       //////////////
 
       GoRoute(
-        path: kBottomNavBarController,
+        path: BottomNavBarController.routeName,
         builder: (context, state) => const BottomNavBarController(),
       ),
       GoRoute(
-        path: kIngredientsView,
+        path: IngredientsView.routeName,
         builder: (context, state) => const IngredientsView(),
       ),
       GoRoute(
-        path: kAddIngredientView,
+        path: AddIngredientView.routeName,
         builder: (context, state) => const AddIngredientView(),
       ),
       GoRoute(
-        path: kIngredientDetailsView,
+        path: IngredientDetailsView.routeName,
         builder: (context, state) => const IngredientDetailsView(),
       ),
       GoRoute(
-        path: kAddStatusView,
+        path: AddStatusView.routeName,
         builder: (context, state) => const AddStatusView(),
       ),
       GoRoute(
@@ -230,27 +168,27 @@ abstract class AppRoutes {
         builder: (context, state) => const RelatedRecipesView(),
       ),
       GoRoute(
-        path: kProfileView,
+        path: ProfileView.routeName,
         builder: (context, state) => const ProfileView(),
       ),
       GoRoute(
-        path: kTasksView,
+        path: TasksView.routeName,
         builder: (context, state) => const TasksView(),
       ),
       GoRoute(
-        path: kInstructionsFoodDetailsView,
+        path: InstructionsFoodDetailsView.routeName,
         builder: (context, state) => const InstructionsFoodDetailsView(),
       ),
       GoRoute(
-        path: kStartCookingView,
+        path: StartCookingView.routeName,
         builder: (context, state) => const StartCookingView(),
       ),
       GoRoute(
-        path: kAddTaskView,
+        path: AddTaskView.routeName,
         builder: (context, state) => const AddTaskView(),
       ),
       GoRoute(
-        path: kOtpVerificationWithSmsView,
+        path: OtpVerificationWithSmsView.routeName,
         builder: (context, state) => const OtpVerificationWithSmsView(),
       ),
       GoRoute(
@@ -266,6 +204,10 @@ abstract class AppRoutes {
           create: (context) => getIt<RegisterCubit>(),
           child: const RegisterView(),
         ),
+      ),
+      GoRoute(
+        path: AskCreateWorkSpaceOrWaitInvitation.routeName,
+        builder: (context, state) => const AskCreateWorkSpaceOrWaitInvitation(),
       ),
     ],
   );

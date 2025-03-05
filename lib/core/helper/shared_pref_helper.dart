@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class SharedPrefHelper {
   // private constructor as I don't want to allow creating an instance of this class itself.
   SharedPrefHelper._();
@@ -24,16 +24,16 @@ class SharedPrefHelper {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     debugPrint("SharedPrefHelper : setData with key : $key and value : $value");
     switch (value.runtimeType) {
-      case String:
+      case const (String):
         await sharedPreferences.setString(key, value);
         break;
-      case int:
+      case const (int):
         await sharedPreferences.setInt(key, value);
         break;
-      case bool:
+      case const (bool):
         await sharedPreferences.setBool(key, value);
         break;
-      case double:
+      case const (double):
         await sharedPreferences.setDouble(key, value);
         break;
       default:
@@ -52,14 +52,14 @@ class SharedPrefHelper {
   static getDouble(String key) async {
     debugPrint('SharedPrefHelper : getDouble with key : $key');
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    return sharedPreferences.getDouble(key) ?? 0.0;
+    return sharedPreferences.getDouble(key) ?? -1.0;
   }
 
   /// Gets an int value from SharedPreferences with given [key].
   static getInt(String key) async {
     debugPrint('SharedPrefHelper : getInt with key : $key');
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    return sharedPreferences.getInt(key) ?? 0;
+    return sharedPreferences.getInt(key) ?? -1;
   }
 
   /// Gets an String value from SharedPreferences with given [key].
@@ -70,24 +70,24 @@ class SharedPrefHelper {
   }
 
   /// Saves a [value] with a [key] in the FlutterSecureStorage.
-  // static setSecuredString(String key, String value) async {
-  //   const flutterSecureStorage = FlutterSecureStorage();
-  //   debugPrint(
-  //       "FlutterSecureStorage : setSecuredString with key : $key and value : $value");
-  //   await flutterSecureStorage.write(key: key, value: value);
-  // }
+  static setSecuredString(String key, String value) async {
+    const flutterSecureStorage = FlutterSecureStorage();
+    debugPrint(
+        "FlutterSecureStorage : setSecuredString with key : $key and value : $value");
+    await flutterSecureStorage.write(key: key, value: value);
+  }
 
   // /// Gets an String value from FlutterSecureStorage with given [key].
-  // static getSecuredString(String key) async {
-  //   const flutterSecureStorage = FlutterSecureStorage();
-  //   debugPrint('FlutterSecureStorage : getSecuredString with key :');
-  //   return await flutterSecureStorage.read(key: key) ?? '';
-  // }
+  static getSecuredString(String key) async {
+    const flutterSecureStorage = FlutterSecureStorage();
+    debugPrint('FlutterSecureStorage : getSecuredString with key :');
+    return await flutterSecureStorage.read(key: key) ?? '';
+  }
 
   /// Removes all keys and values in the FlutterSecureStorage
-  // static clearAllSecuredData() async {
-  //   debugPrint('FlutterSecureStorage : all data has been cleared');
-  //   const flutterSecureStorage = FlutterSecureStorage();
-  //   await flutterSecureStorage.deleteAll();
-  // }
+  static clearAllSecuredData() async {
+    debugPrint('FlutterSecureStorage : all data has been cleared');
+    const flutterSecureStorage = FlutterSecureStorage();
+    await flutterSecureStorage.deleteAll();
+  }
 }

@@ -1,5 +1,5 @@
 import 'package:chief_mate/core/constants/icons.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/recipe_view_app_bar_pop_menu.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class RecipeViewAppBar extends StatelessWidget {
           width: 24.w,
         ),
         Text(
-          '${prefs.getString(Prefs.workSpaceName)} на Белорусской',
+          '***** на Белорусской',
           style: AppStyles.textStyle20,
         ),
         const RecipeViewAppBarPopMenu(),

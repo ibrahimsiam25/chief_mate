@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/icons.dart';
 import 'package:chief_mate/core/constants/images.dart';
-import 'package:chief_mate/core/constants/prefs.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/custom_avatar_profile.dart';
@@ -11,7 +11,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
+import '../../../../../core/helper/shared_pref_helper.dart';
 import '../../../../../core/routes/routes.dart';
+import '../../../../../core/routes/routes_import.dart';
+import '../../../../profile/presentation/views/profile_view.dart';
 class CustomHomeViewInfo extends StatelessWidget {
   const CustomHomeViewInfo({super.key});
 
@@ -44,15 +47,16 @@ class CustomHomeViewInfo extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  GoRouter.of(context).push(AppRoutes.kProfileView);
+                  GoRouter.of(context).push(ProfileView.routeName);
                 },
                 child: CircleAvatar(
                   backgroundColor: AppColors.kColor5,
                   radius: 18.r,
+          
                   backgroundImage:
-                      prefs.getString(Prefs.avatarImagePath) != null
+                     SharedPrefHelper.getString(Prefs.avatarImagePath) != ""
                           ? FileImage(
-                              File(prefs.getString(Prefs.avatarImagePath)!),
+                              File(SharedPrefHelper.getString(Prefs.avatarImagePath)!),
                             )
                           : AssetImage(AppImages.avatar),
                 ),
@@ -83,7 +87,7 @@ class CustomHomeViewInfo extends StatelessWidget {
         SizedBox(height: 16.h),
         GestureDetector(
           onTap: () {
-            GoRouter.of(context).push(AppRoutes.kAddStatusView);
+            GoRouter.of(context).push(AddStatusView.routeName);
           },
           child: const CustomAvatarProfile(),
         ),

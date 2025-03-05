@@ -11,6 +11,7 @@ import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../../core/routes/routes.dart';
+import '../../../../../core/routes/routes_import.dart';
 
 class CustomAvatarProfile extends StatelessWidget {
   const CustomAvatarProfile({
@@ -89,7 +90,7 @@ class CustomAvatarProfile extends StatelessWidget {
               child: IconButton(
                 icon: SvgPicture.asset(AppIcons.add),
                 onPressed: () {
-                  GoRouter.of(context).push(AppRoutes.kAddStatusView);
+                  GoRouter.of(context).push(AddStatusView.routeName);
                 },
               ),
             ),

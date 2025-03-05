@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
+import '../../../../../core/routes/routes_import.dart';
+
 class DraftRecipeViewAppBar extends StatelessWidget {
   const DraftRecipeViewAppBar({super.key});
 
@@ -16,7 +18,7 @@ class DraftRecipeViewAppBar extends StatelessWidget {
         GestureDetector(
           onTap: () {
             GoRouter.of(context)
-                .pushReplacement(AppRoutes.kBottomNavBarController, extra: 2);
+                .pushReplacement(BottomNavBarController.routeName, extra: 2);
           },
           child: SvgPicture.asset(
             AppIcons.arrowBack,

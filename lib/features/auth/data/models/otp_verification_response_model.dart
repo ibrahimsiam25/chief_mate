@@ -5,7 +5,8 @@ part 'otp_verification_response_model.g.dart';
 class OtpVerificationResponseModel {
   final int code;
   final String message;
-  final UserDataAndToken? userDataAndToken;
+  @JsonKey(name: 'data')
+  final List<UserDataAndToken>? userDataAndToken;
 
   OtpVerificationResponseModel(
       {required this.code,
@@ -14,7 +15,6 @@ class OtpVerificationResponseModel {
 
   factory OtpVerificationResponseModel.fromJson(Map<String, dynamic> json) =>
       _$OtpVerificationResponseModelFromJson(json);
-
 }
 
 @JsonSerializable()
@@ -24,7 +24,7 @@ class UserDataAndToken {
 
   @JsonKey(name: 'token_type')
   String? tokenType;
-
+  @JsonKey(name: 'user')
   UserData? userData;
 
   UserDataAndToken({this.accessToken, this.tokenType, this.userData});
@@ -39,8 +39,28 @@ class UserData {
   String? name;
   String? email;
   String? phone;
+  bool? verified;
   String? avatar;
-  UserData({this.id, this.name, this.email, this.phone, this.avatar});
+  String? provider;
+  String? rules;
+  @JsonKey(name: 'provider_id')
+  String? providerId;
+  @JsonKey(name: 'workspace_id')
+  String? workspaceId;
+  @JsonKey(name: 'section_id')
+  String? sectionId;
+  UserData(
+      {this.id,
+      this.name,
+      this.email,
+      this.phone,
+      this.avatar,
+      this.verified,
+      this.provider,
+      this.providerId,
+      this.rules,
+      this.workspaceId,
+      this.sectionId});
 
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);

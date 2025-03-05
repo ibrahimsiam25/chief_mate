@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../tasks/presentation/views/tasks_view.dart';
+
 class ShowModelButtomSheetRecipeViewBody extends StatelessWidget {
   const ShowModelButtomSheetRecipeViewBody({super.key});
 
@@ -19,7 +21,7 @@ class ShowModelButtomSheetRecipeViewBody extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              GoRouter.of(context).pushReplacement(AppRoutes.kTasksView);
+              GoRouter.of(context).pushReplacement(TasksView.routeName);
             },
             child: const ShowModelButtomSheetItem(
               title: 'Задание',

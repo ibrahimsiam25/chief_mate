@@ -1,3 +1,5 @@
+import 'package:chief_mate/features/home/presentation/views/start_cooking_view.dart';
+
 import '../../../../../core/routes/routes.dart';
 import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/add_to_work_view_body.dart';
@@ -16,7 +18,7 @@ class AddToWorkView extends StatelessWidget {
         child: CustomButton(
           buttonName: 'Начать готовить',
           onTap: () {
-            GoRouter.of(context).push(AppRoutes.kStartCookingView);
+            GoRouter.of(context).push(StartCookingView.routeName);
           },
         ),
       ),

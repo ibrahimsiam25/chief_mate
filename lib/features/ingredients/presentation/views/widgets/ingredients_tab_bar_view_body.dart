@@ -9,6 +9,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
+import '../../../../../core/routes/routes_import.dart';
+
 class IngredientsTabBarViewBody extends StatelessWidget {
   const IngredientsTabBarViewBody({super.key});
 
@@ -42,7 +44,7 @@ class IngredientsTabBarViewBody extends StatelessWidget {
             right: 20.w,
             child: CustomAddButton(
               onTap: () {
-                GoRouter.of(context).push(AppRoutes.kAddIngredientView);
+                GoRouter.of(context).push(AddIngredientView.routeName);
               },
             )),
       ],

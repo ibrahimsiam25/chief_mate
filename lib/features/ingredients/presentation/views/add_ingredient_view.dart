@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../home/presentation/views/widgets/bottom_nav_bar_controller.dart';
+
 class AddIngredientView extends StatelessWidget {
   const AddIngredientView({super.key});
-
+static const String routeName = "/AddIngredientView";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,7 @@ class AddIngredientView extends StatelessWidget {
           buttonName: 'Добавить',
           onTap: () {
             GoRouter.of(context)
-                .pushReplacement(AppRoutes.kBottomNavBarController, extra: 1);
+                .pushReplacement(BottomNavBarController.routeName, extra: 1);
           },
         ),
       ),
