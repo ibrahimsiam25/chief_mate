@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
+import '../../../../home/presentation/views/widgets/bottom_nav_bar_controller.dart';
+
 class CustomIngredienDetailsViewAppBar extends StatelessWidget {
   const CustomIngredienDetailsViewAppBar({super.key});
 
@@ -18,7 +20,7 @@ class CustomIngredienDetailsViewAppBar extends StatelessWidget {
         GestureDetector(
           onTap: () {
             GoRouter.of(context)
-                .pushReplacement(AppRoutes.kBottomNavBarController, extra: 1);
+                .pushReplacement(BottomNavBarController.routeName, extra: 1);
           },
           child: SvgPicture.asset(AppIcons.arrowBack),
         ),

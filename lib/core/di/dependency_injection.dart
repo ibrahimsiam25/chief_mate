@@ -1,3 +1,5 @@
+import 'package:chief_mate/features/work_space/data/repos/update_work_space_repo.dart';
+import 'package:chief_mate/features/work_space/logic/update_work_space/update_work_space_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -47,6 +49,13 @@ Future<void> setupGetIt() async {
 //create work space
   getIt.registerLazySingleton<CreateWorkSpaceRepo>(() => CreateWorkSpaceRepo(getIt()));
   getIt.registerFactory<CreateWorkSpaceCubit>(() => CreateWorkSpaceCubit(getIt()));
+
+//update work space 
+  getIt.registerLazySingleton<UpdateWorkSpaceRepo>(() => UpdateWorkSpaceRepo(getIt()));
+  getIt.registerFactory<UpdateWorkSpaceCubit>(() => UpdateWorkSpaceCubit(getIt()));
+
 //chosse color
-  getIt.registerFactory<ChooseColorCubit>(() => ChooseColorCubit());  
+  getIt.registerFactoryParam<ChooseColorCubit, int, void>(
+    (initialColor, _) => ChooseColorCubit(initialColor),
+  ); 
 }

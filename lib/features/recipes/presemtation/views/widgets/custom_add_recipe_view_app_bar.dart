@@ -7,6 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
+import '../../../../../core/routes/routes_import.dart';
+
 class CustomAddRecipeViewAppBar extends StatelessWidget {
   const CustomAddRecipeViewAppBar({super.key});
 
@@ -18,7 +20,7 @@ class CustomAddRecipeViewAppBar extends StatelessWidget {
         GestureDetector(
           onTap: () {
             GoRouter.of(context)
-                .pushReplacement(AppRoutes.kBottomNavBarController, extra: 2);
+                .pushReplacement(BottomNavBarController.routeName, extra: 2);
             // GoRouter.of(context).pop();
           },
           child: SvgPicture.asset(

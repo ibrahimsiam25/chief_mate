@@ -1,21 +1,9 @@
-import 'package:chief_mate/features/auth/data/models/create_work_space_request_model.dart';
 
-import '../../features/auth/logic/update_user_profile/updatr_user_profile_cubit.dart';
+import 'package:chief_mate/features/auth/data/models/work_space_response_model.dart';
+
 import 'routes_import.dart';
 
 abstract class AppRoutes {
-  static String kBottomNavBarController = '/kBottomNavBarController';
-  static String kAddPhoneNumberView = '/kAddPhoneNumberView';
-  static String kOtpVerificationWithEmailView ='/kOtpVerificationWithEmailView';
-  static String kOtpVerificationWithSmsView = '/kOtpVerificationWithSmsView';
-  static String kPermissionView = '/kPermissionView';
-  ////////
-  static String kEditWorkSpace = '/kEditWorkSpace';
-  static String kWorkSpaceCategories = '/kWorkSpaceCategories';
-  static String kTeamView = '/kTeamView';
-  static String kProductionView = '/ProductionView';
-  static String kCategoryView = '/kCategoryView';
-  ////////
   static String kAddIngredientView = '/kAddIngredientView';
   static String kIngredientsView = '/kIngredientsView';
   static String kIngredientDetailsView = '/kIngredientDetailsView';
@@ -32,18 +20,18 @@ abstract class AppRoutes {
   static String kRelatedRecipesView = '/kRelatedRecipesView';
 
   static GoRouter router = GoRouter(
-    initialLocation: AskCreateWorkSpaceOrWaitInvitation.routeName,
-        routes: [
+    initialLocation:AskCreateWorkSpaceOrWaitInvitation.routeName,
+            routes: [
       GoRoute(
         path: SignUpView.routeName,
         builder: (context, state) => const SignUpView(),
       ),
       GoRoute(
-        path: kAddPhoneNumberView,
+        path: AddPhoneNumberView.routeName,
         builder: (context, state) => const AddPhoneNumberView(),
       ),
       GoRoute(
-        path: kOtpVerificationWithEmailView,
+        path: OtpVerificationWithEmailView.routeName,
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider(create: (context) => getIt<OtpVerificationCubit>()),
@@ -66,7 +54,7 @@ abstract class AppRoutes {
         ),
       ),
       GoRoute(
-        path: kPermissionView,
+        path: PermissionView.routeName,
         builder: (context, state) => const PermissionView(),
       ),
       GoRoute(
@@ -91,41 +79,43 @@ abstract class AppRoutes {
       GoRoute(
         path:PreviewWorkSpaceView.routeName,
         builder: (context, state) =>  PreviewWorkSpaceView(
-    workSpaceModel: state.extra as CreateWorkSpaceRequestModel,
+    workSpaceModel: state.extra as WorkSpaceResponseModel
         ),
       ),
       GoRoute(
         path: WorkSpaceView.routeName,
         builder: (context, state) =>  WorkSpaceView(
-          workSpaceModel: state.extra as CreateWorkSpaceRequestModel,
+          workSpaceModel: state.extra as WorkSpaceResponseModel,
         ),
       ),
       //////////////
       GoRoute(
-        path: kEditWorkSpace,
-        builder: (context, state) => const EditWorkSpaceView(),
+        path: EditWorkSpaceView.routeName,
+        builder: (context, state) =>  EditWorkSpaceView(
+          workSpaceModel: state.extra as WorkSpaceResponseModel,
+        ),
       ),
       GoRoute(
-        path: kWorkSpaceCategories,
+        path: WorkSpaceCategoriesView.routeName,
         builder: (context, state) => const WorkSpaceCategoriesView(),
       ),
       GoRoute(
-        path: kTeamView,
+        path: TeamView.routeName,
         builder: (context, state) => const TeamView(),
       ),
       GoRoute(
-        path: kProductionView,
+        path: ProductionView.routeName,
         builder: (context, state) => const ProductionView(),
       ),
       GoRoute(
-        path: kCategoryView,
+        path: CategoryView.routeName,
         builder: (context, state) => const CategoryView(),
       ),
 
       //////////////
 
       GoRoute(
-        path: kBottomNavBarController,
+        path: BottomNavBarController.routeName,
         builder: (context, state) => const BottomNavBarController(),
       ),
       GoRoute(
@@ -202,7 +192,7 @@ abstract class AppRoutes {
         builder: (context, state) => const AddTaskView(),
       ),
       GoRoute(
-        path: kOtpVerificationWithSmsView,
+        path: OtpVerificationWithSmsView.routeName,
         builder: (context, state) => const OtpVerificationWithSmsView(),
       ),
       GoRoute(

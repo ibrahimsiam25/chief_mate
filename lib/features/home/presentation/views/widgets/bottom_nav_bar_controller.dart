@@ -11,7 +11,7 @@ import 'package:svg_flutter/svg.dart';
 
 class BottomNavBarController extends StatefulWidget {
   const BottomNavBarController({super.key});
-
+static const String routeName = '/bottom-nav-bar';
   @override
   State<BottomNavBarController> createState() => _BottomNavBarControllerState();
 }

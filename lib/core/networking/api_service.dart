@@ -3,8 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:chief_mate/core/networking/api_constants.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../../features/auth/data/models/create_work_space_request_model.dart';
-import '../../features/auth/data/models/create_work_space_response_model.dart';
+import '../../features/auth/data/models/work_space_request_model.dart';
+import '../../features/auth/data/models/work_space_response_model.dart';
 import '../../features/auth/data/models/login_request_model.dart';
 import '../../features/auth/data/models/login_response_model.dart';
 import '../../features/auth/data/models/otp_verification_request_model.dart';
@@ -44,7 +44,13 @@ abstract class ApiService {
   );
 
   @POST(ApiConstants.workSpace)
-  Future<CreateWorkSpaceResponseModel> createWorkSpace(
-    @Body() CreateWorkSpaceRequestModel createWorkSpaceRequestModel,
+  Future<WorkSpaceResponseModel> createWorkSpace(
+    @Body() WorkSpaceRequestModel workSpaceRequestModel,
+  );
+
+  @PUT("${ApiConstants.workSpace}/{id}")
+  Future<WorkSpaceResponseModel> updateWorkSpace(
+    @Path() int id,
+    @Body() WorkSpaceRequestModel workSpaceRequestModel,
   );
 }

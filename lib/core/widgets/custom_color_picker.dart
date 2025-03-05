@@ -16,7 +16,7 @@ class CustomColorPicker extends StatelessWidget {
         final color = colorsPickerList[index];
         return GestureDetector(
           onTap: () {
-            context.read<ChooseColorCubit>().selectColor(index + 1);
+            context.read<ChooseColorCubit>().selectColor(index );
           },
           child: BlocBuilder<ChooseColorCubit, int>(
             builder: (context, selectedColor) {
@@ -32,7 +32,7 @@ class CustomColorPicker extends StatelessWidget {
                       color: color,
                     ),
                   ),
-                  if (selectedColor == index + 1)
+                  if (selectedColor == index )
                     const Icon(
                       Icons.check,
                       color: Colors.white,

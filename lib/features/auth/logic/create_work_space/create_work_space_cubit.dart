@@ -2,7 +2,7 @@ import 'package:chief_mate/features/auth/data/repos/create_work_space_repo.dart'
 import 'package:chief_mate/features/auth/logic/create_work_space/create_work_space_state.dart';
 
 import '../../../../core/routes/routes_import.dart';
-import '../../data/models/create_work_space_request_model.dart';
+import '../../data/models/work_space_request_model.dart';
 
 class CreateWorkSpaceCubit extends Cubit<CreateWorkSpaceState> 
 {
@@ -12,7 +12,7 @@ class CreateWorkSpaceCubit extends Cubit<CreateWorkSpaceState>
 
   void emitCreateWorkSpaceStates({required String workSpaceName, required String workSpaceColorId})async{
     emit(const CreateWorkSpaceState.loading());
-    final response = await _createWorkSpaceRepo.createWorkSpace(createWorkSpaceRequestModel: CreateWorkSpaceRequestModel(name: workSpaceName, colorId: workSpaceColorId),);
+    final response = await _createWorkSpaceRepo.createWorkSpace(WorkSpaceRequestModel: WorkSpaceRequestModel(name: workSpaceName, colorId: workSpaceColorId),);
     response.when(success: (createWorkSpaceResponse) async {
       emit(CreateWorkSpaceState.success(createWorkSpaceResponse));
     }, failure: (apiErrorModel) {

@@ -1,10 +1,12 @@
 class ValidatorsRegex {
   const ValidatorsRegex._();
 
-  static bool isEmailValid(String email) {
-    return RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
-        .hasMatch(email);
-  }
+static bool isEmailValid(String email) {
+  return RegExp(
+    r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+  ).hasMatch(email);
+}
+
 
 static bool isPasswordValid(String password) {
   return RegExp(r"^(?=.*[a-zA-Z\d])(?=.*\d)[A-Za-z\d!@#$%^&*(),.?':{}|<>]{8,}$")

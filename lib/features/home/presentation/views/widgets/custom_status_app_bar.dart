@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 import '../../../../../core/routes/routes.dart';
+import '../../../../../core/routes/routes_import.dart';
 class CustomStatusAppBar extends StatelessWidget {
   const CustomStatusAppBar(
       {super.key,
@@ -23,7 +24,7 @@ class CustomStatusAppBar extends StatelessWidget {
         GestureDetector(
           onTap: () {
             GoRouter.of(context)
-                .pushReplacement(AppRoutes.kBottomNavBarController, extra: 0);
+                .pushReplacement(BottomNavBarController.routeName, extra: 0);
           },
           child: SvgPicture.asset(AppIcons.arrowBack),
         ),

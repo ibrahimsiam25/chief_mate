@@ -198,14 +198,14 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<CreateWorkSpaceResponseModel> createWorkSpace(
-      CreateWorkSpaceRequestModel createWorkSpaceRequestModel) async {
+  Future<WorkSpaceResponseModel> createWorkSpace(
+      WorkSpaceRequestModel workSpaceRequestModel) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(createWorkSpaceRequestModel.toJson());
-    final _options = _setStreamType<CreateWorkSpaceResponseModel>(Options(
+    _data.addAll(workSpaceRequestModel.toJson());
+    final _options = _setStreamType<WorkSpaceResponseModel>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -222,9 +222,46 @@ class _ApiService implements ApiService {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CreateWorkSpaceResponseModel _value;
+    late WorkSpaceResponseModel _value;
     try {
-      _value = CreateWorkSpaceResponseModel.fromJson(_result.data!);
+      _value = WorkSpaceResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<WorkSpaceResponseModel> updateWorkSpace(
+    int id,
+    WorkSpaceRequestModel workSpaceRequestModel,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(workSpaceRequestModel.toJson());
+    final _options = _setStreamType<WorkSpaceResponseModel>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'workspaces/${id}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late WorkSpaceResponseModel _value;
+    try {
+      _value = WorkSpaceResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
