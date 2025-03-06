@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class FavouriteRecipeView extends StatelessWidget {
   const FavouriteRecipeView({super.key});
-
+static const String routeName = "/favouriteRecipeView";
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

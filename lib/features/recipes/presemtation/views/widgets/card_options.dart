@@ -4,6 +4,8 @@ import 'package:chief_mate/features/recipes/presemtation/views/widgets/custom_ca
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/routes/routes_import.dart';
+
 class CardOptions extends StatelessWidget {
   const CardOptions({super.key});
 
@@ -14,7 +16,7 @@ class CardOptions extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () {
-              GoRouter.of(context).push(AppRoutes.kFavouriteRecipeView);
+              GoRouter.of(context).push(FavouriteRecipeView.routeName);
             },
             child: const CustomCard(
               textName: 'Избранное',

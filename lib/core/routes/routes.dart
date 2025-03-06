@@ -1,15 +1,13 @@
 import 'routes_import.dart';
 
 abstract class AppRoutes {
-  static String kOnBoardingView = '/kOnBoardingView';
-  static String kFavouriteRecipeView = '/kFavouriteRecipeView';
   static String kDraftRecipeView = '/kDraftRecipeView';
   static String kWatchCategoryView = '/kWatchCategoryView';
   static String kAddRecipeView = '/kAddRecipeView';
   static String kRelatedRecipesView = '/kRelatedRecipesView';
   static GoRouter router = GoRouter(
-    initialLocation:AskCreateWorkSpaceOrWaitInvitation.routeName,
-            routes: [
+    initialLocation: SignUpView.routeName,
+    routes: [
       GoRoute(
         path: SignUpView.routeName,
         builder: (context, state) => const SignUpView(),
@@ -46,7 +44,7 @@ abstract class AppRoutes {
         builder: (context, state) => const PermissionView(),
       ),
       GoRoute(
-        path: kOnBoardingView,
+        path: OnBoardingView.routeName,
         builder: (context, state) => const OnBoardingView(),
       ),
       GoRoute(
@@ -55,9 +53,8 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: ChooseColorView.routeName,
-        builder: (context, state) =>  ChooseColorView(
-          workSpaceName: state .extra as String,
-
+        builder: (context, state) => ChooseColorView(
+          workSpaceName: state.extra as String,
         ),
       ),
       GoRoute(
@@ -65,20 +62,19 @@ abstract class AppRoutes {
         builder: (context, state) => const CreateWorkSpaceView(),
       ),
       GoRoute(
-        path:PreviewWorkSpaceView.routeName,
-        builder: (context, state) =>  PreviewWorkSpaceView(
-    workSpaceModel: state.extra as WorkSpaceResponseModel
-        ),
+        path: PreviewWorkSpaceView.routeName,
+        builder: (context, state) => PreviewWorkSpaceView(
+            workSpaceModel: state.extra as WorkSpaceResponseModel),
       ),
       GoRoute(
         path: WorkSpaceView.routeName,
-        builder: (context, state) =>  WorkSpaceView(
+        builder: (context, state) => WorkSpaceView(
           workSpaceModel: state.extra as WorkSpaceResponseModel,
         ),
       ),
       GoRoute(
         path: EditWorkSpaceView.routeName,
-        builder: (context, state) =>  EditWorkSpaceView(
+        builder: (context, state) => EditWorkSpaceView(
           workSpaceModel: state.extra as WorkSpaceResponseModel,
         ),
       ),
@@ -98,8 +94,6 @@ abstract class AppRoutes {
         path: CategoryView.routeName,
         builder: (context, state) => const CategoryView(),
       ),
-
-
       GoRoute(
         path: BottomNavBarController.routeName,
         builder: (context, state) => const BottomNavBarController(),
@@ -136,9 +130,8 @@ abstract class AppRoutes {
         path: FoodItemDetailsHomeView.routeName,
         builder: (context, state) => const FoodItemDetailsHomeView(),
       ),
-
       GoRoute(
-        path: kFavouriteRecipeView,
+        path: FavouriteRecipeView.routeName,
         builder: (context, state) => const FavouriteRecipeView(),
       ),
       GoRoute(
@@ -190,8 +183,15 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: RegisterView.routeName,
-        builder: (context, state) => BlocProvider(
-          create: (context) => getIt<RegisterCubit>(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => getIt<RegisterCubit>(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<ResendOtpCubit>(),
+            ),
+          ],
           child: const RegisterView(),
         ),
       ),
