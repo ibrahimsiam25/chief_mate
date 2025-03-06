@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constants/styles.dart';
 import '../../../../core/routes/routes_import.dart';
-import '../../../auth/data/data_source/static/colors_picker_list.dart';
 import '../../../auth/data/models/work_space_response_model.dart';
 
 class EditWorkSpaceBody extends StatelessWidget {

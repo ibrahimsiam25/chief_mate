@@ -2,10 +2,9 @@ import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/icons.dart';
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
-import '../../../../../core/routes/routes.dart';
+import '../../../../../core/routes/routes_import.dart';
 
 class AddToWorkViewAppBar extends StatelessWidget {
   const AddToWorkViewAppBar({super.key});
@@ -22,7 +21,7 @@ class AddToWorkViewAppBar extends StatelessWidget {
         GestureDetector(
           onTap: () {
             GoRouter.of(context)
-                .pushReplacement(AppRoutes.kCustomFoodItemDetailsHomeView);
+                .pushReplacement(FoodItemDetailsHomeView.routeName);
           },
           child: SvgPicture.asset(
             AppIcons.close,

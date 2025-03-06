@@ -1,8 +1,6 @@
 import 'routes_import.dart';
 
 abstract class AppRoutes {
-  static String kCalenderView = '/kCalenderView';
-  static String kCustomFoodItemDetailsHomeView ='/kCustomFoodItemDetailsHomeView';
   static String kOnBoardingView = '/kOnBoardingView';
   static String kFavouriteRecipeView = '/kFavouriteRecipeView';
   static String kDraftRecipeView = '/kDraftRecipeView';
@@ -78,7 +76,6 @@ abstract class AppRoutes {
           workSpaceModel: state.extra as WorkSpaceResponseModel,
         ),
       ),
-      //////////////
       GoRoute(
         path: EditWorkSpaceView.routeName,
         builder: (context, state) =>  EditWorkSpaceView(
@@ -132,11 +129,11 @@ abstract class AppRoutes {
         builder: (context, state) => const CompletedStatusView(),
       ),
       GoRoute(
-        path: kCalenderView,
+        path: CalenderView.routeName,
         builder: (context, state) => const CalenderView(),
       ),
       GoRoute(
-        path: kCustomFoodItemDetailsHomeView,
+        path: FoodItemDetailsHomeView.routeName,
         builder: (context, state) => const FoodItemDetailsHomeView(),
       ),
 

@@ -1,3 +1,4 @@
+import 'package:chief_mate/features/work_space/data/repos/all_work_spacce_repo.dart';
 import 'package:chief_mate/features/work_space/data/repos/update_work_space_repo.dart';
 import 'package:chief_mate/features/work_space/logic/update_work_space/update_work_space_cubit.dart';
 import 'package:dio/dio.dart';
@@ -16,6 +17,7 @@ import '../../features/auth/logic/register/register_cubit.dart';
 import '../../features/auth/logic/resend_otp/resend_otp_cubit.dart';
 import '../../features/work_space/data/repos/deleted_work_space_repo.dart';
 import '../../features/work_space/logic/deleted_work_space/deleted_work_space_cubit.dart';
+import '../../features/work_space/logic/get_all_work_space/get_all_work_space_cubit.dart';
 import '../cubit/choose_color_cubit.dart';
 import '../../features/auth/logic/update_user_profile/updatr_user_profile_cubit.dart';
 import '../networking/api_service.dart';
@@ -60,6 +62,9 @@ Future<void> setupGetIt() async {
 //deleted work space
   getIt.registerLazySingleton<DeletedWorkSpaceRepo>(() => DeletedWorkSpaceRepo(getIt()));
   getIt.registerFactory<DeletedWorkSpaceCubit>(() => DeletedWorkSpaceCubit(getIt()));
+//get all work space
+  getIt.registerLazySingleton<AllWorkSpaceRepo>(() => AllWorkSpaceRepo(getIt()));
+  getIt.registerFactory<GetAllWorkSpaceCubit>(() => GetAllWorkSpaceCubit(getIt()));
 
 //todo: ui cubit
 //chosse color

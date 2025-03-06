@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
 import '../../../../core/functions/conver_to_int.dart';
-import '../../data/models/work_space_response_model.dart';
 class CustomWorkSpaceViewShape extends StatelessWidget {
   const CustomWorkSpaceViewShape({super.key, required this.workSpaceModel});
 final WorkSpaceResponseModel workSpaceModel;
