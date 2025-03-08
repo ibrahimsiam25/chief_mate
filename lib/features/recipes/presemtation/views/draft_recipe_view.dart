@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class DraftRecipeView extends StatelessWidget {
   const DraftRecipeView({super.key});
-
+static const String routeName = '/draft-recipe-view';
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

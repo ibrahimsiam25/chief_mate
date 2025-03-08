@@ -5,5 +5,5 @@ class ApiErrorConstants {
   static const String noChange ="no changes made";
   static const String email ="email";
   static const String emailExistsButNotVerified= "Email exists but not verified.";
-  static const String nameAlreadyTakenChooseColor = "The name has already been taken.";
+  static const String nameAlreadyTakenChooseColor = "The name of workspace is taken.";
 }

@@ -51,12 +51,7 @@ class CustomHomeViewInfo extends StatelessWidget {
                   backgroundColor: AppColors.kColor5,
                   radius: 18.r,
                   backgroundImage:
-                      SharedPrefHelper.getString(Prefs.avatarImagePath) != ""
-                          ? FileImage(
-                              File(SharedPrefHelper.getString(
-                                  Prefs.avatarImagePath)!),
-                            )
-                          : AssetImage(AppImages.avatar),
+                   AssetImage(AppImages.avatar),
                 ),
               ),
             ],

@@ -1,12 +1,8 @@
 import 'routes_import.dart';
 
 abstract class AppRoutes {
-  static String kDraftRecipeView = '/kDraftRecipeView';
-  static String kWatchCategoryView = '/kWatchCategoryView';
-  static String kAddRecipeView = '/kAddRecipeView';
-  static String kRelatedRecipesView = '/kRelatedRecipesView';
   static GoRouter router = GoRouter(
-    initialLocation: SignUpView.routeName,
+    initialLocation: AskCreateWorkSpaceOrWaitInvitation.routeName,
     routes: [
       GoRoute(
         path: SignUpView.routeName,
@@ -135,19 +131,19 @@ abstract class AppRoutes {
         builder: (context, state) => const FavouriteRecipeView(),
       ),
       GoRoute(
-        path: kDraftRecipeView,
+        path: DraftRecipeView.routeName,
         builder: (context, state) => const DraftRecipeView(),
       ),
       GoRoute(
-        path: kWatchCategoryView,
+        path: WatchCategoryView.routeName,
         builder: (context, state) => const WatchCategoryView(),
       ),
       GoRoute(
-        path: kAddRecipeView,
+        path: AddRecipeView.routeName,
         builder: (context, state) => const AddRecipeView(),
       ),
       GoRoute(
-        path: kRelatedRecipesView,
+        path: RelatedRecipesView.routeName,
         builder: (context, state) => const RelatedRecipesView(),
       ),
       GoRoute(

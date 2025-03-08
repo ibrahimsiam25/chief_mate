@@ -31,7 +31,7 @@ class ChooseColorView extends StatelessWidget {
           state.whenOrNull(
             error: (apiErrorModel) {
               if (apiErrorModel.errors![ApiErrorConstants.errors][ApiErrorConstants.name] ==ApiErrorConstants.nameAlreadyTakenChooseColor) {
-                Navigator.of(context).pop();
+                GoRouter.of(context).pop();
               }
               showErrorDialog(context, apiErrorModel);
             },

@@ -72,15 +72,15 @@ class WorkSpaceViewBody extends StatelessWidget {
                       icon: AppIcons.team,
                       text: 'Команда',
                       onTap: () {
-                        GoRouter.of(context).pushReplacement(TeamView.routeName);
+                       // GoRouter.of(context).pushReplacement(TeamView.routeName);
                       },
                     ),
                     CustomWorkSpaceItem(
                       icon: AppIcons.factory,
                       text: 'Производственные цеха',
                       onTap: () {
-                        GoRouter.of(context)
-                            .pushReplacement(ProductionView.routeName);
+                        // GoRouter.of(context)
+                        //     .pushReplacement(ProductionView.routeName);
                       },
                     ),
                     CustomWorkSpaceItem(
@@ -105,17 +105,16 @@ class WorkSpaceViewBody extends StatelessWidget {
                       icon: AppIcons.bookOpen,
                       text: 'Рецепты',
                       onTap: () {
-                        GoRouter.of(context).pushReplacement(
-                            BottomNavBarController.routeName,
-                            extra: 2);
+                        // GoRouter.of(context).pushReplacement(
+                        //     BottomNavBarController.routeName,
+                        //     extra: 2);
                       },
                     ),
                     CustomWorkSpaceItem(
                       icon: AppIcons.category2,
                       text: 'Категории',
                       onTap: () {
-                        GoRouter.of(context)
-                            .pushReplacement(CategoryView.routeName);
+                        //GoRouter.of(context).pushReplacement(CategoryView.routeName);
                       },
                     ),
                     CustomWorkSpaceItem(
