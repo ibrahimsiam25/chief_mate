@@ -1,8 +1,8 @@
 import 'package:chief_mate/core/constants/icons.dart';
-import '../../../../../core/routes/routes.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
+import '../../../../../core/routes/routes_import.dart';
 
 class CardOptions extends StatelessWidget {
   const CardOptions({super.key});
@@ -14,7 +14,7 @@ class CardOptions extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () {
-              GoRouter.of(context).push(AppRoutes.kFavouriteRecipeView);
+              GoRouter.of(context).push(FavouriteRecipeView.routeName);
             },
             child: const CustomCard(
               textName: 'Избранное',
@@ -26,7 +26,7 @@ class CardOptions extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () {
-              GoRouter.of(context).push(AppRoutes.kDraftRecipeView);
+              GoRouter.of(context).push(DraftRecipeView.routeName);
             },
             child: const CustomCard(
               textName: 'Черновики',

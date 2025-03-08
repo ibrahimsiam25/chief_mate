@@ -9,12 +9,10 @@ import 'package:chief_mate/core/constants/styles.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/custom_avatar_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 import '../../../../../core/helper/shared_pref_helper.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/routes/routes_import.dart';
-import '../../../../profile/presentation/views/profile_view.dart';
+
 class CustomHomeViewInfo extends StatelessWidget {
   const CustomHomeViewInfo({super.key});
 
@@ -25,7 +23,7 @@ class CustomHomeViewInfo extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            GoRouter.of(context).push(AppRoutes.kCalenderView);
+            GoRouter.of(context).push(CalenderView.routeName);
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,13 +50,8 @@ class CustomHomeViewInfo extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: AppColors.kColor5,
                   radius: 18.r,
-          
                   backgroundImage:
-                     SharedPrefHelper.getString(Prefs.avatarImagePath) != ""
-                          ? FileImage(
-                              File(SharedPrefHelper.getString(Prefs.avatarImagePath)!),
-                            )
-                          : AssetImage(AppImages.avatar),
+                   AssetImage(AppImages.avatar),
                 ),
               ),
             ],

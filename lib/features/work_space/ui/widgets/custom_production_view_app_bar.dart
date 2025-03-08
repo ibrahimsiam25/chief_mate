@@ -1,11 +1,9 @@
 import 'package:chief_mate/core/constants/icons.dart';
-import '../../../../core/routes/routes.dart';
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
-import '../../../auth/data/models/work_space_request_model.dart';
 import '../../../auth/data/models/work_space_response_model.dart';
 import '../../../auth/ui/screens/work_space_view.dart';
 

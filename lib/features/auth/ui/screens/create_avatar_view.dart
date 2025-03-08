@@ -1,14 +1,11 @@
 import 'dart:io';
 
 import 'package:chief_mate/core/widgets/custom_modal_progress.dart';
-import 'package:chief_mate/features/auth/logic/update_user_profile/updatr_user_profile_cubit.dart';
 
-import '../../../../core/routes/routes.dart';
 import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:chief_mate/features/auth/ui/widgets/create_avatar_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../core/routes/routes_import.dart';
 import '../../../../core/widgets/show_error_dialog.dart';

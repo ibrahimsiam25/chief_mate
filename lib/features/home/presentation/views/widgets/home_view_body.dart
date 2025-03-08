@@ -1,4 +1,3 @@
-import '../../../../../core/routes/routes.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/custom_filter_home_view_list_view.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/custom_home_view_app_bar.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/custom_home_view_info.dart';
@@ -6,7 +5,8 @@ import 'package:chief_mate/features/home/presentation/views/widgets/custom_food_
 import 'package:chief_mate/features/home/presentation/views/widgets/custom_status_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
+
+import '../../../../../core/routes/routes_import.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -59,7 +59,7 @@ class HomeViewBody extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   GoRouter.of(context)
-                      .push(AppRoutes.kCustomFoodItemDetailsHomeView);
+                      .push(FoodItemDetailsHomeView.routeName);
                 },
                 child: const CustomFoodItemHomeView(),
               ),

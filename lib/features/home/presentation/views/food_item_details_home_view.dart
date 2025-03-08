@@ -7,7 +7,7 @@ import '../../../../core/routes/routes_import.dart';
 
 class FoodItemDetailsHomeView extends StatelessWidget {
   const FoodItemDetailsHomeView({super.key});
-
+static const String routeName = '/foodItemDetailsHomeView';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

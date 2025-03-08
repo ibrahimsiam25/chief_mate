@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/routes/routes_import.dart';
+
 class PermissionView extends StatelessWidget {
   const PermissionView({super.key});
 static const String routeName = '/permissionView';
@@ -17,7 +19,7 @@ static const String routeName = '/permissionView';
               padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 20),
               child: CustomButton(
                 onTap: () {
-                  GoRouter.of(context).push(AppRoutes.kOnBoardingView);
+                  GoRouter.of(context).push(OnBoardingView.routeName);
                 },
                 buttonName: 'Продолжить',
               ),

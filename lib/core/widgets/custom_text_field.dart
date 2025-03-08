@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
       this.maxLines = 1,
       this.borderColor,
       this.suffixIcon,
-      this.minLines});
+      this.minLines,  this.controller,  this.onChanged});
 
   final String? hintText;
   final Widget? prefixIcon;
@@ -20,10 +20,13 @@ class CustomTextField extends StatelessWidget {
   final Color? borderColor;
   final int? maxLines;
   final int? minLines;
-
+final TextEditingController? controller;
+final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller:controller ,
+      onChanged: onChanged,
       cursorColor: AppColors.kColor7,
       maxLines: maxLines ?? 1,
       minLines: minLines ?? 1,

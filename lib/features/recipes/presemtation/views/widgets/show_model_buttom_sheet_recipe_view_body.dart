@@ -1,11 +1,9 @@
 import 'package:chief_mate/core/constants/icons.dart';
-import '../../../../../core/routes/routes.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/show_model_buttom_sheet_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../../tasks/presentation/views/tasks_view.dart';
+import '../../../../../core/routes/routes_import.dart';
 
 class ShowModelButtomSheetRecipeViewBody extends StatelessWidget {
   const ShowModelButtomSheetRecipeViewBody({super.key});
@@ -36,7 +34,7 @@ class ShowModelButtomSheetRecipeViewBody extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              GoRouter.of(context).pushReplacement(AppRoutes.kAddRecipeView);
+              GoRouter.of(context).pushReplacement(AddRecipeView.routeName);
             },
             child: const ShowModelButtomSheetItem(
               title: 'Рецепт',

@@ -1,9 +1,9 @@
 import 'package:chief_mate/core/constants/icons.dart';
-import '../../../../../core/routes/routes.dart';
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
+
+import '../../../../../core/routes/routes_import.dart';
 
 class AddMealRow extends StatelessWidget {
   const AddMealRow({super.key});
@@ -12,7 +12,7 @@ class AddMealRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRoutes.kRelatedRecipesView);
+        GoRouter.of(context).push(RelatedRecipesView.routeName);
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

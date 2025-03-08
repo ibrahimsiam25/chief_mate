@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:chief_mate/core/widgets/build_message_bar.dart';
 import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:chief_mate/features/auth/logic/otp_verification/otp_verification_cubit.dart';
@@ -68,7 +69,7 @@ class _OtpVerificationWithEmailViewState
 
   void _onButtonPressed() async {
     if (email == "") {
-      email = await SharedPrefHelper.getString('email')!;
+      email = await SharedPrefHelper.getString(Prefs.email)!;
     }
     context.read<ResendOtpCubit>().emitresendOtpStates(email: email);
     setState(() {

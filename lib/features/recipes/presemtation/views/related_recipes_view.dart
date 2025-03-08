@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RelatedRecipesView extends StatelessWidget {
   const RelatedRecipesView({super.key});
-
+static const String routeName = '/related_recipes_view';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

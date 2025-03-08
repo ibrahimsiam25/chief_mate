@@ -1,6 +1,9 @@
 class ApiErrorConstants {
-  static const String nameErrorKey = "errors";
-  static const String nameField = "name";
+  static const String errors = "errors";
+  static const String error = "error";
+  static const String name = "name";
   static const String noChange ="no changes made";
-  static const String nameAlreadyTakenChooseColor = "The name has already been taken.";
+  static const String email ="email";
+  static const String emailExistsButNotVerified= "Email exists but not verified.";
+  static const String nameAlreadyTakenChooseColor = "The name of workspace is taken.";
 }

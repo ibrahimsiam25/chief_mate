@@ -1,11 +1,8 @@
-import 'package:chief_mate/features/auth/logic/register/register_cubit.dart';
+import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/helper/shared_pref_helper.dart';
-import '../../../../core/routes/routes.dart';
+import '../../../../core/networking/api_error_constants.dart';
 import '../../../../core/routes/routes_import.dart';
 import '../../../../core/widgets/custom_modal_progress.dart';
 import '../../../../core/widgets/show_error_dialog.dart';
@@ -21,11 +18,21 @@ class RegisterView extends StatelessWidget {
       body: BlocConsumer<RegisterCubit, RegisterState>(
         listener: (context, state) {
           state.whenOrNull(
-            registerError: (apiErrorModel) {
-              showErrorDialog(context, apiErrorModel);
+            registerError: (apiErrorModel) async {
+              if (apiErrorModel.errors![ApiErrorConstants.errors]
+                      [ApiErrorConstants.email] ==
+                  ApiErrorConstants.emailExistsButNotVerified) {
+                String email = await SharedPrefHelper.getString(Prefs.email);
+                context.read<ResendOtpCubit>().emitresendOtpStates(
+                      email: email,
+                    );
+                GoRouter.of(context)
+                    .push(OtpVerificationWithEmailView.routeName);
+              } else {
+                showErrorDialog(context, apiErrorModel);
+              }
             },
             registerSuccess: (registerResponse) {
-              SharedPrefHelper.setData("email", registerResponse.userData.email);
               GoRouter.of(context).push(OtpVerificationWithEmailView.routeName);
             },
           );
@@ -40,4 +47,3 @@ class RegisterView extends StatelessWidget {
     );
   }
 }
-

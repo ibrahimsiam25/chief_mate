@@ -9,7 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
-import '../../../auth/data/models/work_space_request_model.dart';
 import '../../../auth/data/models/work_space_response_model.dart';
 import '../../../auth/ui/screens/work_space_view.dart';
 

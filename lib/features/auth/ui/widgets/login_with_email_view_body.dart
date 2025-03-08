@@ -53,8 +53,6 @@ class _LoginWithEmailViewBodyState extends State<LoginWithEmailViewBody> {
                     validator: (p0) {
                       if (p0 == null || p0.isEmpty) {
                         return "Это поле обязательно";
-                      } else if (!ValidatorsRegex.isEmailValid(p0)) {
-                        return "Пожалуйста, введите действительный\nадрес электронной почты";
                       }
                       return null;
                     },
@@ -66,7 +64,12 @@ class _LoginWithEmailViewBodyState extends State<LoginWithEmailViewBody> {
                     },
                     hintText: "Пароль",
                     textInputType: TextInputType.visiblePassword,
-               validator: null,
+               validator: (p0) {
+                      if (p0 == null || p0.isEmpty) {
+                        return "Это поле обязательно";
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(height: 20.h),
                   CustomButton(
