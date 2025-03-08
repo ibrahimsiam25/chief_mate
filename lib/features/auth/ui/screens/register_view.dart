@@ -1,4 +1,5 @@
 import 'package:chief_mate/core/constants/app_constants.dart';
+import 'package:chief_mate/features/auth/logic/resend_otp/resend_otp_state.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/helper/shared_pref_helper.dart';
@@ -23,24 +24,28 @@ class RegisterView extends StatelessWidget {
                       [ApiErrorConstants.email] ==
                   ApiErrorConstants.emailExistsButNotVerified) {
                 String email = await SharedPrefHelper.getString(Prefs.email);
-                context.read<ResendOtpCubit>().emitresendOtpStates(
-                      email: email,
-                    );
-                GoRouter.of(context)
-                    .push(OtpVerificationWithEmailView.routeName);
+                await context
+                    .read<ResendOtpCubit>()
+                    .emitresendOtpStates(email: email);
+                GoRouter.of(context).go(OtpVerificationWithEmailView.routeName);
               } else {
                 showErrorDialog(context, apiErrorModel);
               }
             },
             registerSuccess: (registerResponse) {
-              GoRouter.of(context).push(OtpVerificationWithEmailView.routeName);
+              GoRouter.of(context).go(OtpVerificationWithEmailView.routeName);
             },
           );
         },
-        builder: (context, state) {
-          return CustomModalProgress(
-            isLoading: state is RegisterLoading ? true : false,
-            child: const RegisterViewBody(),
+        builder: (context, registerSate) {
+          return BlocBuilder<ResendOtpCubit, ResendOtpState>(
+            builder: (context, resendState) {
+              return CustomModalProgress(
+                isLoading: registerSate is RegisterLoading ||
+                    resendState is ResendOtpLoading,
+                child: const RegisterViewBody(),
+              );
+            },
           );
         },
       ),

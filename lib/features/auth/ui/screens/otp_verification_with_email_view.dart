@@ -73,7 +73,7 @@ class _OtpVerificationWithEmailViewState
     }
     context.read<ResendOtpCubit>().emitresendOtpStates(email: email);
     setState(() {
-      _secondsRemaining = 60;
+      _secondsRemaining = 150;
       _isButtonEnabled = false;
     });
 
@@ -121,7 +121,6 @@ class _OtpVerificationWithEmailViewState
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const CustomAuthAppBar(),
                           SizedBox(height: 30.h),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20.w),

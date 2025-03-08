@@ -7,7 +7,7 @@ class ResendOtpCubit extends Cubit<ResendOtpState> {
   final  ResendOtpRepo _resendOtpRepo;
   ResendOtpCubit(this._resendOtpRepo) : super(const ResendOtpState.initial());
 
-  void emitresendOtpStates(
+ Future<void> emitresendOtpStates(
       {required String email}) async {
     emit(const ResendOtpState.resendOtpLoading());
     final response = await _resendOtpRepo.resendOtp(

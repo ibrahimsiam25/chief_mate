@@ -7,7 +7,7 @@
   </intent>
 </queries>
     <application
-        android:label="chief_mate"
+        android:label="Chief Mate"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
