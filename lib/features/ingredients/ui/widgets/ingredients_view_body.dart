@@ -1,5 +1,6 @@
 import 'package:chief_mate/core/class/custom_sliver_app_bar_delegate.dart';
 import 'package:chief_mate/core/constants/colors.dart';
+import 'package:chief_mate/core/routes/routes_import.dart';
 import 'package:chief_mate/features/ingredients/ui/widgets/equipment_tab_bar_view_body.dart';
 import 'package:chief_mate/features/ingredients/ui/widgets/ingredients_tab_bar_view_body.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,10 @@ class _IngredientsViewBodyState extends State<IngredientsViewBody>
                       ),
                       const Spacer(),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          GoRouter.of(context).push(AddIngredientAndEquipmentView
+                              .routeName);
+                        },
                         child: Container(
                           padding: EdgeInsets.symmetric(
                               horizontal: 8.w, vertical: 5.h),

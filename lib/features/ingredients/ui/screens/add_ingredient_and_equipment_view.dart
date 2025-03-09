@@ -3,7 +3,6 @@ import 'package:chief_mate/core/widgets/custom_modal_progress.dart';
 import 'package:chief_mate/features/ingredients/logic/create_warehouse/create_warehouse_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/widgets/build_message_bar.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/show_error_dialog.dart';
 import '../widgets/add_ingredient_and_equipment_view_body.dart';
@@ -32,10 +31,9 @@ class _AddIngredientAndEquipmentViewState
       } else {
         _type = 'equipment';
       }
-      context.read<CreateWarehouseCubit>().createWarehouse(
-            title: _title,
-            type: _type
-          );
+      context
+          .read<CreateWarehouseCubit>()
+          .createWarehouse(title: _title, type: _type);
     } else {
       setState(() {
         _autovalidateMode = AutovalidateMode.always;
@@ -47,15 +45,14 @@ class _AddIngredientAndEquipmentViewState
   Widget build(BuildContext context) {
     return BlocConsumer<CreateWarehouseCubit, CreateWarehouseState>(
       listener: (context, state) {
- state.whenOrNull(
-        success: (response) {
-          Navigator.of(context).pop();
-           buildMessageBar(context, "Успешно добавлено");
-        },
-        error: (e) {
-         showErrorDialog(context, e);
-        },
-      );
+        state.whenOrNull(
+          success: (response) {
+            Navigator.of(context).pop();
+          },
+          error: (e) {
+            showErrorDialog(context, e);
+          },
+        );
       },
       builder: (context, state) {
         return CustomModalProgress(

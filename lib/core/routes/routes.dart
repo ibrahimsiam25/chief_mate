@@ -1,9 +1,8 @@
-
 import 'routes_import.dart';
 
 abstract class AppRoutes {
   static GoRouter router = GoRouter(
-    initialLocation: AddIngredientAndEquipmentView.routeName,
+    initialLocation: WorkSpaceCategoriesView.routeName,
     routes: [
       GoRoute(
         path: SignUpView.routeName,
