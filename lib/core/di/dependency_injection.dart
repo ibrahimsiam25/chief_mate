@@ -18,6 +18,8 @@ import '../../features/auth/logic/login/login_cubit.dart';
 import '../../features/auth/logic/otp_verification/otp_verification_cubit.dart';
 import '../../features/auth/logic/register/register_cubit.dart';
 import '../../features/auth/logic/resend_otp/resend_otp_cubit.dart';
+import '../../features/ingredients/data/repos/get_all_warehouse_repo_model.dart';
+import '../../features/ingredients/logic/get_all_warehouse/get_all_warehouse_cubit.dart';
 import '../../features/work_space/data/repos/deleted_work_space_repo.dart';
 import '../../features/work_space/logic/deleted_work_space/deleted_work_space_cubit.dart';
 import '../../features/work_space/logic/get_all_work_space/get_all_work_space_cubit.dart';
@@ -77,7 +79,9 @@ Future<void> setupGetIt() async {
  //create warehouse
   getIt.registerLazySingleton<CreateWarehouseRepo>(() => CreateWarehouseRepo(getIt()));
   getIt.registerFactory<CreateWarehouseCubit>(() => CreateWarehouseCubit(getIt()));
-
+//get all warehouse
+  getIt.registerLazySingleton<GetAllWarehouseRepo>(() => GetAllWarehouseRepo(getIt()));
+  getIt.registerFactory<GetAllWarehouseCubit>(() => GetAllWarehouseCubit(getIt()));
 
 
 

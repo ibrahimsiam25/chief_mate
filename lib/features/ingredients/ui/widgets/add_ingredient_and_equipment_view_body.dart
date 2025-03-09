@@ -4,6 +4,7 @@ import 'package:chief_mate/core/widgets/custom_app_bar.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/styles.dart';
+import '../../../../core/routes/routes_import.dart';
 import '../../../../core/widgets/custom_dropdown_button.dart';
 
 import '../../../../core/widgets/custom_text_form_field.dart';
@@ -37,7 +38,7 @@ class AddIngredientAndEquipmentViewBody extends StatelessWidget {
               const SizedBox(height: 10),
               CustomAppBar(
                 title: "Добавить категорию",
-                onBack: () => Navigator.pop(context),
+                onBack: () =>    GoRouter.of(context).pop()
               ),
               const SizedBox(height: 30),
               _buildLabel("Добавить заголовок"),

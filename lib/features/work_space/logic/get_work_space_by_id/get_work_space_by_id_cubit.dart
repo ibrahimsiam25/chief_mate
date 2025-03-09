@@ -10,7 +10,6 @@ class GetWorkSpaceByIdCubit extends Cubit<GetWorkSpaceByIdState> {
   GetWorkSpaceByIdCubit(this._getWorkSpaceByIdRepo)
       : super(const GetWorkSpaceByIdState.initial());
   void getWorkSpaceById({required int id}) async {
-    print("fffffffffffsffffffffffffffffffffffffffffffffffffff");
     emit(const GetWorkSpaceByIdState.loading());
     final result = await _getWorkSpaceByIdRepo.getWorkSpaceById(id: id);
     result.when(success: (data) {

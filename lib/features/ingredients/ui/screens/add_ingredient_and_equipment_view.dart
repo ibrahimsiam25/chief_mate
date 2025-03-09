@@ -47,7 +47,9 @@ class _AddIngredientAndEquipmentViewState
       listener: (context, state) {
         state.whenOrNull(
           success: (response) {
-            Navigator.of(context).pop();
+          GoRouter.of(context).pushReplacement(IngredientsView.routeName,
+              extra: DateTime.now().millisecondsSinceEpoch
+          );
           },
           error: (e) {
             showErrorDialog(context, e);

@@ -2,7 +2,7 @@ import 'routes_import.dart';
 
 abstract class AppRoutes {
   static GoRouter router = GoRouter(
-    initialLocation: WorkSpaceCategoriesView.routeName,
+    initialLocation: IngredientsView.routeName,
     routes: [
       GoRoute(
         path: SignUpView.routeName,
@@ -102,7 +102,10 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: IngredientsView.routeName,
-        builder: (context, state) => const IngredientsView(),
+        builder: (context, state) {
+          final timestamp = state.extra as int?;
+          return IngredientsView(rebuildKey: timestamp);
+        },
       ),
       GoRoute(
         path: AddIngredientView.routeName,

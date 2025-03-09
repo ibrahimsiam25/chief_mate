@@ -1,12 +1,15 @@
 import 'package:chief_mate/core/constants/icons.dart';
 import 'package:chief_mate/core/widgets/custom_filter_item.dart';
+import 'package:chief_mate/features/ingredients/data/models/all_warehouse_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
 
-class CustomFilterIngredientsViewListView extends StatefulWidget {
-  const CustomFilterIngredientsViewListView({super.key});
+import '../../../work_space/data/models/all_work_space_response_model.dart';
 
+class CustomFilterIngredientsViewListView extends StatefulWidget {
+  const CustomFilterIngredientsViewListView({required this.allWarehouseResponseModel,super.key});
+final AllWarehouseResponseModel allWarehouseResponseModel;
   @override
   State<CustomFilterIngredientsViewListView> createState() =>
       _CustomFilterIngredientsViewListViewState();
@@ -43,19 +46,19 @@ class _CustomFilterIngredientsViewListViewState
             ),
           ),
           SliverList.builder(
-            itemCount: 20,
+            itemCount: widget.allWarehouseResponseModel.data!.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.only(right: 8.w),
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      _selectedFilterIndex = index + 2;
+                      _selectedFilterIndex = index ;
                     });
                   },
                   child: CustomFilterItem(
-                    filterName: 'Тег_группа 1',
-                    isSelected: _selectedFilterIndex == index + 2,
+                    filterName: widget.allWarehouseResponseModel.data![index].title??"",
+                    isSelected: _selectedFilterIndex == index ,
                   ),
                 ),
               );

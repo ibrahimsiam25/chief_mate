@@ -1,7 +1,8 @@
 import 'package:chief_mate/core/class/custom_sliver_app_bar_delegate.dart';
 import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/routes/routes_import.dart';
-import 'package:chief_mate/features/ingredients/ui/widgets/equipment_tab_bar_view_body.dart';
+import 'package:chief_mate/features/ingredients/logic/get_all_warehouse/get_all_warehouse_cubit.dart';
+import 'package:chief_mate/features/ingredients/logic/get_all_warehouse/get_all_warehouse_state.dart';
 import 'package:chief_mate/features/ingredients/ui/widgets/ingredients_tab_bar_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -54,8 +55,8 @@ class _IngredientsViewBodyState extends State<IngredientsViewBody>
                       const Spacer(),
                       GestureDetector(
                         onTap: () {
-                          GoRouter.of(context).push(AddIngredientAndEquipmentView
-                              .routeName);
+                          GoRouter.of(context)
+                              .push(AddIngredientAndEquipmentView.routeName);
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(
@@ -114,10 +115,19 @@ class _IngredientsViewBodyState extends State<IngredientsViewBody>
             ),
           ];
         },
-        body: TabBarView(controller: tabController, children: const [
-          IngredientsTabBarViewBody(),
-          EquipmentTabBarViewBody(),
-        ]),
+        body: BlocBuilder<GetAllWarehouseCubit, GetAllWarehouseState>(
+          builder: (context, state) {
+            if (state is Success) {
+              return TabBarView(controller: tabController, children: [
+                IngredientsTabBarViewBody(
+                    allWarehouseResponseModel: state.data),
+                Container()
+              ]);
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
+          },
+        ),
       ),
     );
   }

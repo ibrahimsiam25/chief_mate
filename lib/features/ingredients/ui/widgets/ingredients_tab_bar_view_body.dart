@@ -8,10 +8,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../core/routes/routes_import.dart';
+import '../../data/models/all_warehouse_response_model.dart';
 
 class IngredientsTabBarViewBody extends StatelessWidget {
-  const IngredientsTabBarViewBody({super.key});
-
+  const IngredientsTabBarViewBody({super.key, required this.allWarehouseResponseModel});
+final AllWarehouseResponseModel allWarehouseResponseModel;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -32,9 +33,13 @@ class IngredientsTabBarViewBody extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 10.h),
-              child: const CustomFilterIngredientsViewListView(),
+              child:  CustomFilterIngredientsViewListView(
+                allWarehouseResponseModel: allWarehouseResponseModel,
+              ),
             ),
-            const CustomIngredientsListView(),
+            CustomIngredientsListView(
+              allWarehouseResponseModel: allWarehouseResponseModel,
+            ),
           ],
         ),
         Positioned(
