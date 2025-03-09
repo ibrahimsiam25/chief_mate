@@ -5,9 +5,11 @@ import 'package:chief_mate/features/tasks/presentation/views/widgets/custom_add_
 import 'package:chief_mate/features/tasks/presentation/views/widgets/custom_task_view_list_view.dart';
 import 'package:chief_mate/features/tasks/presentation/views/widgets/priority_options.dart';
 import 'package:chief_mate/features/tasks/presentation/views/widgets/select_date_section.dart';
-import 'package:chief_mate/features/tasks/presentation/views/widgets/tasks_view_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../core/routes/routes_import.dart';
+import '../../../../../core/widgets/custom_app_bar.dart';
 
 class TasksViewBody extends StatelessWidget {
   const TasksViewBody({super.key});
@@ -19,8 +21,15 @@ class TasksViewBody extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
         child: CustomScrollView(
           slivers: [
-            const SliverToBoxAdapter(
-              child: TasksViewAppBar(),
+            SliverToBoxAdapter(
+              child: CustomAppBar(
+                title: 'Создание задания',
+                onBack: () {
+                  GoRouter.of(context).pushReplacement(
+                      BottomNavBarController.routeName,
+                      extra: 2);
+                },
+              ),
             ),
             SliverToBoxAdapter(
               child: SizedBox(height: 20.h),

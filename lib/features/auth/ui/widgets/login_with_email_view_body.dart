@@ -8,7 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/styles.dart';
-import '../../../../core/helper/validators_regex.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../logic/login/login_cubit.dart';
 import '../screens/register_view.dart';

@@ -1,13 +1,17 @@
+import '../../features/ingredients/ui/screens/add_ingredient_and_equipment_view.dart';
 import 'routes_import.dart';
 
 abstract class AppRoutes {
   static GoRouter router = GoRouter(
-    initialLocation: WorkSpaceCategoriesView.routeName,
+    initialLocation:AddIngredientAndEquipmentView.routeName,
     routes: [
       GoRoute(
         path: SignUpView.routeName,
         builder: (context, state) => const SignUpView(),
       ),
+      GoRoute(
+          path: AddIngredientAndEquipmentView.routeName,
+          builder: (context, state) => const AddIngredientAndEquipmentView()),
       GoRoute(
         path: AddPhoneNumberView.routeName,
         builder: (context, state) => const AddPhoneNumberView(),

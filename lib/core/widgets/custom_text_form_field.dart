@@ -38,6 +38,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       obscureText: _isObscured,
       onChanged: widget.onChanged,
+       cursorColor: AppColors.kColor7,
+       
       keyboardType: widget.textInputType,
       textAlign: TextAlign.left,
       style: AppStyles.textStyle16,
@@ -49,10 +51,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               return null;
             } ,
       decoration: InputDecoration(
+        
         hintText: widget.hintText,
         hintStyle: AppStyles.textStyle16,
         filled: true,
-        fillColor: Colors.transparent, // Make fillColor transparent
+        fillColor: AppColors.kColor5, // Make fillColor transparent
         border: _buildBorder(),
         enabledBorder: _buildBorder(),
         focusedBorder: _buildBorder(),
@@ -84,7 +87,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   OutlineInputBorder _buildBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
-      borderSide: BorderSide(color: AppColors.kColor9),
+      borderSide: BorderSide(color: AppColors.kColor7),
     );
   }
 
