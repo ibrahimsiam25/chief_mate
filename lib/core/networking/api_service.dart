@@ -15,6 +15,8 @@ import '../../features/auth/data/models/register_response_model.dart';
 import '../../features/auth/data/models/resend_otp_request_model.dart';
 import '../../features/auth/data/models/update_user_profile_request_model.dart';
 import '../../features/auth/data/models/update_user_profile_response_model.dart';
+import '../../features/ingredients/data/models/warehouse_requset_model.dart';
+import '../../features/ingredients/data/models/warehouse_response_model.dart';
 
 
 part 'api_service.g.dart';
@@ -68,4 +70,9 @@ abstract class ApiService {
   Future<WorkSpaceResponseModel> getWorkSpaceById(
     @Path() int id,
   );
+@POST(ApiConstants.warehouse)
+Future<WarehouseResponseModel> createWarehouse(
+  @Body() WarehouseRequestModel warehouseRequestModel,
+);
+
 }

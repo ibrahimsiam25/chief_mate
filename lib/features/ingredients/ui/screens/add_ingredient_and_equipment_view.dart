@@ -73,6 +73,7 @@ class _AddIngredientAndEquipmentViewState extends State<AddIngredientAndEquipmen
                 _buildLabel("Выберите тип"),
                 SizedBox(height: 8.h),
                 CustomDropdownButton(
+                  //         'ingredient',   'equipment'    
                   items:const ['ингредиент', "оборудование"],
                   initialValue: 'ингредиент',
                   onSelected: (selected) => _selectedValue = selected,

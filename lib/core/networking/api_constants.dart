@@ -6,5 +6,7 @@ class ApiConstants {
   static const String resendOtp = "resend-otp";
   static const String updateUserProfile = "user/update";
   static const String workSpace = "workspaces";
+  
+  static const String warehouse = "warehouse";
 }
 
