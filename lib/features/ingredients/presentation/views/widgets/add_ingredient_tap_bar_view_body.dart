@@ -1,6 +1,6 @@
 import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/styles.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/add_ingredients_view_drop_down_button.dart';
+import 'package:chief_mate/core/widgets/custom_dropdown_button.dart';
 import 'package:chief_mate/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -48,7 +48,15 @@ class AddIngredientTapBarViewBody extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 8.h),
-                  const AddIngredientsViewDropDownButton(),
+                CustomDropdownButton(
+  items: ['Граммы', 'Килограммы', 'Литры'],
+  initialValue: 'Граммы',
+  onSelected: (selectedValue) {
+    print("Selected value: $selectedValue");
+  },
+),
+
+
                 ],
               ),
             ),
