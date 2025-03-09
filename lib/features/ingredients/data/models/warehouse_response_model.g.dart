@@ -9,7 +9,7 @@ part of 'warehouse_response_model.dart';
 WarehouseResponseModel _$WarehouseResponseModelFromJson(
         Map<String, dynamic> json) =>
     WarehouseResponseModel(
-      code: json['code'] as String?,
+      code: (json['code'] as num?)?.toInt(),
       message: json['message'] as String?,
       data: json['data'] == null
           ? null

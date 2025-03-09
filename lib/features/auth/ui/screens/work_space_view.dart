@@ -20,7 +20,7 @@ class _WorkSpaceViewState extends State<WorkSpaceView> {
   void initState() {
     super.initState();
     getWorkSpaceByIdCubit = getIt<GetWorkSpaceByIdCubit>();
-    getWorkSpaceByIdCubit.getWorkSpaceById(id: 85);
+    getWorkSpaceByIdCubit.getWorkSpaceById(id: widget.workSpaceModel.data!.id!);
   }
 
   @override

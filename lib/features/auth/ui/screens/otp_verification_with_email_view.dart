@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:chief_mate/core/widgets/build_message_bar.dart';
-import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:chief_mate/features/auth/logic/otp_verification/otp_verification_cubit.dart';
 import 'package:chief_mate/features/auth/logic/resend_otp/resend_otp_cubit.dart';
 import 'package:chief_mate/features/auth/ui/screens/user_info_view.dart';
@@ -14,12 +13,10 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/styles.dart';
 import '../../../../core/helper/shared_pref_helper.dart';
-import '../../../../core/routes/routes.dart';
 import '../../../../core/widgets/custom_modal_progress.dart';
 import '../../../../core/widgets/show_error_dialog.dart';
 import '../../logic/otp_verification/otp_verification_state.dart';
 import '../../logic/resend_otp/resend_otp_state.dart';
-import '../widgets/add_phone_number_view_app_bar.dart';
 import '../widgets/custom_auth_header_text.dart';
 
 class OtpVerificationWithEmailView extends StatefulWidget {

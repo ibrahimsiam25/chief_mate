@@ -1,9 +1,9 @@
-import '../../features/ingredients/ui/screens/add_ingredient_and_equipment_view.dart';
+
 import 'routes_import.dart';
 
 abstract class AppRoutes {
   static GoRouter router = GoRouter(
-    initialLocation:AddIngredientAndEquipmentView.routeName,
+    initialLocation: AddIngredientAndEquipmentView.routeName,
     routes: [
       GoRoute(
         path: SignUpView.routeName,
@@ -11,7 +11,10 @@ abstract class AppRoutes {
       ),
       GoRoute(
           path: AddIngredientAndEquipmentView.routeName,
-          builder: (context, state) => const AddIngredientAndEquipmentView()),
+          builder: (context, state) => BlocProvider(
+                create: (context) => getIt<CreateWarehouseCubit>(),
+                child: const AddIngredientAndEquipmentView(),
+              )),
       GoRoute(
         path: AddPhoneNumberView.routeName,
         builder: (context, state) => const AddPhoneNumberView(),

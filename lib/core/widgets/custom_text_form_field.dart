@@ -1,5 +1,6 @@
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants/colors.dart';
 
@@ -67,7 +68,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
   Widget? _buildPrefixIcon() {
     if (widget.textInputType == TextInputType.emailAddress) {
-      return Icon(Icons.email_outlined, color: AppColors.kColor9);
+      return const Icon(Icons.email_outlined, color: AppColors.kColor9);
     } else if (widget.textInputType == TextInputType.visiblePassword) {
       return GestureDetector(
         onTap: () {
@@ -86,8 +87,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
   OutlineInputBorder _buildBorder() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: BorderSide(color: AppColors.kColor7),
+      borderRadius: BorderRadius.circular(4.r),
+      borderSide:const BorderSide(color: AppColors.kColor7),
     );
   }
 

@@ -1,3 +1,5 @@
+import 'package:chief_mate/features/ingredients/data/repos/create_warehouse_repo.dart';
+import 'package:chief_mate/features/ingredients/logic/create_warehouse/create_warehouse_cubit.dart';
 import 'package:chief_mate/features/work_space/data/repos/all_work_spacce_repo.dart';
 import 'package:chief_mate/features/work_space/data/repos/get_work_space_by_id_repo.dart';
 import 'package:chief_mate/features/work_space/data/repos/update_work_space_repo.dart';
@@ -71,7 +73,15 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<GetWorkSpaceByIdRepo>(() => GetWorkSpaceByIdRepo(getIt()));
   getIt.registerFactory<GetWorkSpaceByIdCubit>(() => GetWorkSpaceByIdCubit(getIt()));
 
+//todo: warehouse *******************************************************************************
+ //create warehouse
+  getIt.registerLazySingleton<CreateWarehouseRepo>(() => CreateWarehouseRepo(getIt()));
+  getIt.registerFactory<CreateWarehouseCubit>(() => CreateWarehouseCubit(getIt()));
 
+
+
+
+  
 //todo: ui cubit**********************************************************************************
 //chosse color
   getIt.registerFactoryParam<ChooseColorCubit, int, void>(

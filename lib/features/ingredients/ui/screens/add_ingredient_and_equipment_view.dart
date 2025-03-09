@@ -1,34 +1,41 @@
+import 'package:chief_mate/core/routes/routes_import.dart';
+import 'package:chief_mate/core/widgets/custom_modal_progress.dart';
+import 'package:chief_mate/features/ingredients/logic/create_warehouse/create_warehouse_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:chief_mate/core/widgets/custom_app_bar.dart';
-
-import '../../../../core/constants/colors.dart';
-import '../../../../core/constants/styles.dart';
-import '../../../../core/widgets/custom_dropdown_button.dart';
-
+import '../../../../core/widgets/build_message_bar.dart';
 import '../../../../core/widgets/custom_button.dart';
-import '../../../../core/widgets/custom_text_form_field.dart';
-
+import '../../../../core/widgets/show_error_dialog.dart';
+import '../widgets/add_ingredient_and_equipment_view_body.dart';
 
 class AddIngredientAndEquipmentView extends StatefulWidget {
   const AddIngredientAndEquipmentView({super.key});
   static const String routeName = "/AddComponentsAndEquipment";
 
   @override
-  State<AddIngredientAndEquipmentView> createState() => _AddIngredientAndEquipmentViewState();
+  State<AddIngredientAndEquipmentView> createState() =>
+      _AddIngredientAndEquipmentViewState();
 }
 
-class _AddIngredientAndEquipmentViewState extends State<AddIngredientAndEquipmentView> {
+class _AddIngredientAndEquipmentViewState
+    extends State<AddIngredientAndEquipmentView> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
-  String _selectedValue = 'ингредиент';
-  late String _name;
+  String _type = 'ингредиент';
+  late String _title;
 
   void _onSubmit() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      print(_name);
-      print(_selectedValue);
+      if (_type == 'ингредиент') {
+        _type = 'ingredient';
+      } else {
+        _type = 'equipment';
+      }
+      context.read<CreateWarehouseCubit>().createWarehouse(
+            title: _title,
+            type: _type
+          );
     } else {
       setState(() {
         _autovalidateMode = AutovalidateMode.always;
@@ -38,58 +45,38 @@ class _AddIngredientAndEquipmentViewState extends State<AddIngredientAndEquipmen
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: Padding(
-        padding: EdgeInsets.only(left: 30.w),
-        child: CustomButton(
-          buttonName: 'Добавить',
-          onTap: _onSubmit,
-        ),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Form(
-            key: _formKey,
-            autovalidateMode: _autovalidateMode,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 10),
-                CustomAppBar(
-                  title: "Добавить категорию",
-                  onBack: () => Navigator.pop(context),
-                ),
-                const SizedBox(height: 30),
-                _buildLabel("Добавить заголовок"),
-                    SizedBox(height: 8.h),
-                CustomTextFormField(
-                  onChanged: (value) => _name = value!,
-                  hintText: "Электронная почта",
-                  textInputType: TextInputType.multiline,
-                  validator: (value) => (value == null || value.isEmpty) ? "Это поле обязательно" : null,
-                ),
-                const SizedBox(height: 10),
-                _buildLabel("Выберите тип"),
-                SizedBox(height: 8.h),
-                CustomDropdownButton(
-                  //         'ingredient',   'equipment'    
-                  items:const ['ингредиент', "оборудование"],
-                  initialValue: 'ингредиент',
-                  onSelected: (selected) => _selectedValue = selected,
-                ),
-              ],
+    return BlocConsumer<CreateWarehouseCubit, CreateWarehouseState>(
+      listener: (context, state) {
+ state.whenOrNull(
+        success: (response) {
+          Navigator.of(context).pop();
+           buildMessageBar(context, "Успешно добавлено");
+        },
+        error: (e) {
+         showErrorDialog(context, e);
+        },
+      );
+      },
+      builder: (context, state) {
+        return CustomModalProgress(
+          isLoading: state is Loading,
+          child: Scaffold(
+            floatingActionButton: Padding(
+              padding: EdgeInsets.only(left: 30.w),
+              child: CustomButton(
+                buttonName: 'Добавить',
+                onTap: _onSubmit,
+              ),
+            ),
+            body: AddIngredientAndEquipmentViewBody(
+              formKey: _formKey,
+              autovalidateMode: _autovalidateMode,
+              onChanged: (value) => _title = value!,
+              onSelected: (selected) => _type = selected,
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLabel(String text) {
-    return Text(
-      text,
-      style: AppStyles.textStyle16.copyWith(color: AppColors.kColor3),
+        );
+      },
     );
   }
 }

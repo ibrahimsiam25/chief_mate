@@ -3,7 +3,7 @@ part 'warehouse_response_model.g.dart';
 
 @JsonSerializable()
 class WarehouseResponseModel {
-  String? code;
+  int? code;
   String? message;
   WarehouseData? data;
 
