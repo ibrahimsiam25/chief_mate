@@ -1,9 +1,9 @@
 import 'package:chief_mate/core/class/custom_sliver_app_bar_delegate.dart';
 import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/styles.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/add_ingredient_tap_bar_view.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_add_ingredient_view_app_bar.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_add_photo.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/add_ingredient_tap_bar_view.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/custom_add_ingredient_view_app_bar.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/custom_add_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

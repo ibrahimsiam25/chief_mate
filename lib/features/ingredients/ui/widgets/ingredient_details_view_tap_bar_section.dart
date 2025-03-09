@@ -1,5 +1,5 @@
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/ingredient_details_view_tab_bar_view.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/ingredient_details_view_tap_bar.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/ingredient_details_view_tab_bar_view.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/ingredient_details_view_tap_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

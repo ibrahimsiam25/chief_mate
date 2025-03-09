@@ -1,4 +1,4 @@
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/ingredients_view_body.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/ingredients_view_body.dart';
 import 'package:flutter/material.dart';
 
 class IngredientsView extends StatelessWidget {

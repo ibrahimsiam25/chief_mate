@@ -1,4 +1,4 @@
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/add_ingredient_tap_bar_view_body.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/add_ingredient_tap_bar_view_body.dart';
 import 'package:flutter/material.dart';
 
 class AddIngredientTapBarView extends StatelessWidget {

@@ -1,10 +1,10 @@
 import 'package:chief_mate/core/class/custom_sliver_app_bar_delegate.dart';
 import 'package:chief_mate/core/constants/colors.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_ingredient_photo.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_ingredient_details_view_app_bar.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/ingredient_details_section.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/ingredient_details_view_tab_bar_view.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/similar_recipe_section.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/custom_ingredient_photo.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/custom_ingredient_details_view_app_bar.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/ingredient_details_section.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/ingredient_details_view_tab_bar_view.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/similar_recipe_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

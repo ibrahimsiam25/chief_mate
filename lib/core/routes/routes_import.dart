@@ -11,9 +11,9 @@ export '../../features/home/presentation/views/food_item_details_home_view.dart'
 export '../../features/home/presentation/views/in_work_status_view.dart';
 export '../../features/home/presentation/views/start_cooking_view.dart';
 export '../../features/home/presentation/views/widgets/bottom_nav_bar_controller.dart';
-export '../../features/ingredients/presentation/views/add_ingredient_view.dart';
-export '../../features/ingredients/presentation/views/ingredient_details_view.dart';
-export '../../features/ingredients/presentation/views/ingredients_view.dart';
+export '../../features/ingredients/ui/screens/add_ingredient_view.dart';
+export '../../features/ingredients/ui/screens/ingredient_details_view.dart';
+export '../../features/ingredients/ui/screens/ingredients_view.dart';
 export '../../features/profile/presentation/views/profile_view.dart';
 export '../../features/recipes/presemtation/views/add_recipe_view.dart';
 export '../../features/recipes/presemtation/views/draft_recipe_view.dart';

@@ -1,6 +1,6 @@
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/add_comment_text_field.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_comment_item.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_profile_image.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/add_comment_text_field.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/custom_comment_item.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/custom_profile_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

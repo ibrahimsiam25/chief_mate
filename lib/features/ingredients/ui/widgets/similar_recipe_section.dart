@@ -1,5 +1,5 @@
 import 'package:chief_mate/core/constants/icons.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_similar_recipe_list_view.dart';
+import 'package:chief_mate/features/ingredients/ui/widgets/custom_similar_recipe_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
