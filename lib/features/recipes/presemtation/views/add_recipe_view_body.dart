@@ -1,4 +1,3 @@
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_add_photo.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/add_categry_button.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/custom_add_recipe_options.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/custom_add_recipe_text_fields.dart';
@@ -6,6 +5,8 @@ import 'package:chief_mate/features/recipes/presemtation/views/widgets/custom_ad
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/custom_timer_row_recipe_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../ingredients/presentation/widgets/custom_add_photo.dart';
 
 class AddRecipeViewBody extends StatelessWidget {
   const AddRecipeViewBody({super.key});

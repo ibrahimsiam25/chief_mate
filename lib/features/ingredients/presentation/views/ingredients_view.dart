@@ -1,5 +1,6 @@
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/ingredients_view_body.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/ingredients_view_body.dart';
 
 class IngredientsView extends StatelessWidget {
   const IngredientsView({super.key});

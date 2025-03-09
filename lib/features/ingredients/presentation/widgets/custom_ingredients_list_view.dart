@@ -1,9 +1,9 @@
+import 'package:chief_mate/features/ingredients/presentation/widgets/custom_ingredient_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/routes/routes_import.dart';
-import '../../widgets/custom_ingredient_list_view_item.dart';
-import '../ingredient_details_view.dart';
+import '../views/ingredient_details_view.dart';
 
 class CustomIngredientsListView extends StatelessWidget {
   const CustomIngredientsListView({super.key});

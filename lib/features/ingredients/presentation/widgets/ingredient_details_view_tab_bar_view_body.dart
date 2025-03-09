@@ -1,10 +1,10 @@
+import 'package:chief_mate/features/ingredients/presentation/widgets/add_comment_text_field.dart';
+import 'package:chief_mate/features/ingredients/presentation/widgets/custom_comment_item.dart';
+import 'package:chief_mate/features/ingredients/presentation/widgets/custom_profile_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../widgets/add_comment_text_field.dart';
-import '../../widgets/custom_comment_item.dart';
-import '../../widgets/custom_profile_image.dart';
 
 class IngredientDetailsViewTabBarViewBody extends StatelessWidget {
   const IngredientDetailsViewTabBarViewBody({super.key});

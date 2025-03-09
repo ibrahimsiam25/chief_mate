@@ -7,7 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
-import '../../../../home/presentation/views/widgets/bottom_nav_bar_controller.dart';
+import '../../../../core/routes/routes_import.dart';
+
 
 class CustomAddIngredientViewAppBar extends StatelessWidget {
   const CustomAddIngredientViewAppBar({super.key});

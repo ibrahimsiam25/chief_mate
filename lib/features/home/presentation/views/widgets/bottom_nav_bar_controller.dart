@@ -1,13 +1,14 @@
 import 'package:chief_mate/core/constants/icons.dart';
 import 'package:chief_mate/features/home/presentation/views/home_view.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/custom_bottom_nav_bar_selected_icon.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/ingredients_view.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/resicpe_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:svg_flutter/svg.dart';
+
+import '../../../../ingredients/presentation/views/ingredients_view.dart';
 
 class BottomNavBarController extends StatefulWidget {
   const BottomNavBarController({super.key});

@@ -4,18 +4,31 @@ import 'package:chief_mate/core/constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
+class CustomDropdownButton extends StatefulWidget {
+  final List<String> items;
+  final String initialValue;
+  final ValueChanged<String> onSelected;
 
-class AddIngredientsViewDropDownButton extends StatefulWidget {
-  const AddIngredientsViewDropDownButton({super.key});
+  const CustomDropdownButton({
+    super.key,
+    required this.items,
+    required this.initialValue,
+    required this.onSelected,
+  });
 
   @override
-  State<AddIngredientsViewDropDownButton> createState() =>
-      _AddIngredientsViewDropDownButtonState();
+  State<CustomDropdownButton> createState() => _CustomDropdownButtonState();
 }
 
-class _AddIngredientsViewDropDownButtonState
-    extends State<AddIngredientsViewDropDownButton> {
-  String selectedText = 'Граммы'; // initial value
+class _CustomDropdownButtonState extends State<CustomDropdownButton> {
+  late String selectedText;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedText = widget.initialValue;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,17 +55,19 @@ class _AddIngredientsViewDropDownButtonState
         style: AppStyles.textStyle16,
         underline: Container(),
         onChanged: (String? newValue) {
-          setState(() {
-            selectedText = newValue!;
-          });
+          if (newValue != null) {
+            setState(() {
+              selectedText = newValue;
+            });
+            widget.onSelected(newValue); // Call the callback function
+          }
         },
-        items: <String>['Граммы', 'Килограммы', 'Литры']
-            .map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
+        items: widget.items
+            .map<DropdownMenuItem<String>>((String value) => DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                ))
+            .toList(),
       ),
     );
   }

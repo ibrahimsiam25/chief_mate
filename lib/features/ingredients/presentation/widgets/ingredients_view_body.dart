@@ -1,11 +1,11 @@
 import 'package:chief_mate/core/class/custom_sliver_app_bar_delegate.dart';
 import 'package:chief_mate/core/constants/colors.dart';
+import 'package:chief_mate/features/ingredients/presentation/widgets/equipment_tab_bar_view_body.dart';
 import 'package:chief_mate/features/ingredients/presentation/widgets/ingredients_tab_bar_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/constants/styles.dart';
-import '../../widgets/equipment_tab_bar_view_body.dart';
 
 class IngredientsViewBody extends StatefulWidget {
   const IngredientsViewBody({super.key});

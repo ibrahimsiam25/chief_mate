@@ -1,4 +1,4 @@
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_similar_recipe_item.dart';
+import 'package:chief_mate/features/ingredients/presentation/widgets/custom_similar_recipe_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

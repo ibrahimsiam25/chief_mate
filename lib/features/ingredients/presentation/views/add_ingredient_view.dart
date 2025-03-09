@@ -1,11 +1,11 @@
 import '../../../../../core/routes/routes.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/add_ingredient_view_body.dart';
 import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../home/presentation/views/widgets/bottom_nav_bar_controller.dart';
+import '../widgets/add_ingredient_view_body.dart';
 
 class AddIngredientView extends StatelessWidget {
   const AddIngredientView({super.key});

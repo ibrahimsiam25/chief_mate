@@ -1,3 +1,6 @@
+import '../../features/ingredients/presentation/views/add_ingredient_view.dart';
+import '../../features/ingredients/presentation/views/ingredient_details_view.dart';
+import '../../features/ingredients/presentation/views/ingredients_view.dart';
 import 'routes_import.dart';
 
 abstract class AppRoutes {

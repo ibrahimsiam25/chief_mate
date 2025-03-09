@@ -1,6 +1,5 @@
 import 'package:chief_mate/core/constants/icons.dart';
 import 'package:chief_mate/core/widgets/custom_text_field.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_add_photo.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/add_new_step_button.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/instructions_view_app_bar.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/select_timer_view.dart';
@@ -8,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
+
+import '../../../ingredients/presentation/widgets/custom_add_photo.dart';
 
 class AddStepView extends StatelessWidget {
   const AddStepView({super.key});

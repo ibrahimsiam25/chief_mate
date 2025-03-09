@@ -1,9 +1,8 @@
+import 'package:chief_mate/features/ingredients/presentation/widgets/ingredient_details_view_tap_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../widgets/ingredient_details_view_tab_bar_view.dart';
-import '../../widgets/ingredient_details_view_tap_bar.dart';
-
+import '../views/widgets/ingredient_details_view_tab_bar_view.dart';
 
 class IngrediantDetailsViewTapBarSection extends StatefulWidget {
   const IngrediantDetailsViewTapBarSection({super.key});

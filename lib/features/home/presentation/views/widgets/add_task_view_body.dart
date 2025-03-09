@@ -2,13 +2,14 @@ import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/add_task_view_app_bar.dart';
 import 'package:chief_mate/features/home/presentation/views/widgets/add_task_view_text_fields.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_add_photo.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/custom_timer_row_recipe_view.dart';
 import 'package:chief_mate/features/tasks/presentation/views/widgets/custom_task_view_list_view.dart';
 import 'package:chief_mate/features/tasks/presentation/views/widgets/priority_options.dart';
 import 'package:chief_mate/features/tasks/presentation/views/widgets/select_date_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../ingredients/presentation/widgets/custom_add_photo.dart';
 
 class AddTaskViewBody extends StatelessWidget {
   const AddTaskViewBody({super.key});

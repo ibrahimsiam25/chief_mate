@@ -1,14 +1,14 @@
 import 'package:chief_mate/core/constants/icons.dart';
 import 'package:chief_mate/core/widgets/custom_add_button.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_ingredients_list_view.dart';
+import 'package:chief_mate/features/ingredients/presentation/widgets/custom_filter_ingredients_view_list_view.dart';
 import 'package:chief_mate/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../../core/routes/routes_import.dart';
-import '../../widgets/custom_filter_ingredients_view_list_view.dart';
-import '../add_ingredient_view.dart';
+import '../views/add_ingredient_view.dart';
+import '../views/widgets/custom_ingredients_list_view.dart';
 
 class IngredientsTabBarViewBody extends StatelessWidget {
   const IngredientsTabBarViewBody({super.key});

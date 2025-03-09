@@ -1,12 +1,12 @@
 import 'package:chief_mate/core/class/custom_sliver_app_bar_delegate.dart';
 import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/styles.dart';
+import 'package:chief_mate/features/ingredients/presentation/widgets/custom_add_ingredient_view_app_bar.dart';
+import 'package:chief_mate/features/ingredients/presentation/widgets/custom_add_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../widgets/add_ingredient_tap_bar_view.dart';
-import '../../widgets/custom_add_ingredient_view_app_bar.dart';
-import '../../widgets/custom_add_photo.dart';
+import '../views/widgets/add_ingredient_tap_bar_view.dart';
 
 class AddIngredientViewBody extends StatefulWidget {
   const AddIngredientViewBody({super.key});

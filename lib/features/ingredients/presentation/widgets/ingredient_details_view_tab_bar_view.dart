@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/ingredient_details_view_tab_bar_view_body.dart';
+import '../views/widgets/ingredient_details_view_tab_bar_view_body.dart';
 
 class IngredientDetailsViewTabBarView extends StatelessWidget {
   const IngredientDetailsViewTabBarView({
