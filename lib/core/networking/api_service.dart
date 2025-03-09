@@ -63,4 +63,9 @@ abstract class ApiService {
 
   @GET(ApiConstants.workSpace)
   Future<AllWorkSpaceResponseModel> getAllWorkSpaces();
+
+  @GET("${ApiConstants.workSpace}/{id}")
+  Future<WorkSpaceResponseModel> getWorkSpaceById(
+    @Path() int id,
+  );
 }

@@ -9,7 +9,7 @@ class DioFactory {
 
   static Dio? dio;
 
-  static Dio getDio() {
+  static Future<Dio> getDio() async{
     Duration timeOut = const Duration(seconds: 30);
 
     if (dio == null) {
@@ -17,7 +17,7 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
-      addDioHeaders();
+     await addDioHeaders();
       addDioInterceptor();
       return dio!;
     } else {
@@ -25,19 +25,24 @@ class DioFactory {
     }
   }
 
-  static void addDioHeaders() async {
+ static Future<void> addDioHeaders() async {
+  print("🚀 ********[DioFactory]*************************************************************** Calling addDioHeaders to set authorization headers...");
+
+    String? token = await SharedPrefHelper.getSecuredString(Prefs.token);
     dio?.options.headers = {
       'Accept': 'application/json',
-      'Authorization':
-          'Bearer ${await SharedPrefHelper.getSecuredString(Prefs.token)}',
+      if (token != null) 'Authorization': 'Bearer $token',
     };
   }
 
   static void setTokenIntoHeaderAfterLogin(String token) {
+  print("🚀@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@[DioFactory]@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@calling setTokenIntoHeaderAfterLogin to set token into header...");
+
     dio?.options.headers = {
       'Authorization': 'Bearer $token',
     };
   }
+
   static void addDioInterceptor() {
     dio?.interceptors.add(
       PrettyDioLogger(

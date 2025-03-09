@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setupGetIt();
+ await setupGetIt();
   Intl.defaultLocale = 'ru';
   await ScreenUtil.ensureScreenSize();
 

@@ -1,10 +1,11 @@
 import 'package:chief_mate/core/class/custom_sliver_app_bar_delegate.dart';
 import 'package:chief_mate/core/constants/colors.dart';
-import 'package:chief_mate/features/ingredients/presentation/views/widgets/custom_ingredient_view_app_bar.dart';
 import 'package:chief_mate/features/ingredients/presentation/views/widgets/equipment_tab_bar_view_body.dart';
 import 'package:chief_mate/features/ingredients/presentation/views/widgets/ingredients_tab_bar_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../core/constants/styles.dart';
 
 class IngredientsViewBody extends StatefulWidget {
   const IngredientsViewBody({super.key});
@@ -35,13 +36,51 @@ class _IngredientsViewBodyState extends State<IngredientsViewBody>
       child: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
-            
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.only(
-                    left: 20.w, right: 20.w, top: 20.h, bottom: 10.h),
-                child: const CustomIngredientViewAppBar(),
-              ),
+                  padding: EdgeInsets.only(
+                      left: 20.w, right: 20.w, top: 20.h, bottom: 10.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Склад',
+                        style: TextStyle(
+                            fontSize: 32.sp,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xffFFFFFF)),
+                      ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 8.w, vertical: 5.h),
+                          decoration: BoxDecoration(
+                            color: AppColors.kColor4,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(8.r)),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "категория",
+                                style: AppStyles.textStyle16
+                                    .copyWith(color: AppColors.kColor1),
+                              ),
+                              const SizedBox(width: 5),
+                              Icon(
+                                Icons.add,
+                                color: AppColors.kColor1,
+                                size: 18.sp,
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  )),
             ),
             SliverPersistentHeader(
               delegate: CustomSliverAppBarDelegate(
