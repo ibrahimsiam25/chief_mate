@@ -149,13 +149,13 @@ class _IngredientsViewBodyState extends State<IngredientsViewBody>
       delegate: CustomSliverAppBarDelegate(
         TabBar(
           controller: tabController,
-          isScrollable: true,
-          labelPadding: EdgeInsets.only(left: 20.w, right: 0),
+        // isScrollable: true,
           indicatorColor: AppColors.kColor4,
           labelColor: AppColors.kColor4,
           unselectedLabelColor: AppColors.kColor12,
           indicatorPadding: EdgeInsets.only(bottom: 5.h),
           dividerHeight: 0,
+          
           labelStyle: TextStyle(fontSize: 20.sp),
           tabs: const [
             Tab(child: Text('Ингредиенты')),
