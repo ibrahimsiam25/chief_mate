@@ -1,3 +1,4 @@
+import '../../features/ingredients/data/models/all_warehouse_response_model.dart';
 import 'routes_import.dart';
 
 abstract class AppRoutes {
@@ -109,7 +110,9 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: AddIngredientView.routeName,
-        builder: (context, state) => const AddIngredientView(),
+        builder: (context, state) =>  AddIngredientView(
+          allWarehouseResponseModel: state.extra as AllWarehouseResponseModel,
+        ),
       ),
       GoRoute(
         path: IngredientDetailsView.routeName,

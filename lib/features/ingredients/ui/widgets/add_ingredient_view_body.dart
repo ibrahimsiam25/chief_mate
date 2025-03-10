@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:chief_mate/core/class/custom_sliver_app_bar_delegate.dart';
 import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/styles.dart';
@@ -7,9 +9,19 @@ import 'package:chief_mate/features/ingredients/ui/widgets/custom_add_photo.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AddIngredientViewBody extends StatefulWidget {
-  const AddIngredientViewBody({super.key});
+import '../../data/models/all_warehouse_response_model.dart';
 
+class AddIngredientViewBody extends StatefulWidget {
+  const AddIngredientViewBody({super.key, required this.allWarehouseResponseModel, required this.typeOfIngredient, required this.name, required this.description, required this.image, required this.quantity, required this.unit, required this.formKey, required this.autovalidateMode});
+   final Function(String?) typeOfIngredient;
+   final Function(String?) name;
+   final Function(String?) description;
+   final Function(File?) image;
+   final Function(String?) quantity;
+   final Function(String?) unit;
+    final GlobalKey<FormState> formKey;
+  final AutovalidateMode autovalidateMode;
+final AllWarehouseResponseModel allWarehouseResponseModel;
   @override
   State<AddIngredientViewBody> createState() => _AddIngredientViewBodyState();
 }
@@ -81,6 +93,14 @@ class _AddIngredientViewBodyState extends State<AddIngredientViewBody>
         },
         body: AddIngredientTapBarView(
           tabController: tabController,
+          typeOfIngredient: widget.typeOfIngredient,
+          name: widget.name,
+          description: widget.description,
+          quantity: widget.quantity,
+          unit: widget.unit,
+          formKey: widget.formKey,
+          autovalidateMode: widget.autovalidateMode,
+          allWarehouseResponseModel: widget.allWarehouseResponseModel,
         ),
       ),
     ));

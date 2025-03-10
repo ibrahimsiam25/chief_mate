@@ -47,7 +47,9 @@ final AllWarehouseResponseModel allWarehouseResponseModel;
             right: 20.w,
             child: CustomAddButton(
               onTap: () {
-                GoRouter.of(context).push(AddIngredientView.routeName);
+                GoRouter.of(context).push(AddIngredientView.routeName
+                ,extra: allWarehouseResponseModel
+                );
               },
             )),
       ],

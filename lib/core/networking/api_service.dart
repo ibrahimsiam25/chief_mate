@@ -16,6 +16,8 @@ import '../../features/auth/data/models/resend_otp_request_model.dart';
 import '../../features/auth/data/models/update_user_profile_request_model.dart';
 import '../../features/auth/data/models/update_user_profile_response_model.dart';
 import '../../features/ingredients/data/models/all_warehouse_response_model.dart';
+import '../../features/ingredients/data/models/ingredient_request_model.dart';
+import '../../features/ingredients/data/models/ingredient_response_model.dart';
 import '../../features/ingredients/data/models/warehouse_requset_model.dart';
 import '../../features/ingredients/data/models/warehouse_response_model.dart';
 
@@ -77,5 +79,10 @@ Future<WarehouseResponseModel> createWarehouse(
 );
     @GET(ApiConstants.warehouse)
   Future<AllWarehouseResponseModel> getWarehouse(@Query("type") String type);
+
+  @POST(ApiConstants.ingredient)
+  Future<IngredientResponseModel>createIngredient(
+    @Body() IngredientRequestModel ingredientRequestModel,
+  );
 }
 

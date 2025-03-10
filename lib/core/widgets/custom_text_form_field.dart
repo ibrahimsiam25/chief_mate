@@ -11,10 +11,13 @@ class CustomTextFormField extends StatefulWidget {
     required this.hintText,
     required this.textInputType,
     required this.validator,
+    this.maxLines ,
     this.onChanged,
+     this.minLines
   });
-
+  final int? maxLines;
   final String hintText;
+  final int? minLines;
   final TextInputType textInputType;
 final String? Function(String?)? validator;
   final void Function(String?)? onChanged;
@@ -40,7 +43,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       obscureText: _isObscured,
       onChanged: widget.onChanged,
        cursorColor: AppColors.kColor7,
-       
+      maxLines: widget.maxLines ?? 1,
+      minLines: widget.minLines ?? 1,
       keyboardType: widget.textInputType,
       textAlign: TextAlign.left,
       style: AppStyles.textStyle16,

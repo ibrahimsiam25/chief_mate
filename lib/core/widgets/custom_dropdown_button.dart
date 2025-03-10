@@ -39,7 +39,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
         color: AppColors.kColor5,
         borderRadius: BorderRadius.circular(4.0),
         border: Border.all(
-          color: AppColors.kColor11,
+          color:  AppColors.kColor7,
           width: 1,
         ),
       ),

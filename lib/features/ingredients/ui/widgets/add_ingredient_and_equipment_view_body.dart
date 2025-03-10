@@ -45,6 +45,7 @@ class AddIngredientAndEquipmentViewBody extends StatelessWidget {
               SizedBox(height: 8.h),
               CustomTextFormField(
                 onChanged: onChanged,
+                maxLines: 6,
                 hintText: "Электронная почта",
                 textInputType: TextInputType.multiline,
                 validator: (value) => (value == null || value.isEmpty) ? "Это поле обязательно" : null,
