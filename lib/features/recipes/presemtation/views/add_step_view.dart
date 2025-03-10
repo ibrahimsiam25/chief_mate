@@ -1,6 +1,6 @@
 import 'package:chief_mate/core/constants/icons.dart';
 import 'package:chief_mate/core/widgets/custom_text_field.dart';
-import 'package:chief_mate/features/ingredients/ui/widgets/custom_add_photo.dart';
+import 'package:chief_mate/core/widgets/custom_add_photo.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/add_new_step_button.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/instructions_view_app_bar.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/select_timer_view.dart';

@@ -1,17 +1,15 @@
-import 'dart:io';
 
 import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:chief_mate/core/widgets/custom_dropdown_button.dart';
-import 'package:chief_mate/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../data/models/all_warehouse_response_model.dart';
 
-class AddIngredientTapBarViewBody extends StatelessWidget {
-  const AddIngredientTapBarViewBody(
+class AddWEquipmentTapBarViewBody extends StatelessWidget {
+  const AddWEquipmentTapBarViewBody(
       {super.key, required this.allWarehouseResponseModel, required this.typeOfIngredient, required this.name, required this.description,  required this.quantity, required this.unit, required this.formKey, required this.autovalidateMode});
   final List<WarehouseData> allWarehouseResponseModel;
      final Function(String?) typeOfIngredient;
@@ -34,7 +32,7 @@ class AddIngredientTapBarViewBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
              Text(
-              "Тип ингредиента",
+            "Тип оборудования",
               style: AppStyles.textStyle16.copyWith(
                 color: AppColors.kColor3,
               ),
@@ -81,43 +79,7 @@ class AddIngredientTapBarViewBody extends StatelessWidget {
               validator: (value) => (value == null || value.isEmpty) ? "Это поле обязательно" : null,
             ),
             SizedBox(height: 20.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  flex: 12,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      //unit
-                      Text(
-                        'Единица измерения',
-                        style: AppStyles.textStyle16.copyWith(
-                          color: AppColors.kColor3,
-                        ),
-                      ),
-                      SizedBox(height: 8.h),
-                      CustomDropdownButton(
-                        items: const ["Литр", "Миллилитр", "Грамм", "Килограмм"],
-                        initialValue: "Литр",
-                        onSelected: (selectedValue) {
-                          unit(selectedValue);
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                const Expanded(
-                    child: SizedBox(
-                  width: 1,
-                )),
-                Expanded(
-                  flex: 8,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      //quantity
-                      Text(
+               Text(
                         'Количество',
                         style: AppStyles.textStyle16.copyWith(
                           color: AppColors.kColor3,
@@ -130,12 +92,6 @@ class AddIngredientTapBarViewBody extends StatelessWidget {
                         textInputType: TextInputType.number,
                         validator: (value) => (value == null || value.isEmpty) ? "Это поле обязательно" : null,
                       ),
-                    ],
-                  ),
-                ),
-               
-              ],
-            ),
               SizedBox(height: 120.h),
           ],
         ),

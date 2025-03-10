@@ -404,9 +404,9 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<AllWarehouseResponseModel> getWarehouse(String type) async {
+  Future<AllWarehouseResponseModel> getWarehouse() async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'type': type};
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<AllWarehouseResponseModel>(Options(

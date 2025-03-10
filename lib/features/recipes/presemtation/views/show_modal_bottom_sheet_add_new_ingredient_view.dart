@@ -1,5 +1,5 @@
 import 'package:chief_mate/core/widgets/custom_button.dart';
-import 'package:chief_mate/features/ingredients/ui/widgets/custom_add_photo.dart';
+import 'package:chief_mate/core/widgets/custom_add_photo.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/add_new_ingredient_view_app_bar.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/custom_add_new_recipe_text_fields.dart';
 import 'package:flutter/material.dart';

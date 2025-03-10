@@ -7,9 +7,9 @@ class GetAllWarehouseRepo {
   final ApiService _apiService;
   GetAllWarehouseRepo(this._apiService);
 
-  Future<ApiResult<AllWarehouseResponseModel>> getAllWarehouse(String type) async {
+  Future<ApiResult<AllWarehouseResponseModel>> getAllWarehouse() async {
     try {
-      final response = await _apiService.getWarehouse(type);
+      final response = await _apiService.getWarehouse();
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handle(e));

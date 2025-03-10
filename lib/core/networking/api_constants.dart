@@ -9,5 +9,6 @@ class ApiConstants {
   
   static const String warehouse = "warehouse";
   static const String ingredient = "ingredient";
+  static const String equipment = "equipment";
 }
 

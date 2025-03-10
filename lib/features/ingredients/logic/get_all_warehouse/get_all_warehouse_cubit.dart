@@ -8,9 +8,9 @@ class GetAllWarehouseCubit extends Cubit<GetAllWarehouseState> {
   GetAllWarehouseCubit(this._getAllWarehouseRepo)
       : super(const GetAllWarehouseState.initial());
 
-  Future<void> getAllWarehouse(String type) async {
+  Future<void> getAllWarehouse() async {
     emit(const GetAllWarehouseState.loading());
-    final result = await _getAllWarehouseRepo.getAllWarehouse(type);
+    final result = await _getAllWarehouseRepo.getAllWarehouse();
     result.when(
       success: (data) {
         emit(GetAllWarehouseState.success(data));

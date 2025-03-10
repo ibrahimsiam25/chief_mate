@@ -78,7 +78,7 @@ Future<WarehouseResponseModel> createWarehouse(
   @Body() WarehouseRequestModel warehouseRequestModel,
 );
     @GET(ApiConstants.warehouse)
-  Future<AllWarehouseResponseModel> getWarehouse(@Query("type") String type);
+  Future<AllWarehouseResponseModel> getWarehouse();
 
   @POST(ApiConstants.ingredient)
   Future<IngredientResponseModel>createIngredient(

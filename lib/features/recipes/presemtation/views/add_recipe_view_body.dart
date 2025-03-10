@@ -1,4 +1,4 @@
-import 'package:chief_mate/features/ingredients/ui/widgets/custom_add_photo.dart';
+import 'package:chief_mate/core/widgets/custom_add_photo.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/add_categry_button.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/custom_add_recipe_options.dart';
 import 'package:chief_mate/features/recipes/presemtation/views/widgets/custom_add_recipe_text_fields.dart';

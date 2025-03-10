@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
 
-import '../../../../core/routes/routes_import.dart';
+
 import '../../data/models/all_warehouse_response_model.dart';
 
 class IngredientsTabBarViewBody extends StatelessWidget {
@@ -15,43 +15,29 @@ class IngredientsTabBarViewBody extends StatelessWidget {
 final AllWarehouseResponseModel allWarehouseResponseModel;
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
-        Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(bottom: 20.w, left: 20.w, right: 20.w),
-              child: CustomTextField(
-                hintText: 'Поиск по ингредиентам',
-                prefixIcon: Padding(
-                  padding: EdgeInsets.only(left: 20.w, right: 12.w),
-                  child: SvgPicture.asset(
-                    AppIcons.search,
-                  ),
-                ),
+        Padding(
+          padding: EdgeInsets.only(bottom: 20.w, left: 20.w, right: 20.w),
+          child: CustomTextField(
+            hintText: 'Поиск по ингредиентам',
+            prefixIcon: Padding(
+              padding: EdgeInsets.only(left: 20.w, right: 12.w),
+              child: SvgPicture.asset(
+                AppIcons.search,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 10.h),
-              child:  CustomFilterIngredientsViewListView(
-                allWarehouseResponseModel: allWarehouseResponseModel,
-              ),
-            ),
-            CustomIngredientsListView(
-              allWarehouseResponseModel: allWarehouseResponseModel,
-            ),
-          ],
+          ),
         ),
-        Positioned(
-            bottom: 90.h,
-            right: 20.w,
-            child: CustomAddButton(
-              onTap: () {
-                GoRouter.of(context).push(AddIngredientView.routeName
-                ,extra: allWarehouseResponseModel
-                );
-              },
-            )),
+        Padding(
+          padding: EdgeInsets.only(bottom: 10.h),
+          child:  CustomFilterIngredientsViewListView(
+            allWarehouseResponseModel: allWarehouseResponseModel,
+          ),
+        ),
+        CustomIngredientsListView(
+          allWarehouseResponseModel: allWarehouseResponseModel,
+        ),
       ],
     );
   }

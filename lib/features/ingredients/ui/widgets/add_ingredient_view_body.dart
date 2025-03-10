@@ -5,42 +5,34 @@ import 'package:chief_mate/core/constants/colors.dart';
 import 'package:chief_mate/core/constants/styles.dart';
 import 'package:chief_mate/features/ingredients/ui/widgets/add_ingredient_tap_bar_view.dart';
 import 'package:chief_mate/features/ingredients/ui/widgets/custom_add_ingredient_view_app_bar.dart';
-import 'package:chief_mate/features/ingredients/ui/widgets/custom_add_photo.dart';
+import 'package:chief_mate/core/widgets/custom_add_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../data/models/all_warehouse_response_model.dart';
 
 class AddIngredientViewBody extends StatefulWidget {
-  const AddIngredientViewBody({super.key, required this.allWarehouseResponseModel, required this.typeOfIngredient, required this.name, required this.description, required this.image, required this.quantity, required this.unit, required this.formKey, required this.autovalidateMode});
+  const AddIngredientViewBody({super.key, required this.typeOfIngredient, required this.name, required this.description, required this.image, required this.quantity, required this.unit, required this.formKeyIngredient, required this.autovalidateModeIngredient, required this.formKeyEquipment, required this.autovalidateModeEquipment, required this.tabController, required this.ingredientData, required this.equipmentData, });
    final Function(String?) typeOfIngredient;
    final Function(String?) name;
    final Function(String?) description;
    final Function(File?) image;
    final Function(String?) quantity;
    final Function(String?) unit;
-    final GlobalKey<FormState> formKey;
-  final AutovalidateMode autovalidateMode;
-final AllWarehouseResponseModel allWarehouseResponseModel;
+   final GlobalKey<FormState> formKeyIngredient;
+  final AutovalidateMode autovalidateModeIngredient;
+  final GlobalKey<FormState> formKeyEquipment;
+  final AutovalidateMode autovalidateModeEquipment;
+final List<WarehouseData> ingredientData;
+final List<WarehouseData> equipmentData;
+  
+final TabController tabController;
   @override
   State<AddIngredientViewBody> createState() => _AddIngredientViewBodyState();
 }
 
 class _AddIngredientViewBodyState extends State<AddIngredientViewBody>
-    with TickerProviderStateMixin {
-  late TabController tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    tabController = TabController(length: 2, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    tabController.dispose();
-    super.dispose();
-  }
+ {
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +57,7 @@ class _AddIngredientViewBodyState extends State<AddIngredientViewBody>
             SliverPersistentHeader(
               delegate: CustomSliverAppBarDelegate(
                 TabBar(
-                    controller: tabController,
+                    controller: widget.tabController,
                     isScrollable: true,
                     tabAlignment: TabAlignment.start,
                     labelPadding: EdgeInsets.only(right: 16.w),
@@ -92,15 +84,18 @@ class _AddIngredientViewBodyState extends State<AddIngredientViewBody>
           ];
         },
         body: AddIngredientTapBarView(
-          tabController: tabController,
+          tabController: widget.tabController,
           typeOfIngredient: widget.typeOfIngredient,
           name: widget.name,
           description: widget.description,
           quantity: widget.quantity,
           unit: widget.unit,
-          formKey: widget.formKey,
-          autovalidateMode: widget.autovalidateMode,
-          allWarehouseResponseModel: widget.allWarehouseResponseModel,
+          formKeyIngredient: widget.formKeyIngredient,
+          autovalidateModeIngredient: widget.autovalidateModeIngredient,
+          formKeyEquipment: widget.formKeyEquipment,
+          autovalidateModeEquipment: widget.autovalidateModeEquipment,
+          ingredientData: widget.ingredientData,
+          equipmentData: widget.equipmentData,
         ),
       ),
     ));

@@ -1,3 +1,4 @@
+
 import 'package:chief_mate/features/ingredients/ui/widgets/ingredients_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -11,16 +12,17 @@ class IngredientsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) =>
-              getIt<GetAllWarehouseCubit>()..getAllWarehouse("ingredient"),
-        ),
-      ],
-      child: Scaffold(
-        key: ValueKey(rebuildKey),
-        body: const IngredientsViewBody(),
-      ),
-    );
+  providers: [
+    BlocProvider(
+      create: (context) => getIt<GetAllWarehouseCubit>()..getAllWarehouse(),
+    ),
+  
+  ],
+  child: Scaffold(
+    key: ValueKey(rebuildKey),
+    body: const IngredientsViewBody(),
+  ),
+);
+
   }
 }
