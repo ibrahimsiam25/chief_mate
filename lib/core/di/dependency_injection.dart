@@ -6,14 +6,16 @@ import 'package:chief_mate/features/work_space/data/repos/update_work_space_repo
 import 'package:chief_mate/features/work_space/logic/update_work_space/update_work_space_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../features/auth/data/repos/create_work_space_repo.dart';
+import '../../features/auth/data/repos/google_sign_in_repo.dart';
 import '../../features/auth/data/repos/login_repo.dart';
 import '../../features/auth/data/repos/otp_verification_repo.dart';
 import '../../features/auth/data/repos/register_repo.dart';
 import '../../features/auth/data/repos/resend_otp_repo.dart';
 import '../../features/auth/data/repos/update_user_profile_repo.dart';
 import '../../features/auth/logic/create_work_space/create_work_space_cubit.dart';
+import '../../features/auth/logic/google_sign_in/google_sign_in_cubit.dart';
 import '../../features/auth/logic/login/login_cubit.dart';
 import '../../features/auth/logic/otp_verification/otp_verification_cubit.dart';
 import '../../features/auth/logic/register/register_cubit.dart';
@@ -33,9 +35,14 @@ final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
   // Dio & ApiService
-    Dio dio = await DioFactory.getDio();
+  Dio dio = await DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+
 //todo: auth*************************************************************************************
+  // google sign in
+  getIt.registerLazySingleton<GoogleSignIn>(() => GoogleSignIn());
+  getIt.registerLazySingleton<GoogleSignInRepo>(() => GoogleSignInRepo(getIt()));
+  getIt.registerFactory<GoogleSignInCubit>(() => GoogleSignInCubit(getIt()));
   // register
   getIt.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getIt()));
   getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));

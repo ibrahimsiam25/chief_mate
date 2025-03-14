@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
+import '../../../../core/di/dependency_injection.dart';
+import '../../logic/google_sign_in/google_sign_in_cubit.dart';
 import '../screens/login_with_email_view.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -16,6 +18,8 @@ class SignUpViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final googleSignInCubit = getIt<GoogleSignInCubit>();
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -41,7 +45,9 @@ class SignUpViewBody extends StatelessWidget {
                 const OrLine(),
                 SizedBox(height: 12.h),
                 CustomSignInWithSocial(
-                  onTap: () {},
+                  onTap: () {
+                    googleSignInCubit.signInWithGoogle();
+                  },
                   buttonName: 'Войти с Google',
                   buttonIcon: AppIcons.google,
                 ),

@@ -3,7 +3,7 @@ import 'routes_import.dart';
 
 abstract class AppRoutes {
   static GoRouter router = GoRouter(
-    initialLocation: IngredientsView.routeName,
+    initialLocation: SignUpView.routeName,
     routes: [
       GoRoute(
         path: SignUpView.routeName,
