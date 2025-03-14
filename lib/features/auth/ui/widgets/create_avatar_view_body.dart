@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:chief_mate/core/helper/shared_pref_helper.dart';
 import 'package:chief_mate/features/auth/ui/widgets/add_phone_number_view_app_bar.dart';
@@ -7,12 +6,11 @@ import 'package:chief_mate/features/auth/ui/widgets/create_avatar_info_header.da
 import 'package:chief_mate/features/auth/ui/widgets/custom_change_avatar_text.dart';
 import 'package:chief_mate/features/auth/ui/widgets/custom_image_create_avatar.dart';
 import 'package:chief_mate/features/auth/ui/widgets/custom_picked_image.dart';
-import 'package:chief_mate/features/auth/ui/widgets/show_modal_bottom_sheet_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
-
+import '../../../../core/helper/image_picker_helper.dart';
 class CreateAvatarViewBody extends StatefulWidget {
   final Function(File?) onAvatarSelected;
   const CreateAvatarViewBody({super.key, required this.onAvatarSelected});
@@ -23,7 +21,6 @@ class CreateAvatarViewBody extends StatefulWidget {
 
 class _CreateAvatarViewBodyState extends State<CreateAvatarViewBody> {
   File? image;
-  final imagePicker = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
@@ -44,27 +41,23 @@ class _CreateAvatarViewBodyState extends State<CreateAvatarViewBody> {
               alignment: Alignment.center,
               child: image != null
                   ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () => showModelBottomSheet(context),
+                          onTap: () => _showImagePicker(context),
                           child: CustomPickedImage(image: image),
                         ),
                         SizedBox(height: 20.h),
-                        const CustomChangeAvatarText(
-                            textName: 'Нажмите, чтобы заменить фото'),
+                        const CustomChangeAvatarText(textName: 'Нажмите, чтобы заменить фото'),
                       ],
                     )
                   : Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () => showModelBottomSheet(context),
+                          onTap: () => _showImagePicker(context),
                           child: const CustomImageCreateAvatar(),
                         ),
                         SizedBox(height: 20.h),
-                        const CustomChangeAvatarText(
-                            textName: 'Нажмите, чтобы добавить фото'),
+                        const CustomChangeAvatarText(textName: 'Нажмите, чтобы добавить фото'),
                       ],
                     ),
             )
@@ -74,40 +67,26 @@ class _CreateAvatarViewBodyState extends State<CreateAvatarViewBody> {
     );
   }
 
-  Future pickImageFromGallery() async {
-    var pickedImage = await imagePicker.pickImage(source: ImageSource.gallery);
+  Future<void> _pickImage(ImageSource source) async {
+    final pickedImage = await ImagePickerHelper.pickImage(source);
     if (pickedImage != null) {
-      setState(() {
-        image = File(pickedImage.path);
-      });
+      // Perform async operations first
       await SharedPrefHelper.setData(Prefs.avatarImagePath, pickedImage.path);
-       widget.onAvatarSelected(image);
+      
+      // Update state and trigger callback
+      setState(() => image = pickedImage);
+      widget.onAvatarSelected(pickedImage);
+      
+      // Navigate back after everything is done
       GoRouter.of(context).pop();
     }
   }
 
-  Future pickImageFromCamera() async {
-    var pickedImage = await imagePicker.pickImage(source: ImageSource.camera);
-    if (pickedImage != null) {
-      setState(() {
-        image = File(pickedImage.path);
-      });
-     await SharedPrefHelper.setData(Prefs.avatarImagePath, pickedImage.path);
-       widget.onAvatarSelected(image);
-      GoRouter.of(context).pop();
-    }
-  }
-
-  void showModelBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      constraints: BoxConstraints(maxHeight: 150.h, minHeight: 150.h),
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (context) => ShowModalBottomSheetBody(
-        onPressedCamera: pickImageFromCamera,
-        onPressedGallery: pickImageFromGallery,
-      ),
+  void _showImagePicker(BuildContext context) {
+    ImagePickerHelper.showModelBottomSheet(
+      context,
+      onCameraPressed: () => _pickImage(ImageSource.camera),
+      onGalleryPressed: () => _pickImage(ImageSource.gallery),
     );
   }
 }
