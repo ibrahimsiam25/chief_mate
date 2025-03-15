@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:chief_mate/core/constants/app_constants.dart';
 import 'package:chief_mate/core/helper/shared_pref_helper.dart';
-import 'package:chief_mate/features/auth/ui/widgets/add_phone_number_view_app_bar.dart';
+import 'package:chief_mate/features/auth/ui/screens/custom_back_app_bar.dart';
 import 'package:chief_mate/features/auth/ui/widgets/create_avatar_info_header.dart';
 import 'package:chief_mate/features/auth/ui/widgets/custom_change_avatar_text.dart';
 import 'package:chief_mate/features/auth/ui/widgets/custom_image_create_avatar.dart';
@@ -30,7 +30,7 @@ class _CreateAvatarViewBodyState extends State<CreateAvatarViewBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomAuthAppBar(),
+            const CustomBackAppBar(),
             SizedBox(height: 40.h),
             Padding(
               padding: EdgeInsets.only(left: 20.w),

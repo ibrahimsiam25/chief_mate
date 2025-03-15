@@ -1,4 +1,4 @@
-import 'package:chief_mate/features/auth/ui/widgets/add_phone_number_view_app_bar.dart';
+import 'package:chief_mate/features/auth/ui/screens/custom_back_app_bar.dart';
 import 'package:chief_mate/features/auth/ui/widgets/custom_auth_header_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +19,7 @@ class OtpViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomAuthAppBar(),
+            const CustomBackAppBar(),
             SizedBox(height: 30.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),

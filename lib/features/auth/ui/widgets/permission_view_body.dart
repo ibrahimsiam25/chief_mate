@@ -1,5 +1,5 @@
 import 'package:chief_mate/core/constants/icons.dart';
-import 'package:chief_mate/features/auth/ui/widgets/add_phone_number_view_app_bar.dart';
+import 'package:chief_mate/features/auth/ui/screens/custom_back_app_bar.dart';
 import 'package:chief_mate/features/auth/ui/widgets/custom_auth_subtitle_text.dart';
 import 'package:chief_mate/features/auth/ui/widgets/custom_permission_view_item.dart';
 import 'package:chief_mate/features/auth/ui/widgets/permission_view_info_header.dart';
@@ -18,7 +18,7 @@ class PermissionViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomAuthAppBar(),
+              const CustomBackAppBar(),
               SizedBox(height: 40.h),
               const PermissionViewInfoHeader(),
               SizedBox(height: 30.h),

@@ -2,7 +2,7 @@ import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/routes/routes_import.dart';
-import '../widgets/add_phone_number_view_app_bar.dart';
+import 'custom_back_app_bar.dart';
 import '../widgets/restaurant_name_text_field.dart';
 import '../widgets/restaurant_name_view_header.dart';
 class WorkSpaceNameView extends StatefulWidget {
@@ -42,7 +42,7 @@ class _WorkSpaceNameViewState extends State<WorkSpaceNameView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomAuthAppBar(),
+                const CustomBackAppBar(),
                 SizedBox(height: 40.h),
                 Padding(
                   padding: EdgeInsets.only(left: 20.w),

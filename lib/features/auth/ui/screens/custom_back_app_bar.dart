@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
-class CustomAuthAppBar extends StatelessWidget {
-  const CustomAuthAppBar({super.key});
+class CustomBackAppBar extends StatelessWidget {
+  const CustomBackAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {

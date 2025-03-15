@@ -1,5 +1,6 @@
 import 'package:chief_mate/core/constants/icons.dart';
 import 'package:chief_mate/core/constants/images.dart';
+import 'package:chief_mate/core/widgets/custom_modal_progress.dart';
 import 'package:chief_mate/features/auth/ui/widgets/accept_terms_and_conditions.dart';
 import 'package:chief_mate/features/auth/ui/widgets/app_info.dart';
 import 'package:chief_mate/core/widgets/custom_button.dart';
@@ -21,60 +22,62 @@ class SignUpViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<GoogleSignInCubit, GoogleSignInState>(
+    return BlocConsumer<GoogleSignInCubit, GoogleSignInState>(
       listener: (context, state) {
         state.whenOrNull(
           success: (googleUser) {
-             GoRouter.of(context).go(UserInfoView.routeName,);
+            GoRouter.of(context).go(
+              UserInfoView.routeName,
+            );
           },
           error: (error) {
             showErrorDialog(context, error);
           },
         );
       },
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SvgPicture.asset(
-              AppImages.starter,
-              width: MediaQuery.of(context).size.width,
-
-              fit: BoxFit.fill,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Column(
-                children: [
-                  const AppInfo(),
-                  SizedBox(height: 15.h),
-                  CustomButton(
-                    buttonName: 'Начать',
-                    onTap: () {
-                      GoRouter.of(context).push(LoginWithEmailView.routeName);
-                    },
-                  ),
-                  SizedBox(height: 15.h),
-                  const OrLine(),
-                  SizedBox(height: 12.h),
-                  BlocBuilder<GoogleSignInCubit, GoogleSignInState>(
-                    builder: (context, state) {
-                      return CustomSignInWithSocial(
+      builder: (context, state) {
+        return CustomModalProgress(
+          isLoading: state is Loading,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SvgPicture.asset(
+                  AppImages.starter,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.fill,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Column(
+                    children: [
+                      const AppInfo(),
+                      SizedBox(height: 15.h),
+                      CustomButton(
+                        buttonName: 'Начать',
+                        onTap: () {
+                          GoRouter.of(context).push(LoginWithEmailView.routeName);
+                        },
+                      ),
+                      SizedBox(height: 15.h),
+                      const OrLine(),
+                      SizedBox(height: 12.h),
+                      CustomSignInWithSocial(
                         onTap: () {
                           context.read<GoogleSignInCubit>().signInWithGoogle();
                         },
                         buttonName: 'Войти с Google',
                         buttonIcon: AppIcons.google,
-                      );
-                    },
+                      ),
+                      SizedBox(height: 12.h),
+                      const AcceptTermsAndConditions(),
+                    ],
                   ),
-                  SizedBox(height: 12.h),
-                  const AcceptTermsAndConditions(),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

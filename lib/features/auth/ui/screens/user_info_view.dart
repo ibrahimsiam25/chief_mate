@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../widgets/add_phone_number_view_app_bar.dart';
+import 'custom_back_app_bar.dart';
 import '../widgets/user_name_input_text_field.dart';
 
 class UserInfoView extends StatefulWidget {
@@ -33,7 +33,7 @@ class _UserInfoViewState extends State<UserInfoView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const CustomAuthAppBar(),
+                    const CustomBackAppBar(),
                     SizedBox(height: 40.h),
                     Padding(
                       padding: EdgeInsets.only(left: 20.w),

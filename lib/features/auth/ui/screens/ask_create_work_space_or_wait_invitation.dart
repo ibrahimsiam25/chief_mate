@@ -6,7 +6,7 @@ import 'package:svg_flutter/svg_flutter.dart';
 
 import '../../../../core/constants/images.dart';
 import '../../../../core/widgets/custom_button.dart';
-import '../widgets/add_phone_number_view_app_bar.dart';
+import 'custom_back_app_bar.dart';
 
 class AskCreateWorkSpaceOrWaitInvitation extends StatelessWidget {
   const AskCreateWorkSpaceOrWaitInvitation({super.key});
@@ -28,7 +28,7 @@ class AskCreateWorkSpaceOrWaitInvitation extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const CustomAuthAppBar(
+                  const CustomBackAppBar(
                     
                   ),
                 
