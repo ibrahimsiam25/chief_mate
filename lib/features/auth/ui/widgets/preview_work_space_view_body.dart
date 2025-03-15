@@ -6,8 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
 import '../../../../core/functions/conver_to_int.dart';
 import '../../../../core/routes/routes_import.dart';
-import '../../data/data_source/static/colors_picker_list.dart';
-import '../../data/models/work_space_response_model.dart';
 
 class PreviewWorkSpaceViewBody extends StatefulWidget {
   const PreviewWorkSpaceViewBody({

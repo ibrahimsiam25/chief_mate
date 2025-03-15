@@ -97,8 +97,8 @@ class WorkSpaceViewBody extends StatelessWidget {
                       icon: AppIcons.boxes,
                       text: 'Склад',
                       onTap: () {
-                        GoRouter.of(context)
-                            .push(BottomNavBarController.routeName, extra: 1);
+                        // GoRouter.of(context)
+                        //     .push(BottomNavBarController.routeName, extra: 1);
                       },
                     ),
                     CustomWorkSpaceItem(

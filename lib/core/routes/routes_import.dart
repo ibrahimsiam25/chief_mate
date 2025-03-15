@@ -49,7 +49,7 @@ export '../../features/work_space/logic/get_work_space_by_id/get_work_space_by_i
 export '../../features/work_space/logic/get_all_work_space/get_all_work_space_cubit.dart';
 export '../../features/ingredients/logic/create_warehouse/create_warehouse_cubit.dart';
 export '../../features/ingredients/ui/screens/add_ingredient_and_equipment_view.dart';
-
+export '../../features/ingredients/data/models/all_warehouse_response_model.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:go_router/go_router.dart';
 export '../di/dependency_injection.dart';

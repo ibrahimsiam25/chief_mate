@@ -1,9 +1,9 @@
-import '../../features/ingredients/data/models/all_warehouse_response_model.dart';
+
 import 'routes_import.dart';
 
 abstract class AppRoutes {
   static GoRouter router = GoRouter(
-    initialLocation: PermissionView.routeName,
+    initialLocation: SignUpView.routeName,
     routes: [
       GoRoute(
         path: SignUpView.routeName,

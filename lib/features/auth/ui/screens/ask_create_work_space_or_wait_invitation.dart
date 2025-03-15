@@ -14,48 +14,45 @@ class AskCreateWorkSpaceOrWaitInvitation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-              SvgPicture.asset(
-              AppImages.starter,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                SvgPicture.asset(
+                  AppImages.starter,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.fill,
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      CustomButton(
+                        onTap: () {
+                          GoRouter.of(context)
+                              .push(WorkSpaceNameView.routeName);
+                        },
+                        buttonName: 'создать рабочее пространство',
+                      ),
+                      SizedBox(height: 40.h),
+                      CustomButton(
+                        onTap: () {},
+                        buttonName: 'Дождитесь приглашения',
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const CustomBackAppBar(
-                    
-                  ),
-                
-                  const Spacer(
-                    flex: 8,
-                  ),
-                  CustomButton(
-                    onTap: () {
-                   GoRouter.of(context).push(WorkSpaceNameView.routeName);
-                    },
-                    buttonName: 'создать рабочее пространство',
-                  ),
-                  SizedBox(height: 40.h),
-                  CustomButton(
-                    onTap: () {
-                    
-                    },
-                    buttonName: 'Дождитесь приглашения',
-                  ),
-                  const Spacer(
-                    flex: 2,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+            const SafeArea(
+              child: CustomBackAppBar(),
+            )
+          ],
+        ),
       ),
     );
   }

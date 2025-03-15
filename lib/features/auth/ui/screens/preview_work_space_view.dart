@@ -1,4 +1,3 @@
-import 'package:chief_mate/features/auth/data/models/work_space_request_model.dart';
 import 'package:chief_mate/features/auth/data/models/work_space_response_model.dart';
 import 'package:chief_mate/features/auth/ui/widgets/preview_work_space_view_body.dart';
 import 'package:flutter/material.dart';
