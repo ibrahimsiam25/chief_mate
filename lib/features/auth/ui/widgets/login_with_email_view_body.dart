@@ -10,6 +10,7 @@ import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/styles.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../logic/login/login_cubit.dart';
+import '../screens/custom_back_app_bar.dart';
 import '../screens/register_view.dart';
 
 class LoginWithEmailViewBody extends StatefulWidget {
@@ -31,85 +32,89 @@ class _LoginWithEmailViewBodyState extends State<LoginWithEmailViewBody> {
       child: Form(
         key: formKey,
         autovalidateMode: autovalidateMode,
-        child: Column(
+        child: Stack(
           children: [
-            SvgPicture.asset(
-              AppImages.starter,
-              width: MediaQuery.of(context).size.width,
-              height: 300.h,
-              fit: BoxFit.fill,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Column(
-                children: [
-                  CustomTextFormField(
-                    onChanged: (value) {
-                      email = value!;
-                    },
-                    hintText: "Электронная почта",
-                    textInputType: TextInputType.emailAddress,
-                    validator: (p0) {
-                      if (p0 == null || p0.isEmpty) {
-                        return "Это поле обязательно";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 10.h),
-                  CustomTextFormField(
-                    onChanged: (value) {
-                      password = value!;
-                    },
-                    hintText: "Пароль",
-                    textInputType: TextInputType.visiblePassword,
-               validator: (p0) {
-                      if (p0 == null || p0.isEmpty) {
-                        return "Это поле обязательно";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 20.h),
-                  CustomButton(
-                    buttonName: 'Войти',
-                    onTap: () {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                        context.read<LoginCubit>().emitLoginStates(
-                            email: email, password: password);
-                      } else {
-                        setState(() {
-                          autovalidateMode = AutovalidateMode.always;
-                        });
-                      }
-                    },
-                  ),
-                  SizedBox(height: 10.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+            Column(
+              children: [
+                SvgPicture.asset(
+                  AppImages.starter,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.fill,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Column(
                     children: [
-                      Text(
-                        "Нет аккаунта?",
-                        style: AppStyles.textStyle16.copyWith(
-                          color: AppColors.kColor2,
-                        ),
+                      CustomTextFormField(
+                        onChanged: (value) {
+                          email = value!;
+                        },
+                        hintText: "Электронная почта",
+                        textInputType: TextInputType.emailAddress,
+                        validator: (p0) {
+                          if (p0 == null || p0.isEmpty) {
+                            return "Это поле обязательно";
+                          }
+                          return null;
+                        },
                       ),
-                      GestureDetector(
-                          onTap: () {
-                            GoRouter.of(context).go(RegisterView.routeName);
-                          },
-                          child: Text(
-                            " Создайте аккаунт",
+                      SizedBox(height: 10.h),
+                      CustomTextFormField(
+                        onChanged: (value) {
+                          password = value!;
+                        },
+                        hintText: "Пароль",
+                        textInputType: TextInputType.visiblePassword,
+                        validator: (p0) {
+                          if (p0 == null || p0.isEmpty) {
+                            return "Это поле обязательно";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 20.h),
+                      CustomButton(
+                        buttonName: 'Войти',
+                        onTap: () {
+                          if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
+                            context.read<LoginCubit>().emitLoginStates(
+                                email: email, password: password);
+                          } else {
+                            setState(() {
+                              autovalidateMode = AutovalidateMode.always;
+                            });
+                          }
+                        },
+                      ),
+                      SizedBox(height: 10.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Нет аккаунта?",
                             style: AppStyles.textStyle16.copyWith(
-                              color: AppColors.kColor9,
+                              color: AppColors.kColor2,
                             ),
-                          )),
+                          ),
+                          GestureDetector(
+                              onTap: () {
+                                GoRouter.of(context).pushReplacement(RegisterView.routeName);
+                              },
+                              child: Text(
+                                " Создайте аккаунт",
+                                style: AppStyles.textStyle16.copyWith(
+                                  color: AppColors.kColor9,
+                                ),
+                              )),
+                        ],
+                      )
                     ],
-                  )
-                ],
-              ),
-            )
+                  ),
+                )
+              ],
+            ),
+            const SafeArea(child: CustomBackAppBar()),
           ],
         ),
       ),

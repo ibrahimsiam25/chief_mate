@@ -33,7 +33,7 @@ class _CreateAvatarViewState extends State<CreateAvatarView> {
               showErrorDialog(context, apiErrorModel);
             },
             success: (updateUserProfileResponse) {
-                   GoRouter.of(context).push(PermissionView.routeName);
+                   GoRouter.of(context).go(PermissionView.routeName);
             },
           );
       },

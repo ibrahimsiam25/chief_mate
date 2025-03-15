@@ -1,3 +1,4 @@
+import 'package:chief_mate/features/auth/ui/screens/custom_back_app_bar.dart';
 import 'package:chief_mate/features/auth/ui/screens/login_with_email_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,106 +33,110 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
       child: Form(
         key: formKey,
         autovalidateMode: autovalidateMode,
-        child: Column(
+        child: Stack(
           children: [
-            SvgPicture.asset(
-              AppImages.starter,
-              width: MediaQuery.of(context).size.width,
-              height: 300.h,
-              fit: BoxFit.fill,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Column(
-                children: [
-                  CustomTextFormField(
-                    onChanged: (value) {
-                      email = value!;
-                    },
-                    hintText: "Электронная почта",
-                    textInputType: TextInputType.emailAddress,
-                    validator: (p0) {
-                      if (p0 == null || p0.isEmpty) {
-                        return "Это поле обязательно";
-                      } else if (!ValidatorsRegex.isEmailValid(p0)) {
-                        return "Пожалуйста, введите действительный\nадрес электронной почты";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 10.h),
-                  CustomTextFormField(
-                    onChanged: (value) {
-                      password = value!;
-                    },
-                    hintText: "Пароль",
-                    textInputType: TextInputType.visiblePassword,
-                    validator: (p0) {
-                      if (p0 == null || p0.isEmpty) {
-                        return "Это поле обязательно";
-                      } else if (!ValidatorsRegex.isPasswordValid(p0)) {
-                        return "Пароль должен содержать не менее 8 символов\nвключая буквы и цифры вместе.";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 10.h),
-                  CustomTextFormField(
-                    onChanged: (value) {
-                      confirmPassword = value!;
-                    },
-                    hintText: "Введите пароль еще раз",
-                    textInputType: TextInputType.visiblePassword,
-                    validator: (p0) {
-                      if (p0 == null || p0.isEmpty) {
-                        return "Это поле обязательно";
-                      } else if (confirmPassword != password) {
-                        return "Пароли не совпадают!";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 20.h),
-                  CustomButton(
-                    buttonName: 'Создать новый аккаунт',
-                    onTap: () {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                        context.read<RegisterCubit>().emitRegisterStates(
-                            email: email, password: password);
-                      } else {
-                        setState(() {
-                          autovalidateMode = AutovalidateMode.always;
-                        });
-                      }
-                    },
-                  ),
-                  SizedBox(height: 10.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+            Column(
+              children: [
+                SvgPicture.asset(
+                  AppImages.starter,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.fill,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Column(
                     children: [
-                      Text(
-                        "Уже есть аккаунт?",
-                        style: AppStyles.textStyle16.copyWith(
-                          color: AppColors.kColor2,
-                        ),
+                      CustomTextFormField(
+                        onChanged: (value) {
+                          email = value!;
+                        },
+                        hintText: "Электронная почта",
+                        textInputType: TextInputType.emailAddress,
+                        validator: (p0) {
+                          if (p0 == null || p0.isEmpty) {
+                            return "Это поле обязательно";
+                          } else if (!ValidatorsRegex.isEmailValid(p0)) {
+                            return "Пожалуйста, введите действительный\nадрес электронной почты";
+                          }
+                          return null;
+                        },
                       ),
-                      GestureDetector(
-                          onTap: () {
-                            GoRouter.of(context)
-                                .push(LoginWithEmailView.routeName);
-                          },
-                          child: Text(
-                            " Войти",
+                      SizedBox(height: 10.h),
+                      CustomTextFormField(
+                        onChanged: (value) {
+                          password = value!;
+                        },
+                        hintText: "Пароль",
+                        textInputType: TextInputType.visiblePassword,
+                        validator: (p0) {
+                          if (p0 == null || p0.isEmpty) {
+                            return "Это поле обязательно";
+                          } else if (!ValidatorsRegex.isPasswordValid(p0)) {
+                            return "Пароль должен содержать не менее 8 символов\nвключая буквы и цифры вместе.";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 10.h),
+                      CustomTextFormField(
+                        onChanged: (value) {
+                          confirmPassword = value!;
+                        },
+                        hintText: "Введите пароль еще раз",
+                        textInputType: TextInputType.visiblePassword,
+                        validator: (p0) {
+                          if (p0 == null || p0.isEmpty) {
+                            return "Это поле обязательно";
+                          } else if (confirmPassword != password) {
+                            return "Пароли не совпадают!";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 20.h),
+                      CustomButton(
+                        buttonName: 'Создать новый аккаунт',
+                        onTap: () {
+                          if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
+                            context.read<RegisterCubit>().emitRegisterStates(
+                                email: email, password: password);
+                          } else {
+                            setState(() {
+                              autovalidateMode = AutovalidateMode.always;
+                            });
+                          }
+                        },
+                      ),
+                      SizedBox(height: 10.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Уже есть аккаунт?",
                             style: AppStyles.textStyle16.copyWith(
-                              color: AppColors.kColor9,
+                              color: AppColors.kColor2,
                             ),
-                          )),
+                          ),
+                          GestureDetector(
+                              onTap: () {
+                                GoRouter.of(context)
+                                    .pushReplacement(LoginWithEmailView.routeName);
+                              },
+                              child: Text(
+                                " Войти",
+                                style: AppStyles.textStyle16.copyWith(
+                                  color: AppColors.kColor9,
+                                ),
+                              )),
+                        ],
+                      )
                     ],
-                  )
-                ],
-              ),
-            )
+                  ),
+                )
+              ],
+            ),
+           const SafeArea(child: CustomBackAppBar())
           ],
         ),
       ),
