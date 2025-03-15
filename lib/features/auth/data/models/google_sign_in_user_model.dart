@@ -6,10 +6,10 @@ part 'google_sign_in_user_model.g.dart';
 class GoogleSignInUserModel {
   final String? name;
   final String? email;
-  final String? photoUrl;
+  final String? avatar;
   final String? idToken;
 
-  GoogleSignInUserModel({this.name, this.email, this.photoUrl, this.idToken});
+  GoogleSignInUserModel({this.name, this.email, this.avatar, this.idToken});
 
   factory GoogleSignInUserModel.fromJson(Map<String, dynamic> json) =>
       _$GoogleSignInUserModelFromJson(json);

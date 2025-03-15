@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:chief_mate/core/networking/api_constants.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../features/auth/data/models/google_sign_in_user_model.dart';
 import '../../features/auth/data/models/work_space_request_model.dart';
 import '../../features/auth/data/models/work_space_response_model.dart';
 import '../../features/auth/data/models/login_request_model.dart';
@@ -20,7 +21,6 @@ import '../../features/ingredients/data/models/ingredient_request_model.dart';
 import '../../features/ingredients/data/models/ingredient_response_model.dart';
 import '../../features/ingredients/data/models/warehouse_requset_model.dart';
 import '../../features/ingredients/data/models/warehouse_response_model.dart';
-
 
 part 'api_service.g.dart';
 
@@ -41,9 +41,9 @@ abstract class ApiService {
   Future<OtpVerificationResponseModel> otpVerification(
     @Body() OtpVerificationRequestModel otpVerificationRequestModel,
   );
-  @POST( ApiConstants.resendOtp)
+  @POST(ApiConstants.resendOtp)
   Future<Map<String, String>> resendOtp(
-    @Body()  ResendOtpRequestModel resendOtpRequestModel,
+    @Body() ResendOtpRequestModel resendOtpRequestModel,
   );
   @PUT(ApiConstants.updateUserProfile)
   Future<UpdateUserProfileResponseModel> updateUserProfile(
@@ -73,16 +73,19 @@ abstract class ApiService {
   Future<WorkSpaceResponseModel> getWorkSpaceById(
     @Path() int id,
   );
-@POST(ApiConstants.warehouse)
-Future<WarehouseResponseModel> createWarehouse(
-  @Body() WarehouseRequestModel warehouseRequestModel,
-);
-    @GET(ApiConstants.warehouse)
+  @POST(ApiConstants.warehouse)
+  Future<WarehouseResponseModel> createWarehouse(
+    @Body() WarehouseRequestModel warehouseRequestModel,
+  );
+  @GET(ApiConstants.warehouse)
   Future<AllWarehouseResponseModel> getWarehouse();
 
   @POST(ApiConstants.ingredient)
-  Future<IngredientResponseModel>createIngredient(
+  Future<IngredientResponseModel> createIngredient(
     @Body() IngredientRequestModel ingredientRequestModel,
   );
+  @POST(ApiConstants.loginWithGoogle)
+  Future<LoginResponseModel> loginWithGoogle(
+    @Body() GoogleSignInUserModel googleSignInUserModel,
+  );   
 }
-

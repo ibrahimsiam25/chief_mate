@@ -103,7 +103,7 @@ class _OtpVerificationWithEmailViewState
                 showErrorDialog(context, apiErrorModel);
               },
               otpVerificationSuccess: (registerResponse) {
-                GoRouter.of(context).push(UserInfoView.routeName,);
+                GoRouter.of(context).go(UserInfoView.routeName,);
               },
             );
           },

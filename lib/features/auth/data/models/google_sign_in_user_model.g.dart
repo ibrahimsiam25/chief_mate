@@ -11,7 +11,7 @@ GoogleSignInUserModel _$GoogleSignInUserModelFromJson(
     GoogleSignInUserModel(
       name: json['name'] as String?,
       email: json['email'] as String?,
-      photoUrl: json['photoUrl'] as String?,
+      avatar: json['avatar'] as String?,
       idToken: json['idToken'] as String?,
     );
 
@@ -20,6 +20,6 @@ Map<String, dynamic> _$GoogleSignInUserModelToJson(
     <String, dynamic>{
       'name': instance.name,
       'email': instance.email,
-      'photoUrl': instance.photoUrl,
+      'avatar': instance.avatar,
       'idToken': instance.idToken,
     };

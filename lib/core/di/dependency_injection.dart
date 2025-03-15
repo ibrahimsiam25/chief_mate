@@ -41,7 +41,7 @@ Future<void> setupGetIt() async {
 //todo: auth*************************************************************************************
   // google sign in
   getIt.registerLazySingleton<GoogleSignIn>(() => GoogleSignIn());
-  getIt.registerLazySingleton<GoogleSignInRepo>(() => GoogleSignInRepo(getIt()));
+  getIt.registerLazySingleton<GoogleSignInRepo>(() => GoogleSignInRepo(getIt(), getIt()));
   getIt.registerFactory<GoogleSignInCubit>(() => GoogleSignInCubit(getIt()));
   // register
   getIt.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getIt()));

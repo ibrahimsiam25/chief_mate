@@ -6,57 +6,74 @@ import 'package:chief_mate/core/widgets/custom_button.dart';
 import 'package:chief_mate/features/auth/ui/widgets/custom_sign_in_with_social.dart';
 import 'package:chief_mate/features/auth/ui/widgets/or_line.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
-import '../../../../core/di/dependency_injection.dart';
+import '../../../../core/widgets/show_error_dialog.dart';
 import '../../logic/google_sign_in/google_sign_in_cubit.dart';
+import '../../logic/google_sign_in/google_sign_in_state.dart';
 import '../screens/login_with_email_view.dart';
+import '../screens/user_info_view.dart';
 
 class SignUpViewBody extends StatelessWidget {
   const SignUpViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final googleSignInCubit = getIt<GoogleSignInCubit>();
+    return BlocListener<GoogleSignInCubit, GoogleSignInState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          success: (googleUser) {
+             GoRouter.of(context).go(UserInfoView.routeName,);
+          },
+          error: (error) {
+            showErrorDialog(context, error);
+          },
+        );
+      },
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SvgPicture.asset(
+              AppImages.starter,
+              width: MediaQuery.of(context).size.width,
 
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          SvgPicture.asset(
-            AppImages.starter,
-            width: MediaQuery.of(context).size.width,
-            height: 300.h,
-            fit: BoxFit.fill,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: Column(
-              children: [
-                const AppInfo(),
-                SizedBox(height: 15.h),
-                CustomButton(
-                  buttonName: 'Начать',
-                  onTap: () {
-                    GoRouter.of(context).push(LoginWithEmailView.routeName);
-                  },
-                ),
-                SizedBox(height: 15.h),
-                const OrLine(),
-                SizedBox(height: 12.h),
-                CustomSignInWithSocial(
-                  onTap: () {
-                    googleSignInCubit.signInWithGoogle();
-                  },
-                  buttonName: 'Войти с Google',
-                  buttonIcon: AppIcons.google,
-                ),
-                SizedBox(height: 12.h),
-                const AcceptTermsAndConditions(),
-              ],
+              fit: BoxFit.fill,
             ),
-          )
-        ],
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Column(
+                children: [
+                  const AppInfo(),
+                  SizedBox(height: 15.h),
+                  CustomButton(
+                    buttonName: 'Начать',
+                    onTap: () {
+                      GoRouter.of(context).push(LoginWithEmailView.routeName);
+                    },
+                  ),
+                  SizedBox(height: 15.h),
+                  const OrLine(),
+                  SizedBox(height: 12.h),
+                  BlocBuilder<GoogleSignInCubit, GoogleSignInState>(
+                    builder: (context, state) {
+                      return CustomSignInWithSocial(
+                        onTap: () {
+                          context.read<GoogleSignInCubit>().signInWithGoogle();
+                        },
+                        buttonName: 'Войти с Google',
+                        buttonIcon: AppIcons.google,
+                      );
+                    },
+                  ),
+                  SizedBox(height: 12.h),
+                  const AcceptTermsAndConditions(),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
